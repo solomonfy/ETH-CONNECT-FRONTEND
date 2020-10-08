@@ -1,13 +1,15 @@
 .navbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+  align-items: center;
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
   height: 85px;
-  background: white;
+  background: rgb(66, 68, 68);
   background-image: image(
     src=
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRdzJP-VTZBZkQh5bdPC3C-t9PG3ikYrDoi3Q&usqp=CAU"
@@ -16,8 +18,12 @@
   z-index: 1;
 }
 
-.link {
-  width: 100px;
+.nav-links {
+  width: 100%;
+  /* display: flex;
+  justify-content: space-around;
+  align-items: center; */
+  list-style: none;
 }
 .logo {
   height: 45px;

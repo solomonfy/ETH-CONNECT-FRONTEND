@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
 import "../CSS/Login.css";
@@ -21,7 +21,7 @@ const LogIn = (props) => {
     };
 
     const goToUserPage = () => {
-      // props.history.push("/user_page");
+      props.history.push("/main");
     };
 
     fetch(props.logInUrl, configObj)
@@ -33,6 +33,8 @@ const LogIn = (props) => {
         // props.status();
         console.log(member);
       });
+
+    e.target.reset();
   };
 
   // let loggedIn = () => {
@@ -67,7 +69,9 @@ const LogIn = (props) => {
           </Grid.Column>
 
           <Grid.Column verticalAlign="middle">
-            <Button content="Sign up" icon="signup" size="big" />
+            <Link to="/signup">
+              <Button content="Sign up" icon="signup" size="big" />
+            </Link>
           </Grid.Column>
         </Grid>
 

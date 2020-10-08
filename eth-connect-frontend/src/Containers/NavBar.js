@@ -1,28 +1,55 @@
 import React from "react";
-import LogIn from "../Components/LogIn";
-import SignUp from "../Components/SignUp";
+import { Link } from "react-router-dom";
+
 import "../CSS/NavBar.css";
 import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
+import { Breadcrumb } from "semantic-ui-react";
+import { Dropdown } from "semantic-ui-react";
 
 // import CalendarContainer from "./CalendarContainer";
 
 const NavBar = (props) => {
+  const navStyle = {
+    color: "white",
+  };
+
+  const logOut = () => {
+    localStorage.clear();
+    props.history.push("/login");
+  };
+
   return (
     <div className="navbar">
-      <div>
-        <Button primary>Profile</Button>
-        <Button primary>Photo Gallery</Button>
-        <Button primary>LogOut</Button>
-      </div>
-      {/* {props.logged_in ? (
-        "HELLO"
-      ) : (
-        <div>
-          <LogIn logInUrl={props.logInUrl} />
-          <SignUp />
+      <nav>
+        <div className="nav-links">
+          <Link style={navStyle} to="/profile_page">
+            <Button primary>Profile</Button>
+          </Link>
+          <Link style={navStyle} to="/photo-gallery">
+            <Button primary>Photo Gallery</Button>
+          </Link>
+          <Link style={navStyle} to="/logout">
+            <Button primary onClick={logOut}>
+              LogOut
+            </Button>
+          </Link>
         </div>
-      )} */}
-      {/* <CalendarContainer /> */}
+      </nav>
+      <div style={navStyle}>
+        <Dropdown text="Actions">
+          <Dropdown.Menu>
+            {localStorage.token ? (
+              <>
+                <Dropdown.Item text="Host event" />
+                <Dropdown.Item text="Accept invitation" />
+                <Dropdown.Item text="Add announcement" />
+              </>
+            ) : (
+              <Dropdown.Item text="Login" />
+            )}
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
     </div>
   );
 };
