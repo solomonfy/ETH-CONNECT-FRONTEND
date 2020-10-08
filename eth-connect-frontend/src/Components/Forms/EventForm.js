@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from "react";
+// import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Form, Grid } from "semantic-ui-react";
 import "./EventForm.css";
 
 const EventForm = (props) => {
-  const options = [
-    { key: "ny", text: "New year", value: "new-year" },
-    { key: "hw", text: "House warming", value: "house-warming" },
-    { key: "o", text: "Other", value: "other" },
-  ];
-
   const [value, setValue] = useState("");
 
   let handleSubmit = (e) => {
-    debugger;
+    // debugger;
     e.preventDefault();
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        event: {
+          name: e.target.name.value,
+          description: e.target.description.value,
+          location: e.target.location.value,
+          date: e.target.date.value,
+          event_type: e.target.e_type.value,
+        },
+      }),
+    };
+    fetch(props.eventsUrl, configObj)
+      .then((res) => res.json())
+      .then((newEvent) => console.log(newEvent));
   };
+
   return (
     <div className="event-form">
-      <Grid columns={2} divided>
-        <Form onSubmit={(e) => handleSubmit(e.target.value)}>
-          <Grid.Column width={20}>
+      <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
+        <Grid columns="equal">
+          <Grid.Column width={16}>
             <Form.Input
               fluid
               label="Event name"
@@ -32,33 +48,30 @@ const EventForm = (props) => {
               placeholder="..."
               name="description"
             />
-          </Grid.Column>
 
-          <Grid.Column width={8}>
             <Form.Input
               fluid
-              label="location"
+              label="Location"
               placeholder="location"
               name="location"
             />
-            <Form.Input fluid label="Date" placeholder="" name="" />
-            <Form.Select
+            <Form.Input fluid type="date" label="Date" name="date" />
+
+            <Form.Input
               fluid
               label="Event type"
-              options={options}
               placeholder="event type"
-              name="event_type"
+              name="e_type"
             />
+            <Form.TextArea
+              label="Summary"
+              placeholder="summary..."
+              name="summary"
+            />
+            <Form.Button>Submit</Form.Button>
           </Grid.Column>
-          <Form.TextArea
-            label="Summary"
-            placeholder="summary..."
-            name="summary"
-          />
-
-          <Form.Button>Submit</Form.Button>
-        </Form>
-      </Grid>
+        </Grid>
+      </Form>
       <Link to="/main">
         <Form.Button>Back</Form.Button>
       </Link>

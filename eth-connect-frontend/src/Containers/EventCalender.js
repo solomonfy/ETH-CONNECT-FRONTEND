@@ -12,17 +12,13 @@ let handleDateClick = (arg) => {
 const EventCalender = (props) => {
   const [events, setEvents] = useState([]);
 
-  
-
   useEffect(() => {
     fetch(props.eventsUrl)
       .then((resp) => resp.json())
       .then((allEvents) => setEvents(allEvents));
   }, []);
 
-  const eachEvent = () => {
-    
-  }
+  const eachEvent = () => {};
 
   return (
     <div className="event_calendar">
