@@ -6,6 +6,7 @@ import LogIn from "./Components/LogIn";
 import MainContainer from "./Containers/MainContainer";
 import SignUp from "./Components/SignUp";
 import NavBar from "./Containers/NavBar";
+import EventForm from "./Components/Forms/EventForm";
 
 let baseUrl = "http://localhost:3000/";
 let logInUrl = baseUrl + "login";
@@ -40,6 +41,19 @@ function App() {
           path="/signup"
           render={(routerProps) => (
             <SignUp {...routerProps} baseUrl={baseUrl} />
+          )}
+        />
+        <Route
+          exact
+          path="/new_event"
+          render={(routerProps) => (
+            <EventForm
+              {...routerProps}
+              logInUrl={logInUrl}
+              eventsUrl={eventsUrl}
+
+              //status={status} logged_in={logged_in}
+            />
           )}
         />
 

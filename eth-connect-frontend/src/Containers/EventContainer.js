@@ -7,11 +7,11 @@ const EventContainer = (props) => {
   useEffect(() => {
     fetch(props.eventsUrl)
       .then((resp) => resp.json())
-      .then((data) => setEvents(data));
+      .then((allEvents) => setEvents(allEvents));
   }, []);
 
   return (
-    <div>
+    <div >
       {events.map((e_vent) => (
         <EventCard e_vent={e_vent} key={e_vent.id} />
       ))}

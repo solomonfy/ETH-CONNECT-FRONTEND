@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 import "../CSS/NavBar.css";
@@ -40,7 +40,9 @@ const NavBar = (props) => {
           <Dropdown.Menu>
             {localStorage.token ? (
               <>
-                <Dropdown.Item text="Host event" />
+                <Link to="/new_event">
+                  <Dropdown.Item text="Host event" />
+                </Link>
                 <Dropdown.Item text="Accept invitation" />
                 <Dropdown.Item text="Add announcement" />
               </>

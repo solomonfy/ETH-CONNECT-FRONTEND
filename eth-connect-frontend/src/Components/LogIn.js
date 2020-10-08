@@ -31,7 +31,7 @@ const LogIn = (props) => {
         setTimeout(() => goToUserPage(), 50);
 
         // props.status();
-        console.log(member);
+        // console.log(member);
       });
 
     e.target.reset();
