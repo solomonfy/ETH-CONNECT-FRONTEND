@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import { Link, withRouter } from "react-router-dom";
+
 import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
 import "../CSS/Login.css";
 
@@ -18,17 +20,23 @@ const LogIn = (props) => {
       }),
     };
 
+    const goToUserPage = () => {
+      // props.history.push("/user_page");
+    };
+
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
         localStorage.token = member.token;
+        setTimeout(() => goToUserPage(), 50);
+
         // props.status();
         console.log(member);
       });
   };
 
   // let loggedIn = () => {
-  console.log(localStorage.token);
+  // console.log(localStorage.token);
   // };
 
   return (
