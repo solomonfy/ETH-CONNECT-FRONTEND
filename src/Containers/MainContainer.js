@@ -10,19 +10,20 @@ import Invitations from "../Components/Invitations";
 const MainContainer = (props) => {
   return (
     <div className="main-container">
-      {/* <Grid container columns={2}> */}
-      {/* <Grid.Column> */}
-      {/* {props.logged_in} */}
-      {/* <AnnouncementContainer /> */}
-      <EventContainer eventsUrl={props.eventsUrl} />
-      {/* </Grid.Column> */}
+      <Grid container columns={2}>
+        <Grid.Column>
+          {/* {props.logged_in} */}
+          {/* <AnnouncementContainer /> */}
+          <EventContainer eventsUrl={props.eventsUrl} />
+        </Grid.Column>
+        <Invitations currentMember={props.currentMember} />
 
-      {/* <Grid.Column> */}
-      <Invitations currentMember={props.currentMember} />
-      {/* </Grid.Column> */}
-      <Sticky><CalendarContainer eventsUrl={props.eventsUrl} /></Sticky>
-      {/* <Grid.Column></Grid.Column> */}
-      {/* </Grid> */}
+        {/* <Grid.Column>
+          <Sticky>
+            <CalendarContainer eventsUrl={props.eventsUrl} />
+          </Sticky>
+        </Grid.Column> */}
+      </Grid>
     </div>
   );
 };
