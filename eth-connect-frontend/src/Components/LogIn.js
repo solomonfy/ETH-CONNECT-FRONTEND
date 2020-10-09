@@ -20,7 +20,7 @@ const LogIn = (props) => {
       }),
     };
 
-    const goToUserPage = () => {
+    const goToMainPage = () => {
       props.history.push("/main");
     };
 
@@ -28,7 +28,8 @@ const LogIn = (props) => {
       .then((resp) => resp.json())
       .then((member) => {
         localStorage.token = member.token;
-        setTimeout(() => goToUserPage(), 50);
+        localStorage.id = member.id;
+        setTimeout(() => goToMainPage(), 50);
 
         // props.status();
         // console.log(member);

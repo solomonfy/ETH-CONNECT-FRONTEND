@@ -8,6 +8,7 @@ import SignUp from "./Components/SignUp";
 import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import Accounts from "./Components/Accounts";
+import Invitations from "./Components/Invitations";
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
@@ -23,23 +24,31 @@ const App = () => {
 
   const [currentMember, setCurrentMember] = useState({});
 
-  // useEffect(() => {
-  //   fetch(membersUrl + "member", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.token}`,
-  //     },
-  //   })
-  //     .then((resp) => resp.json())
-  //     .then((currentMember) => console.log(currentMember));
-  // }, []);
+  useEffect(() => {
+    fetch(membersUrl + `${localStorage.id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((foundMember) => setCurrentMember(foundMember));
+  }, []);
 
   return (
     <div className="App">
       <Route></Route>
-      {localStorage.token ? <NavBar logInUrl={logInUrl} /> : null}
-      {/* <Accounts membersUrl={membersUrl} /> */}
+      {localStorage.token ? (
+        <NavBar logInUrl={logInUrl} currentMember={currentMember} />
+      ) : null}
       <Switch>
+        <Route
+          exact
+          path="/account"
+          render={(routerProps) => (
+            <Accounts membersUrl={membersUrl} {...routerProps} />
+          )}
+        ></Route>
         <Route
           exact
           path="/login"
@@ -72,7 +81,7 @@ const App = () => {
             />
           )}
         />
-
+        <Route exact path="invitations" render={() => <Invitations />} />
         <Route
           exact
           path="/main"
@@ -80,6 +89,7 @@ const App = () => {
             <MainContainer
               eventsUrl={eventsUrl}
               logInUrl={logInUrl}
+              currentMember={currentMember}
               // status={status}
               // logged_in={logged_in}
             />

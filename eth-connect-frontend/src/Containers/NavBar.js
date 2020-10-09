@@ -20,12 +20,16 @@ const NavBar = (props) => {
     setTimeout(() => goToLogIn(), 5);
   };
 
+  let member = props.currentMember;
+  let fullName = member.first_name + " " + member.last_name;
+  // console.log(member);
+
   return (
     <div>
       <div className="navbar">
         <div>
           <Link to="/profile_page">
-            <span style={navStyle}>My account</span>
+            <span style={navStyle}>{fullName}</span>
           </Link>
           <Image
             src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
