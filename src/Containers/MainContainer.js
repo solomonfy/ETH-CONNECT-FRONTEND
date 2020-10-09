@@ -20,7 +20,7 @@ const MainContainer = (props) => {
       {/* <Grid.Column> */}
       <Invitations currentMember={props.currentMember} />
       {/* </Grid.Column> */}
-      {/* <Sticky><CalendarContainer eventsUrl={props.eventsUrl} /></Sticky> */}
+      <Sticky><CalendarContainer eventsUrl={props.eventsUrl} /></Sticky>
       {/* <Grid.Column></Grid.Column> */}
       {/* </Grid> */}
     </div>
