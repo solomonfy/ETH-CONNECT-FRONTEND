@@ -1,10 +1,8 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
 import "../CSS/NavBar.css";
-import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
-import { Breadcrumb } from "semantic-ui-react";
-import { Dropdown } from "semantic-ui-react";
+import { Button, Dropdown, Image } from "semantic-ui-react";
 
 // import CalendarContainer from "./CalendarContainer";
 
@@ -13,47 +11,65 @@ const NavBar = (props) => {
     color: "white",
   };
 
-  const logOut = () => {
-    localStorage.clear();
+  const goToLogIn = () => {
     props.history.push("/login");
   };
 
+  const logOut = () => {
+    localStorage.clear();
+    setTimeout(() => goToLogIn(), 5);
+  };
+
   return (
-    <div className="navbar">
-      <nav>
-        <div className="nav-links">
-          <Link style={navStyle} to="/profile_page">
-            <Button primary>Profile</Button>
+    <div>
+      <div className="navbar">
+        <div>
+          <Link to="/profile_page">
+            <span style={navStyle}>My account</span>
           </Link>
-          <Link style={navStyle} to="/photo-gallery">
-            <Button primary>Photo Gallery</Button>
-          </Link>
-          <Link style={navStyle} to="/logout">
-            <Button primary onClick={logOut}>
-              LogOut
-            </Button>
-          </Link>
+          <Image
+            src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
+            size="mini"
+            circular
+          />
         </div>
-      </nav>
-      <div style={navStyle}>
-        <Dropdown text="Actions">
-          <Dropdown.Menu>
-            {localStorage.token ? (
-              <>
-                <Link to="/new_event">
-                  <Dropdown.Item text="Host event" />
+        <Link to="/invitations">
+          <span style={navStyle}>My Invitations</span>
+        </Link>
+        <nav>
+          <div className="nav-links">
+            <Link style={navStyle} to="/photo-gallery">
+              <Button primary>Photo Gallery</Button>
+            </Link>
+            <Link style={navStyle} to="/logout">
+              <Button primary onClick={logOut}>
+                LogOut
+              </Button>
+            </Link>
+          </div>
+        </nav>
+        <div style={navStyle}>
+          <Dropdown text="Actions">
+            <Dropdown.Menu>
+              {localStorage.token ? (
+                <>
+                  <Link to="/new_event">
+                    <Dropdown.Item text="Host event" />
+                  </Link>
+                  <Dropdown.Item text="Accept invitation" />
+                  <Dropdown.Item text="Add announcement" />
+                </>
+              ) : (
+                <Link to="/login">
+                  <Dropdown.Item text="Login" />
                 </Link>
-                <Dropdown.Item text="Accept invitation" />
-                <Dropdown.Item text="Add announcement" />
-              </>
-            ) : (
-              <Dropdown.Item text="Login" />
-            )}
-          </Dropdown.Menu>
-        </Dropdown>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </div>
     </div>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
+import { Grid } from "semantic-ui-react";
 
 const EventContainer = (props) => {
   const [events, setEvents] = useState([]);
@@ -11,7 +12,7 @@ const EventContainer = (props) => {
   }, []);
 
   return (
-    <div >
+    <div>
       {events.map((e_vent) => (
         <EventCard e_vent={e_vent} key={e_vent.id} />
       ))}

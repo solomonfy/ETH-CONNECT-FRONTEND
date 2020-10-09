@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./CSS/App.css";
@@ -7,22 +7,38 @@ import MainContainer from "./Containers/MainContainer";
 import SignUp from "./Components/SignUp";
 import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
+import Accounts from "./Components/Accounts";
 
 let baseUrl = "http://localhost:3000/";
-let logInUrl = baseUrl + "login";
-let eventsUrl = baseUrl + "events";
-function App() {
+let membersUrl = baseUrl + "members/";
+let logInUrl = baseUrl + "login/";
+let eventsUrl = baseUrl + "events/";
+
+const App = () => {
   // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
 
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);
   // };
 
+  const [currentMember, setCurrentMember] = useState({});
+
+  // useEffect(() => {
+  //   fetch(membersUrl + "member", {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.token}`,
+  //     },
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((currentMember) => console.log(currentMember));
+  // }, []);
+
   return (
     <div className="App">
       <Route></Route>
       {localStorage.token ? <NavBar logInUrl={logInUrl} /> : null}
-
+      {/* <Accounts membersUrl={membersUrl} /> */}
       <Switch>
         <Route
           exact
@@ -73,6 +89,6 @@ function App() {
       {/* <header className="App-header"></header> */}
     </div>
   );
-}
+};
 
 export default App;

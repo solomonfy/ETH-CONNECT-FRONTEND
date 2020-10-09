@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../CSS/Maincontainer.css";
 import AnnouncementContainer from "./AnnouncementContainer";
 import CalendarContainer from "./EventCalender";
 import EventContainer from "./EventContainer";
 
-import { Form, Grid, Sticky } from "semantic-ui-react";
+import { Grid, Sticky } from "semantic-ui-react";
 
 const MainContainer = (props) => {
   return (
@@ -12,16 +12,14 @@ const MainContainer = (props) => {
       {props.logged_in}
       <AnnouncementContainer />
 
-      <Grid container columns={2}>
-        <Grid.Column>
-          <EventContainer eventsUrl={props.eventsUrl} />
-        </Grid.Column>
-        <Grid.Column>
-          <Sticky>
-            <CalendarContainer eventsUrl={props.eventsUrl} />
-          </Sticky>
-        </Grid.Column>
-      </Grid>
+      {/* <Grid container columns={2}>
+        <Grid.Column> */}
+      <EventContainer eventsUrl={props.eventsUrl} />
+      {/* </Grid.Column> */}
+      {/* <Grid.Column> */}
+      <Sticky>{/* <CalendarContainer eventsUrl={props.eventsUrl} /> */}</Sticky>
+      {/* </Grid.Column> */}
+      {/* </Grid> */}
     </div>
   );
 };

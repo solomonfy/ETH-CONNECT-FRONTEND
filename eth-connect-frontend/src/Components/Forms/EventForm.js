@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-// import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import { Form, Grid } from "semantic-ui-react";
 import "./EventForm.css";
 
 const EventForm = (props) => {
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
 
   let handleSubmit = (e) => {
     // debugger;
@@ -30,6 +29,8 @@ const EventForm = (props) => {
     fetch(props.eventsUrl, configObj)
       .then((res) => res.json())
       .then((newEvent) => console.log(newEvent));
+    props.histroy.push("/main");
+    e.target.reset();
   };
 
   return (

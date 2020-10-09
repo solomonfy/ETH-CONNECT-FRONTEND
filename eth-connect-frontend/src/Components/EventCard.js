@@ -1,5 +1,13 @@
 import React from "react";
-import { Card, Icon, Image, Modal, Button, Header } from "semantic-ui-react";
+import {
+  Card,
+  Icon,
+  Image,
+  Modal,
+  Button,
+  Header,
+  Grid,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const EventCard = (props) => {
@@ -16,7 +24,7 @@ const EventCard = (props) => {
 
   return (
     <div>
-      <Card.Group itemsPerRow={4}>
+      <Card.Group itemsPerRow={3}>
         <Card color="green">
           <Image
             src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
@@ -24,19 +32,16 @@ const EventCard = (props) => {
             ui={false}
           />
           <Card.Content>
-            <Link>
-              <Card.Header>{name}</Card.Header>
-            </Link>
+            <Card.Header>{name}</Card.Header>
             <Card.Meta>
               <span className="date">{date}</span>
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <a>
-              <Icon name="user" />
-              {" " + host.first_name + " " + host.last_name}
-            </a>
+            <Icon name="user" />
+            {" " + host.first_name + " " + host.last_name}
           </Card.Content>
+
           <div>
             <Modal
               onClose={() => setOpen(false)}

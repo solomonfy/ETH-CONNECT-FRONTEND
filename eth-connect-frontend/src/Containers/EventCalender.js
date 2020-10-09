@@ -18,7 +18,7 @@ const EventCalender = (props) => {
       .then((allEvents) => setEvents(allEvents));
   }, []);
 
-  const eachEvent = () => {};
+  // const eachEvent = () => {};
 
   return (
     <div className="event_calendar">

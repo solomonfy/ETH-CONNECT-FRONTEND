@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../CSS/Signup.css";
-import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
+import { Form, Divider, Grid, Button } from "semantic-ui-react";
 
 class SignUp extends React.Component {
   handleChange = (e) => {
