@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+
 import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
 import "../CSS/Login.css";
 
@@ -18,17 +20,25 @@ const LogIn = (props) => {
       }),
     };
 
+    const goToUserPage = () => {
+      props.history.push("/main");
+    };
+
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
         localStorage.token = member.token;
+        setTimeout(() => goToUserPage(), 50);
+
         // props.status();
-        console.log(member);
+        // console.log(member);
       });
+
+    e.target.reset();
   };
 
   // let loggedIn = () => {
-  console.log(localStorage.token);
+  // console.log(localStorage.token);
   // };
 
   return (
@@ -59,7 +69,9 @@ const LogIn = (props) => {
           </Grid.Column>
 
           <Grid.Column verticalAlign="middle">
-            <Button content="Sign up" icon="signup" size="big" />
+            <Link to="/signup">
+              <Button content="Sign up" icon="signup" size="big" />
+            </Link>
           </Grid.Column>
         </Grid>
 

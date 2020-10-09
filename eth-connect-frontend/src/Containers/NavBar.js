@@ -1,22 +1,75 @@
 import React from "react";
-import LogIn from "../Components/LogIn";
-import SignUp from "../Components/SignUp";
+import { withRouter, Link } from "react-router-dom";
+
+import "../CSS/NavBar.css";
+import { Button, Dropdown, Image } from "semantic-ui-react";
+
 // import CalendarContainer from "./CalendarContainer";
 
 const NavBar = (props) => {
+  const navStyle = {
+    color: "white",
+  };
+
+  const goToLogIn = () => {
+    props.history.push("/login");
+  };
+
+  const logOut = () => {
+    localStorage.clear();
+    setTimeout(() => goToLogIn(), 5);
+  };
+
   return (
     <div>
-      {props.logged_in ? (
-        "HELLO"
-      ) : (
+      <div className="navbar">
         <div>
-          <LogIn logInUrl={props.logInUrl} />
-          <SignUp />
+          <Link to="/profile_page">
+            <span style={navStyle}>My account</span>
+          </Link>
+          <Image
+            src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
+            size="mini"
+            circular
+          />
         </div>
-      )}
-      {/* <CalendarContainer /> */}
+        <Link to="/invitations">
+          <span style={navStyle}>My Invitations</span>
+        </Link>
+        <nav>
+          <div className="nav-links">
+            <Link style={navStyle} to="/photo-gallery">
+              <Button primary>Photo Gallery</Button>
+            </Link>
+            <Link style={navStyle} to="/logout">
+              <Button primary onClick={logOut}>
+                LogOut
+              </Button>
+            </Link>
+          </div>
+        </nav>
+        <div style={navStyle}>
+          <Dropdown text="Actions">
+            <Dropdown.Menu>
+              {localStorage.token ? (
+                <>
+                  <Link to="/new_event">
+                    <Dropdown.Item text="Host event" />
+                  </Link>
+                  <Dropdown.Item text="Accept invitation" />
+                  <Dropdown.Item text="Add announcement" />
+                </>
+              ) : (
+                <Link to="/login">
+                  <Dropdown.Item text="Login" />
+                </Link>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

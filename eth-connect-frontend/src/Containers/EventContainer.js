@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
+import { Grid } from "semantic-ui-react";
 
 const EventContainer = (props) => {
   const [events, setEvents] = useState([]);
@@ -7,7 +8,7 @@ const EventContainer = (props) => {
   useEffect(() => {
     fetch(props.eventsUrl)
       .then((resp) => resp.json())
-      .then((data) => setEvents(data));
+      .then((allEvents) => setEvents(allEvents));
   }, []);
 
   return (
