@@ -56,7 +56,7 @@ const EventForm = (props) => {
               placeholder="location"
               name="location"
             />
-            <Form.Input fluid type="date" label="Date" name="date" />
+            <Form.Input fluid type="date" label="Date" name="date" min={new Date().toISOString().split('T')[0]}/>
 
             <Form.Input
               fluid

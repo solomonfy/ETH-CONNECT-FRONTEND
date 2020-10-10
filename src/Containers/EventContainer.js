@@ -16,7 +16,7 @@ const EventContainer = (props) => {
       <Grid celled="internally">
         <Grid.Row>
           {events.map((e_vent) => (
-            <Grid.Column width={8}>
+            <Grid.Column width={5}>
               <EventCard e_vent={e_vent} key={e_vent.id} />
             </Grid.Column>
           ))}

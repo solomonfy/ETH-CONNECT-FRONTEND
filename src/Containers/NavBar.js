@@ -46,7 +46,7 @@ const NavBar = (props) => {
               <Button primary>Photo Gallery</Button>
             </Link>
             <Link style={navStyle} to="/logout">
-              <Button primary onClick={logOut}>
+              <Button labelPosition="right" primary onClick={logOut}>
                 LogOut
               </Button>
             </Link>

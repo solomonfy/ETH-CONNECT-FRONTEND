@@ -26,7 +26,7 @@ const EventCard = (props) => {
     <div>
 
       
-      <Card.Group itemsPerRow={3}>
+      {/* <Card.Group itemsPerRow={2}> */}
         <Card color="green">
           <Image
             src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
@@ -49,7 +49,7 @@ const EventCard = (props) => {
               onClose={() => setOpen(false)}
               onOpen={() => setOpen(true)}
               open={open}
-              trigger={<Button>Show Detail</Button>}
+              trigger={<Button positive >Detail</Button>}
             >
               <Modal.Header>{name}</Modal.Header>
               <Modal.Content image>
@@ -91,7 +91,7 @@ const EventCard = (props) => {
             <br />
           </div>
         </Card>
-      </Card.Group>
+      {/* </Card.Group> */}
     </div>
   );
 };

@@ -16,11 +16,11 @@ let logInUrl = baseUrl + "login/";
 let eventsUrl = baseUrl + "events/";
 
 const App = () => {
-  // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
+  const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
 
-  // const status = () => {
-  //   setLogged_in(localStorage.token ? true : false);
-  // };
+  const status = () => {
+    setLogged_in(localStorage.token ? true : false);
+  };
 
   const [currentMember, setCurrentMember] = useState({});
 
@@ -37,16 +37,26 @@ const App = () => {
 
   return (
     <div className="App">
-      <Route></Route>
+      {/* <Route></Route>
       {localStorage.token ? (
-        <NavBar logInUrl={logInUrl} currentMember={currentMember} />
-      ) : null}
+      ) : null} */}
+        <NavBar 
+        logInUrl={logInUrl} 
+        currentMember={currentMember} 
+        // status={status} 
+        // logged_in={logged_in}
+        />
       <Switch>
         <Route
           exact
           path="/account"
           render={(routerProps) => (
-            <Accounts membersUrl={membersUrl} {...routerProps} />
+            <Accounts 
+            membersUrl={membersUrl} 
+            {...routerProps} 
+            // status={status} 
+            // logged_in={logged_in}
+            />
           )}
         ></Route>
         <Route
@@ -56,8 +66,8 @@ const App = () => {
             <LogIn
               {...routerProps}
               logInUrl={logInUrl}
-
-              //status={status} logged_in={logged_in}
+              // status={status} 
+              // logged_in={logged_in}
             />
           )}
         />
@@ -77,7 +87,7 @@ const App = () => {
               logInUrl={logInUrl}
               eventsUrl={eventsUrl}
 
-              //status={status} logged_in={logged_in}
+              // status={status} logged_in={logged_in}
             />
           )}
         />
@@ -85,11 +95,12 @@ const App = () => {
         <Route
           exact
           path="/main"
-          render={() => (
+          render={(routerProps) => (
             <MainContainer
               eventsUrl={eventsUrl}
               logInUrl={logInUrl}
               currentMember={currentMember}
+              {...routerProps}
               // status={status}
               // logged_in={logged_in}
             />
