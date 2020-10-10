@@ -57,6 +57,9 @@ const NavBar = (props) => {
             <Dropdown.Menu>
               {localStorage.token ? (
                 <>
+                  <Link to="/calendar">
+                    <Dropdown.Item text="Calendar View" />
+                  </Link>
                   <Link to="/new_event">
                     <Dropdown.Item text="Host event" />
                   </Link>

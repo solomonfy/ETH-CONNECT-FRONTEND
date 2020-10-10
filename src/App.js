@@ -8,7 +8,8 @@ import SignUp from "./Components/SignUp";
 import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import Accounts from "./Components/Accounts";
-import Invitations from "./Components/Invitations";
+import InvitationContainer from "./Containers/InvitationsContainer";
+import EventCalender from './Containers/EventCalender';
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
@@ -37,47 +38,18 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <Route></Route>
       {localStorage.token ? (
-      ) : null} */}
+
         <NavBar 
         logInUrl={logInUrl} 
         currentMember={currentMember} 
         // status={status} 
         // logged_in={logged_in}
         />
+      ) : null}
       <Switch>
-        <Route
-          exact
-          path="/account"
-          render={(routerProps) => (
-            <Accounts 
-            membersUrl={membersUrl} 
-            {...routerProps} 
-            // status={status} 
-            // logged_in={logged_in}
-            />
-          )}
-        ></Route>
-        <Route
-          exact
-          path="/login"
-          render={(routerProps) => (
-            <LogIn
-              {...routerProps}
-              logInUrl={logInUrl}
-              // status={status} 
-              // logged_in={logged_in}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/signup"
-          render={(routerProps) => (
-            <SignUp {...routerProps} baseUrl={baseUrl} />
-          )}
-        />
+      {localStorage.token ? (
+        <>
         <Route
           exact
           path="/new_event"
@@ -91,7 +63,8 @@ const App = () => {
             />
           )}
         />
-        <Route exact path="invitations" render={() => <Invitations />} />
+        <Route exact path="/invitations" render={() => <InvitationContainer />} />
+        <Route exact path="/calendar" render={() => <EventCalender/>}/>
         <Route
           exact
           path="/main"
@@ -106,6 +79,44 @@ const App = () => {
             />
           )}
         />
+        <Route
+          exact
+          path="/account"
+          render={(routerProps) => (
+            <Accounts 
+            membersUrl={membersUrl} 
+            {...routerProps} 
+            // status={status} 
+            // logged_in={logged_in}
+            />
+          )}
+        />
+</>
+      ) : 
+      <>
+      (<Route
+        exact
+        path="/login"
+        render={(routerProps) => (
+          <LogIn
+            {...routerProps}
+            logInUrl={logInUrl}
+            // status={status} 
+            // logged_in={logged_in}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/signup"
+        render={(routerProps) => (
+          <SignUp {...routerProps} baseUrl={baseUrl} />
+        )}
+      />)
+      </>
+      }
+
+
       </Switch>
       {/* <header className="App-header"></header> */}
     </div>

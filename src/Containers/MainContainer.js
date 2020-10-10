@@ -1,7 +1,7 @@
 import React from "react";
 import "../CSS/Maincontainer.css";
 import AnnouncementContainer from "./AnnouncementContainer";
-import CalendarContainer from "./EventCalender";
+import EventCalender from "./EventCalender";
 import EventContainer from "./EventContainer";
 
 import { Grid, Sticky, Image } from "semantic-ui-react";
@@ -18,9 +18,9 @@ const MainContainer = (props) => {
       {/* </Grid.Column> */}
       <InvitationContainer currentMember={props.currentMember} />
 
+      <EventCalender eventsUrl={props.eventsUrl} />
       {/* <Grid.Column>
           <Sticky>
-            <CalendarContainer eventsUrl={props.eventsUrl} />
           </Sticky>
         </Grid.Column> */}
       {/* </Grid> */}
