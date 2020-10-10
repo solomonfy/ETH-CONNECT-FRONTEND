@@ -13,9 +13,15 @@ const EventContainer = (props) => {
 
   return (
     <div>
-      {events.map((e_vent) => (
-        <EventCard e_vent={e_vent} key={e_vent.id} />
-      ))}
+      <Grid celled="internally">
+        <Grid.Row>
+          {events.map((e_vent) => (
+            <Grid.Column width={8}>
+              <EventCard e_vent={e_vent} key={e_vent.id} />
+            </Grid.Column>
+          ))}
+        </Grid.Row>
+      </Grid>
     </div>
   );
 };

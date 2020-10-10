@@ -21,8 +21,8 @@
 }
 
 .invitation {
-  min-height: 50vh;
-  display: flex;
+  /* min-height: 5vh; */
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;

@@ -4,26 +4,52 @@ import AnnouncementContainer from "./AnnouncementContainer";
 import CalendarContainer from "./EventCalender";
 import EventContainer from "./EventContainer";
 
-import { Grid, Sticky } from "semantic-ui-react";
-import Invitations from "../Components/Invitations";
+import { Grid, Sticky, Image } from "semantic-ui-react";
+import InvitationContainer from "./InvitationsContainer";
 
 const MainContainer = (props) => {
   return (
     <div className="main-container">
-      <Grid container columns={2}>
-        <Grid.Column>
-          {/* {props.logged_in} */}
-          {/* <AnnouncementContainer /> */}
-          <EventContainer eventsUrl={props.eventsUrl} />
-        </Grid.Column>
-        <Invitations currentMember={props.currentMember} />
+      {/* <Grid container columns={2}> */}
+      {/* <Grid.Column> */}
+      {/* {props.logged_in} */}
+      {/* <AnnouncementContainer /> */}
+      <EventContainer eventsUrl={props.eventsUrl} />
+      {/* </Grid.Column> */}
+      <InvitationContainer currentMember={props.currentMember} />
 
-        {/* <Grid.Column>
+      {/* <Grid.Column>
           <Sticky>
             <CalendarContainer eventsUrl={props.eventsUrl} />
           </Sticky>
         </Grid.Column> */}
-      </Grid>
+      {/* </Grid> */}
+
+      {/* <Grid celled="internally">
+        <Grid.Row>
+          <Grid.Column width={3}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row>
+          <Grid.Column width={3}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid> */}
     </div>
   );
 };

@@ -1,15 +1,12 @@
 import React from "react";
 
-const Invitations = (props) => {
-  const myInvitations = props.currentMember.received_invitations;
+const InvitationCard = (props) => {
+  const myInv = props.currentMember.received_invitations;
 
-  console.log(myInvitations);
-  return (
-    <div className="invitation">
-      My invitations
-      {/* {myInvitations.map((inv) => inv.event)} */}
-    </div>
-  );
+  setTimeout(() => {
+    myInv.map((inv) => console.log(inv.event.description));
+  }, 1000);
+  return <div></div>;
 };
 
-export default Invitations;
+export default InvitationCard;

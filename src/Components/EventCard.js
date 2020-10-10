@@ -24,6 +24,8 @@ const EventCard = (props) => {
 
   return (
     <div>
+
+      
       <Card.Group itemsPerRow={3}>
         <Card color="green">
           <Image
