@@ -10,7 +10,7 @@ import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
 import InvitationContainer from "./Containers/InvitationsContainer";
-import EventCalender from './Containers/EventCalender';
+import EventCalender from "./Containers/EventCalender";
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
@@ -26,9 +26,8 @@ const App = () => {
   };
 
   const [currentMember, setCurrentMember] = useState({});
-  const[allMembers, setAllMembers] = useState(() => [])
-  const[allEvents, setEvents] = useState([])
-
+  const [allMembers, setAllMembers] = useState(() => []);
+  const [allEvents, setEvents] = useState([]);
 
   useEffect(() => {
     fetch(membersUrl + `${localStorage.id}`, {
@@ -40,38 +39,33 @@ const App = () => {
       .then((resp) => resp.json())
       .then((foundMember) => setCurrentMember(foundMember));
 
-      fetch(membersUrl, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.token}`,
-        },
-      })
-        .then((resp) => resp.json())
-        .then((allMembers) => setAllMembers(() => allMembers))
+    fetch(membersUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((allMembers) => setAllMembers(() => allMembers));
 
-        fetch(eventsUrl)
-        .then((resp) => resp.json())
-        .then((allEvents) => setEvents(() => allEvents))
-
+    fetch(eventsUrl)
+      .then((resp) => resp.json())
+      .then((allEvents) => setEvents(() => allEvents));
   }, []);
 
-
   // console.log(allEvents)
-
 
   return (
     <div className="App">
       {localStorage.token ? (
-
-        <NavBar 
-        logInUrl={logInUrl} 
-        currentMember={currentMember} 
-        // status={status} 
-        // logged_in={logged_in}
+        <NavBar
+          logInUrl={logInUrl}
+          currentMember={currentMember}
+          // status={status}
+          // logged_in={logged_in}
         />
       ) : null}
       <Switch>
-      
         <Route
           exact
           path="/new_event"
@@ -100,8 +94,16 @@ const App = () => {
             />
           )}
         />
-        <Route exact path="/invitations" render={(routerProps) => <InvitationContainer {...routerProps}/>} />
-        <Route exact path="/calendar" render={(routerProps) => <EventCalender {...routerProps}/>}/>
+        <Route
+          exact
+          path="/invitations"
+          render={(routerProps) => <InvitationContainer {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/calendar"
+          render={(routerProps) => <EventCalender {...routerProps} />}
+        />
         <Route
           exact
           path="/main"
@@ -120,39 +122,34 @@ const App = () => {
           exact
           path="/account"
           render={(routerProps) => (
-            <Accounts 
-            membersUrl={membersUrl} 
-            {...routerProps} 
-            // status={status} 
-            // logged_in={logged_in}
+            <Accounts
+              membersUrl={membersUrl}
+              {...routerProps}
+              // status={status}
+              // logged_in={logged_in}
             />
           )}
         />
 
-      
-      <Route
-        exact
-        path="/login"
-        render={(routerProps) => (
-          <LogIn
-            {...routerProps}
-            logInUrl={logInUrl}
-            // status={status} 
-            // logged_in={logged_in}
-          />
-        )}
-      />
-      <Route
-        exact
-        path="/signup"
-        render={(routerProps) => (
-          <SignUp {...routerProps} baseUrl={baseUrl} />
-        )}
-      />
-      
-      
-
-
+        <Route
+          exact
+          path="/login"
+          render={(routerProps) => (
+            <LogIn
+              {...routerProps}
+              logInUrl={logInUrl}
+              // status={status}
+              // logged_in={logged_in}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/signup"
+          render={(routerProps) => (
+            <SignUp {...routerProps} baseUrl={baseUrl} />
+          )}
+        />
       </Switch>
       {/* <header className="App-header"></header> */}
     </div>

@@ -20,24 +20,22 @@ const NavBar = (props) => {
     localStorage.clear();
 
     setTimeout(() => goToLogIn(), 5);
-
   };
 
   let member = props.currentMember;
   let fullName = member.first_name + " " + member.last_name;
   // console.log(member);
- 
 
   return (
     <div>
       <div className="navbar">
         <div>
           <Link to="/profile_page">
-          <Image
-            src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
-            size="mini"
-            circular
-          />
+            <Image
+              src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
+              size="mini"
+              circular
+            />
             <span style={navStyle}>{fullName}</span>
           </Link>
         </div>
@@ -49,7 +47,6 @@ const NavBar = (props) => {
             <Link style={navStyle} to="/photo-gallery">
               <Button primary>Photo Gallery</Button>
             </Link>
-            
           </div>
         </nav>
         <div style={navStyle}>
@@ -75,13 +72,12 @@ const NavBar = (props) => {
           </Dropdown>
         </div>
         <Link style={navStyle} to="/logout">
-              <Button labelPosition="right" primary onClick={logOut}>
-                LogOut
-              </Button>
-            </Link>
+          <Button labelPosition="right" primary onClick={logOut}>
+            LogOut
+          </Button>
+        </Link>
         <div>
-
-        <Country/>
+          <Country />
         </div>
       </div>
     </div>
