@@ -7,6 +7,7 @@ import MainContainer from "./Containers/MainContainer";
 import SignUp from "./Components/SignUp";
 import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
+import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
 import InvitationContainer from "./Containers/InvitationsContainer";
 import EventCalender from './Containers/EventCalender';
@@ -15,6 +16,7 @@ let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
 let logInUrl = baseUrl + "login/";
 let eventsUrl = baseUrl + "events/";
+let invitationsUrl = baseUrl + "invitations/";
 
 const App = () => {
   const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
@@ -24,6 +26,9 @@ const App = () => {
   };
 
   const [currentMember, setCurrentMember] = useState({});
+  const[allMembers, setAllMembers] = useState(() => [])
+  const[allEvents, setEvents] = useState([])
+
 
   useEffect(() => {
     fetch(membersUrl + `${localStorage.id}`, {
@@ -34,7 +39,25 @@ const App = () => {
     })
       .then((resp) => resp.json())
       .then((foundMember) => setCurrentMember(foundMember));
+
+      fetch(membersUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+      })
+        .then((resp) => resp.json())
+        .then((allMembers) => setAllMembers(() => allMembers))
+
+        fetch(eventsUrl)
+        .then((resp) => resp.json())
+        .then((allEvents) => setEvents(() => allEvents))
+
   }, []);
+
+
+  // console.log(allEvents)
+
 
   return (
     <div className="App">
@@ -57,6 +80,21 @@ const App = () => {
               {...routerProps}
               logInUrl={logInUrl}
               eventsUrl={eventsUrl}
+
+              // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/new_invitation"
+          render={(routerProps) => (
+            <InvitationForm
+              {...routerProps}
+              allMembers={allMembers}
+              allEvents={allEvents}
+              currentMember={currentMember}
+              invitationsUrl={invitationsUrl}
 
               // status={status} logged_in={logged_in}
             />

@@ -1,11 +1,18 @@
 import React from "react";
 
 const InvitationCard = (props) => {
-//   const myInv = props.currentMember.received_invitations;
-// console.log(myInv)
-  // setTimeout(() => {
-  //   myInv.map((inv) => console.log(inv.event.description));
-  // }, 1000);
+  setTimeout(() => {
+    // const myFirstInv = props.myInv[0]
+    // console.log(myFirstInv.event)
+    // console.log(myFirstInv.event.name)
+    // console.log(myFirstInv.event.date)
+    // console.log(myFirstInv.event.location)
+    // console.log(myFirstInv.event.description)
+    // console.log(myFirstInv.event.host)
+    // console.log(myFirstInv.event.host.first_name)
+    
+  }, 2);
+  
 
 
   return <div>HELLO</div>;

@@ -10,3 +10,14 @@
   font-size: calc(10px + 2vmin);
   background-color: lightgray;
 }
+.invitation-form {
+  padding-top: 200px;
+  min-height: 50vh;
+ 
+  text-emphasis-color: black;
+  display: grid;
+  /* align-items: stretch; */
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  /* background-color: rgb(195, 187, 187); */
+}
