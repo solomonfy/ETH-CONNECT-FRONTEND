@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
 import "../CSS/Login.css";
 
 const LogIn = (props) => {
+
+  const [loggedInMember, setLoggedInMember] = useState({})
+
+
   let handleLogin = (e) => {
-    e.preventDefault();
     let configObj = {
       method: "POST",
       headers: {
@@ -20,21 +23,22 @@ const LogIn = (props) => {
       }),
     };
 
-    const goToMainPage = () => {
-      props.history.push("/main");
-    };
+    
 
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
+        // setLoggedInMember(member)
         localStorage.token = member.token;
         localStorage.id = member.id;
-        setTimeout(() => goToMainPage(), 50);
+      props.history.push("/main");
+
 
         // props.status();
         // console.log(member);
       });
 
+    e.preventDefault();
     e.target.reset();
   };
 

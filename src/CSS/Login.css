@@ -23,6 +23,7 @@
 .invitation {
   /* min-height: 5vh; */
   /* display: flex; */
+  padding-top: 200px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
