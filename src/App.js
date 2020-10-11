@@ -48,8 +48,7 @@ const App = () => {
         />
       ) : null}
       <Switch>
-      {localStorage.token ? (
-        <>
+      
         <Route
           exact
           path="/new_event"
@@ -63,8 +62,8 @@ const App = () => {
             />
           )}
         />
-        <Route exact path="/invitations" render={() => <InvitationContainer />} />
-        <Route exact path="/calendar" render={() => <EventCalender/>}/>
+        <Route exact path="/invitations" render={(routerProps) => <InvitationContainer {...routerProps}/>} />
+        <Route exact path="/calendar" render={(routerProps) => <EventCalender {...routerProps}/>}/>
         <Route
           exact
           path="/main"
@@ -91,10 +90,9 @@ const App = () => {
             />
           )}
         />
-</>
-      ) : 
-      <>
-      (<Route
+
+      
+      <Route
         exact
         path="/login"
         render={(routerProps) => (
@@ -112,9 +110,9 @@ const App = () => {
         render={(routerProps) => (
           <SignUp {...routerProps} baseUrl={baseUrl} />
         )}
-      />)
-      </>
-      }
+      />
+      
+      
 
 
       </Switch>

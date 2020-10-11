@@ -28,9 +28,9 @@ const LogIn = (props) => {
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
-        // setLoggedInMember(member)
         localStorage.token = member.token;
         localStorage.id = member.id;
+        // setLoggedInMember(member)
       props.history.push("/main");
 
 

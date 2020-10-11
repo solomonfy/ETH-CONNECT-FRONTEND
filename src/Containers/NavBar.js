@@ -17,8 +17,8 @@ const NavBar = (props) => {
   };
 
   const logOut = () => {
-    // props.history.push("/login");
     localStorage.clear();
+
     setTimeout(() => goToLogIn(), 5);
 
   };
