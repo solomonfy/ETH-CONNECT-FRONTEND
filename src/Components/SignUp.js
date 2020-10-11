@@ -128,7 +128,7 @@ class SignUp extends React.Component {
 
             <Grid.Column verticalAlign="middle"></Grid.Column>
             <Link to="/login">
-              <Button content="Login" primary icon="" />
+              <Button content="Back" />
             </Link>
           </Grid>
           <Divider vertical></Divider>
