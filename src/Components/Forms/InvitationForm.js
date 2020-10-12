@@ -4,14 +4,29 @@ import { Form, Grid, Dropdown, Input } from "semantic-ui-react";
 import "./EventForm.css";
 
 class InvitationForm extends React.Component {
-  state = {};
+  state = {
+    attendee_id: "",
+    event_id: "",
+  };
 
-  handleChange = (event, data) => {
+  handleAttendeeChange = (event, data) => {
     const { value } = data;
     const { key } = data.options.find((o) => o.value === value);
     // debugger;
+    // console.log(value);
+    // console.log(key);
     this.setState({
-      [event.target.name]: event.target.value,
+      attendee_id: parseInt(value),
+    });
+  };
+  handleEventChange = (event, data) => {
+    const { value } = data;
+    const { key } = data.options.find((o) => o.value === value);
+    // debugger;
+    // console.log(value);
+    // console.log(key);
+    this.setState({
+      event_id: parseInt(value),
     });
   };
 
@@ -28,8 +43,8 @@ class InvitationForm extends React.Component {
       },
       body: JSON.stringify({
         invitation: {
-          attendee_id: e.target.attendee_id,
-          event_id: e.target.event_id,
+          attendee_id: this.state.attendee_id,
+          event_id: this.state.event_id,
         },
       }),
     };
@@ -37,7 +52,7 @@ class InvitationForm extends React.Component {
       .then((res) => res.json())
       .then((newInvitation) => console.log(newInvitation));
     // this.props.histroy.push("/main");
-    // e.target.reset();
+    e.target.reset();
   };
 
   render() {
@@ -49,7 +64,7 @@ class InvitationForm extends React.Component {
           {/* <Form.Input
           > */}
           <Dropdown
-            onChange={this.handleChange}
+            onChange={this.handleAttendeeChange}
             label="Attendee"
             placeholder="Select Attendee"
             fluid
@@ -74,7 +89,7 @@ class InvitationForm extends React.Component {
           />
           {/* </Form.Input> */}
           <Dropdown
-            onChange={this.handleChange}
+            onChange={this.handleEventChange}
             label="Event"
             placeholder="Select Event"
             fluid
