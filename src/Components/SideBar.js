@@ -4,7 +4,6 @@ import {
   Grid,
   Header,
   Icon,
-  Image,
   Menu,
   Segment,
   Sidebar,

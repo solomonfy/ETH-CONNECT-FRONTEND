@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
@@ -9,10 +9,10 @@ import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
-import SideBar from "./Components/SideBar";
+// import SideBar from "./Components/SideBar";
 import InvitationContainer from "./Containers/InvitationsContainer";
 import EventCalender from "./Containers/EventCalender";
-import InvitationCard from "./Components/InvitationCard";
+// import InvitationCard from "./Components/InvitationCard";
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
@@ -23,9 +23,9 @@ let invitationsUrl = baseUrl + "invitations/";
 const App = () => {
   const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
 
-  const status = () => {
-    setLogged_in(localStorage.token ? true : false);
-  };
+  // const status = () => {
+  //   setLogged_in(localStorage.token ? true : false);
+  // };
 
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
@@ -161,4 +161,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withRouter(App);

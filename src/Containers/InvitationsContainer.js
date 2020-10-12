@@ -17,7 +17,8 @@ const InvitationContainer = (props) => {
 
   return (
     <div className="invitation">
-      <div></div>
+      <h1>My Invitations</h1>
+
       {props.currentMember === null && allInvitations.length === 0
         ? null
         : allInvitations
@@ -27,6 +28,7 @@ const InvitationContainer = (props) => {
                 currentMember={props.currentMember}
                 invitationsUrl={props.invitationsUrl}
                 myInvitations={Inv}
+                key={Inv.id}
               />
             ))}
     </div>

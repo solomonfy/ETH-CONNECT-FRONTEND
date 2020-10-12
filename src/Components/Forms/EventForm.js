@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Form, Grid } from "semantic-ui-react";
 import "./EventForm.css";
 
@@ -29,7 +29,7 @@ const EventForm = (props) => {
     fetch(props.eventsUrl, configObj)
       .then((res) => res.json())
       .then((newEvent) => console.log(newEvent));
-    props.histroy.push("/main");
+    // props.histroy.push("/main");
     e.target.reset();
   };
 

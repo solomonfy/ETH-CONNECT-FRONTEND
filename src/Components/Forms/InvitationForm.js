@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import { Form, Grid, Dropdown, Input } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Form, Dropdown } from "semantic-ui-react";
 import "./EventForm.css";
 
 class InvitationForm extends React.Component {
@@ -51,11 +51,14 @@ class InvitationForm extends React.Component {
     fetch(this.props.invitationsUrl, configObj)
       .then((res) => res.json())
       .then((newInvitation) => console.log(newInvitation));
-    // this.props.histroy.push("/main");
+    this.props.history.push("/main");
+
     e.target.reset();
   };
 
   render() {
+    console.log();
+
     let allMembers = this.props.allMembers;
     let allEvents = this.props.allEvents;
     return (

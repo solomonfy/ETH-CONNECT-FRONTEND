@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Flag, Card, Image } from "semantic-ui-react";
+import { Table, Flag } from "semantic-ui-react";
 
 
 const flagRenderer = (item) => <Flag name={item.countryCode} />;

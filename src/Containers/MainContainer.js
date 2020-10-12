@@ -4,7 +4,7 @@ import AnnouncementContainer from "./AnnouncementContainer";
 import EventCalender from "./EventCalender";
 import EventContainer from "./EventContainer";
 
-import { Grid, Sticky, Image } from "semantic-ui-react";
+// import { Grid, Sticky, Image } from "semantic-ui-react";
 import InvitationContainer from "./InvitationsContainer";
 
 const MainContainer = (props) => {
@@ -16,10 +16,10 @@ const MainContainer = (props) => {
       {/* <AnnouncementContainer /> */}
       <EventContainer eventsUrl={props.eventsUrl} />
       {/* </Grid.Column> */}
-      {/* <InvitationContainer
+      <InvitationContainer
         currentMember={props.currentMember}
         invitationsUrl={props.invitationsUrl}
-      /> */}
+      />
 
       {/* <EventCalender eventsUrl={props.eventsUrl} /> */}
       {/* <Grid.Column>
