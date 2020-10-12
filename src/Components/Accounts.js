@@ -47,7 +47,6 @@ const Accounts = (props) => {
           </Button>
         </Link>
 
-        {/* <Button primary>Back</Button> */}
         <Link to="/main">
           <Button primary icon="edit">
             Edit Account{" "}

@@ -30,7 +30,9 @@ const NavBar = (props) => {
     <div>
       <div className="navbar">
         <DropDown member={member} logOut={logOut} />
-        
+        <Link to="/main">
+          <span style={navStyle}>Events</span>
+        </Link>
         <nav>
           <div className="nav-links">
             <Link style={navStyle} to="/photo-gallery">
