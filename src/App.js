@@ -60,7 +60,6 @@ const App = () => {
     <div className="App">
       {localStorage.token ? (
         <>
-          {/* <SideBar /> */}
           <NavBar
             logInUrl={logInUrl}
             currentMember={currentMember}

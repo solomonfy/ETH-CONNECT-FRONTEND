@@ -15,17 +15,10 @@ const InvitationContainer = (props) => {
       .then((data) => setAllInvitations(data));
   }, []);
 
-  // if (allInvitations.length === 0) {
-  //   return null;
-  // } else {
-  //   allInvitations
-  //     .filter((inv) => inv.attendee_id === props.currentMember.id)
-  //     .map((Inv) => console.log(Inv.event));
-  // }
-
   return (
     <div className="invitation">
-      {allInvitations.length === 0
+      <div></div>
+      {props.currentMember === null && allInvitations.length === 0
         ? null
         : allInvitations
             .filter((inv) => inv.attendee_id === props.currentMember.id)
