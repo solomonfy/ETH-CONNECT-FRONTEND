@@ -130,6 +130,7 @@ const App = () => {
             <Accounts
               membersUrl={membersUrl}
               {...routerProps}
+              currentMember={currentMember}
               // status={status}
               // logged_in={logged_in}
             />

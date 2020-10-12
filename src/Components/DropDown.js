@@ -1,32 +1,39 @@
 // import faker from "faker";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Dropdown, Image } from "semantic-ui-react";
 
 const DropDown = (props) => {
+  // console.log(props);
+  const dropDown = {
+    color: "white",
+  };
+
+  const { first_name, last_name, image } = props.member;
   const trigger = (
-    <span>
-      <Image
-        avatar
-        src="https://i2-prod.mirror.co.uk/incoming/article9287204.ece/ALTERNATES/s1200b/Mickey-mouse.jpg"
-      />{" "}
-      {props.fullName}
+    <span style={dropDown}>
+      <Image avatar src={image} /> {first_name + " " + last_name}
     </span>
   );
 
-  const options = [
-    { key: "user", text: "Account", icon: "user" },
-    { key: "settings", text: "Settings", icon: "settings" },
-    { key: "sign-out", text: "Sign Out", icon: "sign out" },
-  ];
-
   return (
-    <Dropdown>
-      <Dropdown
-        trigger={trigger}
-        options={options}
-        pointing="top left"
-        icon={null}
-      />
+    <Dropdown trigger={trigger} pointing="top left" icon={null}>
+      <Dropdown.Menu>
+        <Dropdown.Item text="Account" icon="address book" as={Link} to="/account" />
+        <Dropdown.Item
+          text="My Invitations"
+          icon="folder open"
+          as={Link}
+          to="/invitations"
+        />
+        <Dropdown.Item
+          text="Sign Out"
+          icon="sign out"
+          // as={Link}
+          // to="/sign-out"
+          onClick={() => props.logOut()}
+        />
+      </Dropdown.Menu>
     </Dropdown>
   );
 };

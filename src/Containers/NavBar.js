@@ -19,7 +19,6 @@ const NavBar = (props) => {
 
   const logOut = () => {
     localStorage.clear();
-
     setTimeout(() => goToLogIn(), 5);
   };
 
@@ -30,21 +29,8 @@ const NavBar = (props) => {
   return (
     <div>
       <div className="navbar">
-      <DropDown fullName={fullName} />
-        <div>
-          <Link to="/profile_page">
-            <Image
-              // src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
-              src={member.image}
-              size="mini"
-              circular
-            />
-            <span style={navStyle}>{fullName}</span>
-          </Link>
-        </div>
-        <Link to="/invitations">
-          <span style={navStyle}>My Invitations</span>
-        </Link>
+        <DropDown member={member} logOut={logOut} />
+        
         <nav>
           <div className="nav-links">
             <Link style={navStyle} to="/photo-gallery">
@@ -57,16 +43,30 @@ const NavBar = (props) => {
             <Dropdown.Menu>
               {localStorage.token ? (
                 <>
-                  <Link to="/calendar">
-                    <Dropdown.Item text="Calendar View" />
-                  </Link>
-                  <Link to="/new_event">
-                    <Dropdown.Item text="Host event" />
-                  </Link>
-                  <Link to="/new_invitation">
-                    <Dropdown.Item text="Invite members" />
-                  </Link>
-                  <Dropdown.Item text="Add announcement" />
+                  <Dropdown.Item
+                    text="Calendar View"
+                    icon="calendar alternate outline"
+                    as={Link}
+                    to="/calendar"
+                  />
+                  <Dropdown.Item
+                    text="Host event"
+                    icon="birthday cake"
+                    as={Link}
+                    to="/new_event"
+                  />
+                  <Dropdown.Item
+                    text="Invite members"
+                    icon="tasks"
+                    as={Link}
+                    to="/new_invitation"
+                  />
+                  <Dropdown.Item
+                    text="Add announcement"
+                    icon="bullhorn"
+                    as={Link}
+                    to="/new_invitation"
+                  />
                 </>
               ) : (
                 <Link to="/login">
@@ -76,11 +76,6 @@ const NavBar = (props) => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <Link style={navStyle} to="/logout">
-          <Button labelPosition="right" primary onClick={logOut}>
-            LogOut
-          </Button>
-        </Link>
         <div>
           <Country />
         </div>
