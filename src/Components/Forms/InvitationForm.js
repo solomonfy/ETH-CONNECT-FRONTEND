@@ -6,36 +6,37 @@ import "./EventForm.css";
 class InvitationForm extends React.Component {
   state = {};
 
-  handleChange = (e) => {
+  handleChange = (event, data) => {
+    const { value } = data;
+    const { key } = data.options.find((o) => o.value === value);
     // debugger;
-    console.log(e.target.name);
     this.setState({
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
   handleSubmit = (e) => {
-    debugger;
+    // debugger;
     e.preventDefault();
 
-    // let configObj = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //     Authorization: `Bearer ${localStorage.token}`,
-    //   },
-    //   body: JSON.stringify({
-    //     invitation: {
-    //       attendee_id: e.target.attendee,
-    //       description: e.target.event,
-    //     },
-    //   }),
-    // };
-    // fetch(this.props.invitationsUrl, configObj)
-    //   .then((res) => res.json())
-    //   .then((newInvitation) => console.log(newInvitation));
-    // // this.props.histroy.push("/main");
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        invitation: {
+          attendee_id: e.target.attendee_id,
+          event_id: e.target.event_id,
+        },
+      }),
+    };
+    fetch(this.props.invitationsUrl, configObj)
+      .then((res) => res.json())
+      .then((newInvitation) => console.log(newInvitation));
+    // this.props.histroy.push("/main");
     // e.target.reset();
   };
 
@@ -44,46 +45,40 @@ class InvitationForm extends React.Component {
     let allEvents = this.props.allEvents;
     return (
       <div className="invitation-form">
-        <Form
-          size={"large"}
-          onSubmit={(e) => this.handleSubmit(e)}
-          // onChange={(e) => this.handleChange(e)}
-        >
+        <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
           {/* <Form.Input
-          // onChange={(e) => this.handleChange(e)}
-          // value={selectedMember}
           > */}
-            <Dropdown
-              onChange={(e) => this.handleChange(e)}
-              // value={selectedMember}
-              label="Attendee"
-              placeholder="Select Attendee"
-              fluid
-              name="attendee"
-              selection
-              search
-              options={
-                !allMembers
-                  ? null
-                  : allMembers.map((member) => {
-                      return {
-                        key: `${member.first_name}`,
-                        text: `${member.first_name + " " + member.last_name}`,
-                        value: `${member.id}`,
-                        image: {
-                          avatar: true,
-                          src: `${member.image}`,
-                        },
-                      };
-                    })
-              }
-            />
+          <Dropdown
+            onChange={this.handleChange}
+            label="Attendee"
+            placeholder="Select Attendee"
+            fluid
+            name="attendee_id"
+            selection
+            search
+            options={
+              !allMembers
+                ? null
+                : allMembers.map((member) => {
+                    return {
+                      key: `${member.first_name}`,
+                      text: `${member.first_name + " " + member.last_name}`,
+                      value: `${member.id}`,
+                      image: {
+                        avatar: true,
+                        src: `${member.image}`,
+                      },
+                    };
+                  })
+            }
+          />
           {/* </Form.Input> */}
           <Dropdown
+            onChange={this.handleChange}
             label="Event"
             placeholder="Select Event"
             fluid
-            name="event"
+            name="event_id"
             selection
             options={
               !allEvents
