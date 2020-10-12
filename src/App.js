@@ -9,10 +9,8 @@ import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
-// import SideBar from "./Components/SideBar";
-import InvitationContainer from "./Containers/InvitationsContainer";
+import InvitationContainer from "./Containers/InvitationContainer";
 import EventCalender from "./Containers/EventCalender";
-// import InvitationCard from "./Components/InvitationCard";
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
@@ -98,10 +96,23 @@ const App = () => {
             />
           )}
         />
+        {/* <Route
+          exact
+          path="/invitations"
+          render={(routerProps) => <InvitationCard {...routerProps} />}
+        /> */}
         <Route
           exact
           path="/invitations"
-          render={(routerProps) => <InvitationContainer {...routerProps} />}
+          render={(routerProps) => (
+            <InvitationContainer
+              {...routerProps}
+              eventsUrl={eventsUrl}
+              logInUrl={logInUrl}
+              currentMember={currentMember}
+              invitationsUrl={invitationsUrl}
+            />
+          )}
         />
         <Route
           exact

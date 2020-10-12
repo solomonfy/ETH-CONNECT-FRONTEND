@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Grid } from "semantic-ui-react";
+import { Form, Grid, Button, Icon } from "semantic-ui-react";
 import "./EventForm.css";
 
 const EventForm = (props) => {
@@ -56,7 +56,13 @@ const EventForm = (props) => {
               placeholder="location"
               name="location"
             />
-            <Form.Input fluid type="date" label="Date" name="date" min={new Date().toISOString().split('T')[0]}/>
+            <Form.Input
+              fluid
+              type="date"
+              label="Date"
+              name="date"
+              min={new Date().toISOString().split("T")[0]}
+            />
 
             <Form.Input
               fluid
@@ -74,7 +80,12 @@ const EventForm = (props) => {
         </Grid>
       </Form>
       <Link to="/main">
-        <Form.Button>Back</Form.Button>
+        <Button animated primary>
+          <Button.Content visible>Back</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow left" />
+          </Button.Content>
+        </Button>
       </Link>
     </div>
   );
