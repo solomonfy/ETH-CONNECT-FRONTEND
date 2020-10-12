@@ -1,59 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Form, Grid, Dropdown, Input } from "semantic-ui-react";
 import "./EventForm.css";
 
-const InvitationForm = (props) => {
-  setTimeout(() => {
-    let allMembers = props.allMembers.map((m) => m);
-    console.log(allMembers);
-  }, 100);
+class InvitationForm extends React.Component {
+  state = {};
 
-  // const friendOptions = allMembers
-  // console.log(friendOptions)
-
-  const friendOptions = [
-    {
-      key: "Jenny Hess",
-      text: "Jenny Hess",
-      value: "Jenny Hess",
-      image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
-    },
-    {
-      key: "Elliot Fu",
-      text: "Elliot Fu",
-      value: "Elliot Fu",
-      image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
-    },
-    {
-      key: "Stevie Feliciano",
-      text: "Stevie Feliciano",
-      value: "Stevie Feliciano",
-      image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
-    },
-    {
-      key: "Christian",
-      text: "Christian",
-      value: "Christian",
-      image: { avatar: true, src: "/images/avatar/small/christian.jpg" },
-    },
-    {
-      key: "Matt",
-      text: "Matt",
-      value: "Matt",
-      image: { avatar: true, src: "/images/avatar/small/matt.jpg" },
-    },
-    {
-      key: "Justen Kitsune",
-      text: "Justen Kitsune",
-      value: "Justen Kitsune",
-      image: { avatar: true, src: "/images/avatar/small/justen.jpg" },
-    },
-  ];
-
-  let handleSubmit = (e) => {
-    console.log(e.target[0].value);
+  handleChange = (e) => {
     // debugger;
+    console.log(e.target.name);
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    debugger;
     e.preventDefault();
 
     // let configObj = {
@@ -67,57 +29,87 @@ const InvitationForm = (props) => {
     //     invitation: {
     //       attendee_id: e.target.attendee,
     //       description: e.target.event,
-
     //     },
     //   }),
     // };
-    // fetch(props.invitationsUrl, configObj)
+    // fetch(this.props.invitationsUrl, configObj)
     //   .then((res) => res.json())
     //   .then((newInvitation) => console.log(newInvitation));
-    // props.histroy.push("/main");
+    // // this.props.histroy.push("/main");
     // e.target.reset();
   };
 
-  let handleChange = (e) => {
-    // debugger
-    console.log(e);
-  };
-
-  return (
-    <div className="invitation-form">
-      <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
-        <Form.Input onChange={(e) => handleChange(e)}>
+  render() {
+    let allMembers = this.props.allMembers;
+    let allEvents = this.props.allEvents;
+    return (
+      <div className="invitation-form">
+        <Form
+          size={"large"}
+          onSubmit={(e) => this.handleSubmit(e)}
+          // onChange={(e) => this.handleChange(e)}
+        >
+          {/* <Form.Input
+          // onChange={(e) => this.handleChange(e)}
+          // value={selectedMember}
+          > */}
+            <Dropdown
+              onChange={(e) => this.handleChange(e)}
+              // value={selectedMember}
+              label="Attendee"
+              placeholder="Select Attendee"
+              fluid
+              name="attendee"
+              selection
+              search
+              options={
+                !allMembers
+                  ? null
+                  : allMembers.map((member) => {
+                      return {
+                        key: `${member.first_name}`,
+                        text: `${member.first_name + " " + member.last_name}`,
+                        value: `${member.id}`,
+                        image: {
+                          avatar: true,
+                          src: `${member.image}`,
+                        },
+                      };
+                    })
+              }
+            />
+          {/* </Form.Input> */}
           <Dropdown
-            label="Attendee"
-            placeholder="Select Attendee"
+            label="Event"
+            placeholder="Select Event"
             fluid
-            name="attendee"
+            name="event"
             selection
-            // multiple
-            search
-            selection
-            options={friendOptions}
-            // options={allMembers.map(member =>
-            //   { return {key: member.id}},
-            // )}
+            options={
+              !allEvents
+                ? null
+                : allEvents.map((ev) => {
+                    return {
+                      key: `${ev.name}`,
+                      text: `${ev.name}`,
+                      value: `${ev.id}`,
+                      image: {
+                        avatar: true,
+                        src: `${ev.image}`,
+                      },
+                    };
+                  })
+            }
           />
-        </Form.Input>
-        <Dropdown
-          label="Event"
-          placeholder="Select Event"
-          fluid
-          name="event"
-          selection
-          // options={friendOptions}
-        />
 
-        <Form.Button>Submit</Form.Button>
-      </Form>
-      <Link to="/main">
-        <Form.Button>Back</Form.Button>
-      </Link>
-    </div>
-  );
-};
+          <Form.Button>Submit</Form.Button>
+        </Form>
+        <Link to="/main">
+          <Form.Button>Back</Form.Button>
+        </Link>
+      </div>
+    );
+  }
+}
 
 export default InvitationForm;

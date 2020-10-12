@@ -4,6 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import "../CSS/NavBar.css";
 import { Button, Dropdown, Image } from "semantic-ui-react";
 import Country from "../Components/Country";
+import DropDown from "../Components/DropDown";
 
 // import CalendarContainer from "./CalendarContainer";
 
@@ -29,6 +30,7 @@ const NavBar = (props) => {
   return (
     <div>
       <div className="navbar">
+      <DropDown fullName={fullName} />
         <div>
           <Link to="/profile_page">
             <Image
@@ -61,7 +63,9 @@ const NavBar = (props) => {
                   <Link to="/new_event">
                     <Dropdown.Item text="Host event" />
                   </Link>
-                  <Dropdown.Item text="Accept invitation" />
+                  <Link to="/new_invitation">
+                    <Dropdown.Item text="Invite members" />
+                  </Link>
                   <Dropdown.Item text="Add announcement" />
                 </>
               ) : (
