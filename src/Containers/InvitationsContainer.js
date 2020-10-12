@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import InvitationCard from "../Components/InvitationCard";
 
 const InvitationContainer = (props) => {
-  const myInv = props.currentMember.received_invitations;
-  // let a = myInv.map(inv => (inv.event))
-  // console.log(myInv)
+  const [allInvitations, setAllInvitations] = useState([]);
+
+  useEffect(() => {
+    fetch(props.invitationsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => setAllInvitations(data));
+  }, []);
+
+  // if (allInvitations.length === 0) {
+  //   return null;
+  // } else {
+  //   allInvitations
+  //     .filter((inv) => inv.attendee_id === props.currentMember.id)
+  //     .map((Inv) => console.log(Inv.event));
+  // }
 
   return (
     <div className="invitation">
-      {/* {myInv.map(invitation => (
-        <InvitationCard currentMember={props.currentMember} invitation={invitation}/>
-        
-      ))} */}
-      <InvitationCard currentMember={props.currentMember} myInv={myInv} />
+      {allInvitations.length === 0
+        ? null
+        : allInvitations
+            .filter((inv) => inv.attendee_id === props.currentMember.id)
+            .map((Inv) => (
+              <InvitationCard
+                currentMember={props.currentMember}
+                invitationsUrl={props.invitationsUrl}
+                myInvitations={Inv}
+              />
+            ))}
     </div>
   );
 };

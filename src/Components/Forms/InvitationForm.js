@@ -5,7 +5,7 @@ import "./EventForm.css";
 
 const InvitationForm = (props) => {
   setTimeout(() => {
-    let allMembers = props.allMembers.map((m) => m.first_name);
+    let allMembers = props.allMembers.map((m) => m);
     console.log(allMembers);
   }, 100);
 
@@ -93,10 +93,10 @@ const InvitationForm = (props) => {
             fluid
             name="attendee"
             selection
-            multiple
+            // multiple
             search
             selection
-            // options={friendOptions}
+            options={friendOptions}
             // options={allMembers.map(member =>
             //   { return {key: member.id}},
             // )}

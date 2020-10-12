@@ -9,6 +9,7 @@ import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
+import SideBar from "./Components/SideBar";
 import InvitationContainer from "./Containers/InvitationsContainer";
 import EventCalender from "./Containers/EventCalender";
 
@@ -58,12 +59,15 @@ const App = () => {
   return (
     <div className="App">
       {localStorage.token ? (
-        <NavBar
-          logInUrl={logInUrl}
-          currentMember={currentMember}
-          // status={status}
-          // logged_in={logged_in}
-        />
+        <>
+          {/* <SideBar /> */}
+          <NavBar
+            logInUrl={logInUrl}
+            currentMember={currentMember}
+            // status={status}
+            // logged_in={logged_in}
+          />
+        </>
       ) : null}
       <Switch>
         <Route
@@ -109,10 +113,11 @@ const App = () => {
           path="/main"
           render={(routerProps) => (
             <MainContainer
+              {...routerProps}
               eventsUrl={eventsUrl}
               logInUrl={logInUrl}
               currentMember={currentMember}
-              {...routerProps}
+              invitationsUrl={invitationsUrl}
               // status={status}
               // logged_in={logged_in}
             />

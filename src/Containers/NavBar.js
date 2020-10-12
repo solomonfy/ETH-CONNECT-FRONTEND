@@ -32,7 +32,8 @@ const NavBar = (props) => {
         <div>
           <Link to="/profile_page">
             <Image
-              src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
+              // src="https://i.ytimg.com/vi/e2klKMj4JEw/maxresdefault.jpg"
+              src={member.image}
               size="mini"
               circular
             />

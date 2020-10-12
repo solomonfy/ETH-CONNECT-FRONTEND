@@ -7,4 +7,8 @@
   align-items: stretch;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  background-image: url("../Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }

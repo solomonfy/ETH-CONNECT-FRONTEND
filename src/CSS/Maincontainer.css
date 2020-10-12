@@ -1,4 +1,13 @@
 .main-container {
   padding-top: 200px;
   padding-left: 40px;
+  /* background-image: "/src/Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg"; */
+  background-image: url("../Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-color: lightgray; */
+
+
+  
 }
+
