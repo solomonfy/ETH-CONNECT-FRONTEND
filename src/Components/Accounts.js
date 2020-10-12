@@ -18,18 +18,17 @@ const Accounts = (props) => {
     <div className="accounts">
       <h1>Welcome back</h1>
       <br />
-      <strong>User Name: </strong>
+      <h3>User Name: </h3>
       <br />
       <span>{username}</span>
       <br />
+      <h3>First Name: {first_name}</h3>
       <br />
-      <strong>First Name: {first_name}</strong>
+      <h3>Lat Name: {last_name}</h3>
       <br />
+      <h3>Address: {address}</h3>
       <br />
-      <strong>Lat Name: {last_name}</strong>
-      <br />
-      <br />
-      <strong>Profile Image:</strong>
+      <h3>Profile Image:</h3>
       <br />
       <span>
         <Image avatar src={image} />
@@ -48,13 +47,20 @@ const Accounts = (props) => {
         </Link>
 
         <Link to="/main">
-          <Button primary icon="edit">
-            Edit Account{" "}
+          <Button animated primary>
+            <Button.Content visible>Edit Account</Button.Content>
+            <Button.Content hidden>
+              <Icon name="edit" />
+            </Button.Content>
           </Button>
         </Link>
+
         <Link to="/main">
-          <Button negative icon="trash">
-            Delete Account{" "}
+          <Button animated negative>
+            <Button.Content visible>Delete Account</Button.Content>
+            <Button.Content hidden>
+              <Icon name="delete" />
+            </Button.Content>
           </Button>
         </Link>
       </Button.Group>
