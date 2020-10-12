@@ -26,7 +26,7 @@ const LogIn = (props) => {
       .then((member) => {
         localStorage.token = member.token;
         localStorage.id = member.id;
-        // setLoggedInMember(member)
+        setLoggedInMember(member);
         props.history.push("/main");
 
         // props.status();

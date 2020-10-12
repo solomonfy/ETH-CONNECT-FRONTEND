@@ -23,7 +23,7 @@ const NavBar = (props) => {
   };
 
   let member = props.currentMember;
-  let fullName = member.first_name + " " + member.last_name;
+  // let fullName = member.first_name + " " + member.last_name;
   // console.log(member);
 
   return (
