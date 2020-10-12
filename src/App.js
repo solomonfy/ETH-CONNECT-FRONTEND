@@ -12,6 +12,7 @@ import Accounts from "./Components/Accounts";
 import SideBar from "./Components/SideBar";
 import InvitationContainer from "./Containers/InvitationsContainer";
 import EventCalender from "./Containers/EventCalender";
+import InvitationCard from "./Components/InvitationCard";
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";

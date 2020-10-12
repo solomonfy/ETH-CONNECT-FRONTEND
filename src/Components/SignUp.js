@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../CSS/Signup.css";
-import { Form, Divider, Grid, Button } from "semantic-ui-react";
+import { Form, Divider, Grid, Button, Segment } from "semantic-ui-react";
 
 class SignUp extends React.Component {
   handleChange = (e) => {
@@ -44,7 +44,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-up-form">
-        {/* <Segment placeholder> */}
+        <Segment placeholder>
         <br />
         <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
           <Grid columns="equal">
@@ -133,7 +133,7 @@ class SignUp extends React.Component {
           </Grid>
           <Divider vertical></Divider>
         </Form>
-        {/* </Segment> */}
+        </Segment>
       </div>
     );
   }

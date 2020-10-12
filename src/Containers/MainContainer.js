@@ -16,10 +16,10 @@ const MainContainer = (props) => {
       {/* <AnnouncementContainer /> */}
       <EventContainer eventsUrl={props.eventsUrl} />
       {/* </Grid.Column> */}
-      <InvitationContainer
+      {/* <InvitationContainer
         currentMember={props.currentMember}
         invitationsUrl={props.invitationsUrl}
-      />
+      /> */}
 
       {/* <EventCalender eventsUrl={props.eventsUrl} /> */}
       {/* <Grid.Column>

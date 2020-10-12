@@ -11,7 +11,7 @@ const InvitationContainer = (props) => {
         Authorization: `Bearer ${localStorage.token}`,
       },
     })
-      .then((resp) => resp.json())
+      .then((response) => response.json())
       .then((data) => setAllInvitations(data));
   }, []);
 

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Form, Segment, Divider, Grid, Button } from "semantic-ui-react";
+import { Form, Segment, Divider, Grid, Button, Input } from "semantic-ui-react";
 import "../CSS/Login.css";
 
 const LogIn = (props) => {
-
-  const [loggedInMember, setLoggedInMember] = useState({})
-
+  const [loggedInMember, setLoggedInMember] = useState({});
 
   let handleLogin = (e) => {
     let configObj = {
@@ -23,16 +21,13 @@ const LogIn = (props) => {
       }),
     };
 
-    
-
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
         localStorage.token = member.token;
         localStorage.id = member.id;
         // setLoggedInMember(member)
-      props.history.push("/main");
-
+        props.history.push("/main");
 
         // props.status();
         // console.log(member);
@@ -53,6 +48,7 @@ const LogIn = (props) => {
           <Grid.Column>
             <Form size={"large"} onSubmit={(e) => handleLogin(e)}>
               <Form.Input
+                control={Input}
                 icon="user"
                 iconPosition="left"
                 label="Username"
@@ -61,6 +57,7 @@ const LogIn = (props) => {
                 placeholder="Username"
               />
               <Form.Input
+                control={Input}
                 icon="lock"
                 iconPosition="left"
                 label="Password"
