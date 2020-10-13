@@ -28,6 +28,7 @@ const App = () => {
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
   const [allEvents, setEvents] = useState([]);
+  const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
     fetch(membersUrl + `${localStorage.id}`, {
@@ -116,13 +117,6 @@ const App = () => {
             />
           )}
         />
-        {/* <Route
-          exact
-          path="/calendar"
-          render={(routerProps) => (
-            <EventCalender {...routerProps} allEvents={allEvents} />
-          )}
-        /> */}
         <Route
           exact
           path="/main"

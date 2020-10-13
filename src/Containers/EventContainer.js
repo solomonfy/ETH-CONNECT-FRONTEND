@@ -9,11 +9,11 @@ const EventContainer = (props) => {
         <Grid.Row>
           {!props.allEvents
             ? null
-            : props.allEvents.map((e_vent) => (
+            : props.allEvents.map((anEvent) => (
                 <Grid.Column width={5}>
                   <EventCard
-                    e_vent={e_vent}
-                    key={e_vent.id}
+                    anEvent={anEvent}
+                    key={anEvent.id}
                     currentMember={props.currentMember}
                   />
                 </Grid.Column>

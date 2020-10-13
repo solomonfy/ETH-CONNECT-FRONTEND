@@ -3,7 +3,7 @@ import { Card, Icon, Image, Modal, Button, Header } from "semantic-ui-react";
 // import { Link } from "react-router-dom";
 
 const EventCard = (props) => {
-  const { name, description, location, date, event_type, host } = props.e_vent;
+  const { name, description, location, date, event_type, host } = props.anEvent;
   const [open, setOpen] = React.useState(false);
   return (
     <div>
@@ -57,7 +57,11 @@ const EventCard = (props) => {
             </Modal.Content>
             <Modal.Actions>
               {host.id === props.currentMember.id ? (
-                <Button negative onClick={() => setOpen(false)}>
+                <Button
+                  // negative onClick={() => setOpen(false)}
+                  negative
+                  onClick={() => alert("Are you sure")}
+                >
                   Delete Event
                 </Button>
               ) : (
