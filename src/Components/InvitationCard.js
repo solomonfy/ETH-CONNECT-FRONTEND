@@ -4,6 +4,7 @@ import "../CSS/InvitationContainer.css";
 
 const InvitationCard = (props) => {
   const myInvitation = props.myInvitations.event;
+  // console.log(props.myInvitations);
   return (
     <div className="invitation-container">
       <Card.Group>
@@ -16,7 +17,7 @@ const InvitationCard = (props) => {
               src={myInvitation.host.image}
             />
             <Card.Header>
-            <br />
+              <br />
               Host:{" "}
               {myInvitation.host.first_name + " " + myInvitation.host.last_name}
             </Card.Header>

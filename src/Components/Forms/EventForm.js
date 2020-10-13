@@ -30,6 +30,7 @@ const EventForm = (props) => {
       .then((res) => res.json())
       .then((newEvent) => {
         props.setEvents([...props.allEvents, newEvent]);
+        // console.log(newEvent);
         props.history.push("/main");
       });
     e.preventDefault();

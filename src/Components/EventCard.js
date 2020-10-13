@@ -22,9 +22,7 @@ const EventCard = (props) => {
         </Card.Content>
         <Card.Content extra>
           <Icon name="user" />
-          {props.anEvent.host.id === null
-            ? null
-            : `${" " + host.first_name + " " + host.last_name}`}
+          {" " + host.first_name + " " + host.last_name}
         </Card.Content>
 
         <div>
