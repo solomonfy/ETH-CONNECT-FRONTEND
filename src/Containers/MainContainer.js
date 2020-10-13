@@ -20,6 +20,7 @@ const MainContainer = (props) => {
         eventsUrl={props.eventsUrl}
         currentMember={props.currentMember}
         allEvents={props.allEvents}
+        deleteEvent={props.deleteEvent}
       />
       {/* </Grid.Column> */}
 

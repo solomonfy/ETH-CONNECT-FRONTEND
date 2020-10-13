@@ -28,7 +28,7 @@ const App = () => {
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
   const [allEvents, setEvents] = useState([]);
-  const [deleteEvent, setDeleteEvent] = useState([]);
+  // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
     fetch(membersUrl + `${localStorage.id}`, {
@@ -51,8 +51,17 @@ const App = () => {
 
     fetch(eventsUrl)
       .then((resp) => resp.json())
-      .then((allEvents) => setEvents(() => allEvents));
+      .then((eventsArray) => setEvents(eventsArray));
   }, []);
+
+  const deleteEvent = (foundEvent) => {
+    fetch(eventsUrl + `${foundEvent.id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
+  };
 
   // console.log(allEvents)
 
@@ -129,6 +138,7 @@ const App = () => {
               invitationsUrl={invitationsUrl}
               allEvents={allEvents}
               setEvents={setEvents}
+              deleteEvent={deleteEvent}
               // status={status}
               // logged_in={logged_in}
             />

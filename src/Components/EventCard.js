@@ -22,7 +22,9 @@ const EventCard = (props) => {
         </Card.Content>
         <Card.Content extra>
           <Icon name="user" />
-          {" " + host.first_name + " " + host.last_name}
+          {props.anEvent.host.id === null
+            ? null
+            : `${" " + host.first_name + " " + host.last_name}`}
         </Card.Content>
 
         <div>
@@ -60,7 +62,7 @@ const EventCard = (props) => {
                 <Button
                   // negative onClick={() => setOpen(false)}
                   negative
-                  onClick={() => alert("Are you sure")}
+                  onClick={() => props.deleteEvent(props.anEvent)}
                 >
                   Delete Event
                 </Button>

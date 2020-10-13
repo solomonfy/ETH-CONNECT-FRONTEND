@@ -15,6 +15,7 @@ const EventContainer = (props) => {
                     anEvent={anEvent}
                     key={anEvent.id}
                     currentMember={props.currentMember}
+                    deleteEvent={props.deleteEvent}
                   />
                 </Grid.Column>
               ))}
