@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Form, Grid, Button, Icon } from "semantic-ui-react";
 import "./EventForm.css";
 
@@ -9,7 +9,6 @@ const EventForm = (props) => {
   // console.log(props.histroy.push());
   let handleSubmit = (e) => {
     // debugger;
-    e.preventDefault();
     let configObj = {
       method: "POST",
       headers: {
@@ -29,8 +28,11 @@ const EventForm = (props) => {
     };
     fetch(props.eventsUrl, configObj)
       .then((res) => res.json())
-      .then((newEvent) => setNewEvent(newEvent));
-    // props.histroy.push("/main");
+      .then((newEvent) => {
+        props.setEvents([...props.allEvents, newEvent]);
+        props.history.push("/main");
+      });
+    e.preventDefault();
     e.target.reset();
   };
 
@@ -92,4 +94,4 @@ const EventForm = (props) => {
   );
 };
 
-export default withRouter(EventForm);
+export default EventForm;

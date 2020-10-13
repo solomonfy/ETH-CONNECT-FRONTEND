@@ -10,8 +10,6 @@ import InvitationContainer from "./InvitationContainer";
 const MainContainer = (props) => {
   const [state, setState] = useState(false);
 
-  
-
   return (
     <div className="main-container">
       {/* <Grid container columns={2}> */}
@@ -20,6 +18,8 @@ const MainContainer = (props) => {
       {/* <AnnouncementContainer /> */}
       <EventContainer
         eventsUrl={props.eventsUrl}
+        currentMember={props.currentMember}
+        allEvents={props.allEvents}
       />
       {/* </Grid.Column> */}
 

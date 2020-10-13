@@ -5,7 +5,6 @@ import { Card, Icon, Image, Modal, Button, Header } from "semantic-ui-react";
 const EventCard = (props) => {
   const { name, description, location, date, event_type, host } = props.e_vent;
   const [open, setOpen] = React.useState(false);
-
   return (
     <div>
       {/* <Card.Group itemsPerRow={2}> */}
@@ -57,16 +56,19 @@ const EventCard = (props) => {
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
-              <Button color="black" onClick={() => setOpen(false)}>
-                Nope
-              </Button>
-              <Button
-                content="Yep"
-                labelPosition="right"
-                icon="checkmark"
-                onClick={() => setOpen(false)}
-                positive
-              />
+              {host.id === props.currentMember.id ? (
+                <Button negative onClick={() => setOpen(false)}>
+                  Delete Event
+                </Button>
+              ) : (
+                <Button
+                  content="Yep"
+                  labelPosition="right"
+                  icon="checkmark"
+                  onClick={() => setOpen(false)}
+                  positive
+                />
+              )}
             </Modal.Actions>
           </Modal>
           <br />

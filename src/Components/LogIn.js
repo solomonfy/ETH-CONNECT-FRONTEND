@@ -5,8 +5,9 @@ import { Form, Segment, Divider, Grid, Button, Input } from "semantic-ui-react";
 import "../CSS/Login.css";
 
 const LogIn = (props) => {
-  const [loggedInMember, setLoggedInMember] = useState({});
-  const [state, setState] = useState(false);
+  // const [loggedInMember, setLoggedInMember] = useState({});
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   let handleLogin = (e) => {
     let configObj = {
@@ -38,14 +39,6 @@ const LogIn = (props) => {
     e.target.reset();
   };
 
-  setTimeout(() => {
-    setState(true);
-  }, 5);
-
-  // let loggedIn = () => {
-  // console.log(localStorage.token);
-  // };
-
   return (
     <div className="log-in-form">
       <Segment placeholder>
@@ -60,6 +53,7 @@ const LogIn = (props) => {
                 type="text"
                 name="username"
                 placeholder="Username"
+                onChange={(e) => setUsername(e.target.value)}
               />
               <Form.Input
                 control={Input}
@@ -69,6 +63,7 @@ const LogIn = (props) => {
                 type="password"
                 name="password"
                 placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
               />
 
               <Button content="Login" primary />

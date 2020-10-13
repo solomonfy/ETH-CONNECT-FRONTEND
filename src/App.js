@@ -74,8 +74,10 @@ const App = () => {
           render={(routerProps) => (
             <EventForm
               {...routerProps}
-              logInUrl={logInUrl}
+              // logInUrl={logInUrl}
               eventsUrl={eventsUrl}
+              setEvents={setEvents}
+              allEvents={allEvents}
 
               // status={status} logged_in={logged_in}
             />
@@ -131,6 +133,8 @@ const App = () => {
               logInUrl={logInUrl}
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
+              allEvents={allEvents}
+              setEvents={setEvents}
               // status={status}
               // logged_in={logged_in}
             />
