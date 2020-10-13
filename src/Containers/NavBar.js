@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
 import "../CSS/NavBar.css";
@@ -9,6 +9,8 @@ import DropDown from "../Components/DropDown";
 // import CalendarContainer from "./CalendarContainer";
 
 const NavBar = (props) => {
+  const [state, setState] = useState(true);
+
   const navStyle = {
     color: "white",
   };
@@ -19,6 +21,7 @@ const NavBar = (props) => {
 
   const logOut = () => {
     localStorage.clear();
+    setState(false);
     setTimeout(() => goToLogIn(), 5);
   };
 

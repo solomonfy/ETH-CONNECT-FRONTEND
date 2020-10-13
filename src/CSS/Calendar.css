@@ -1,12 +1,8 @@
 .event_calendar {
   /* background-color: #5a978d; */
   padding-top: 150px;
-
-  /* min-height: 100vh; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* font-size: calc(10px + 2vmin); */
-  /* color: white; */
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 150px;
+  font-size: calc(1px + 2vmin);
 }

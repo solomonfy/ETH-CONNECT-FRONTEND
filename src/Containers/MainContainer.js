@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/Maincontainer.css";
 import AnnouncementContainer from "./AnnouncementContainer";
 import EventCalender from "./EventCalender";
@@ -8,13 +8,19 @@ import EventContainer from "./EventContainer";
 import InvitationContainer from "./InvitationContainer";
 
 const MainContainer = (props) => {
+  const [state, setState] = useState(false);
+
+  
+
   return (
     <div className="main-container">
       {/* <Grid container columns={2}> */}
       {/* <Grid.Column> */}
       {/* {props.logged_in} */}
       {/* <AnnouncementContainer /> */}
-      <EventContainer eventsUrl={props.eventsUrl} />
+      <EventContainer
+        eventsUrl={props.eventsUrl}
+      />
       {/* </Grid.Column> */}
 
       {/* <EventCalender eventsUrl={props.eventsUrl} /> */}

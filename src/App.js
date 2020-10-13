@@ -114,11 +114,13 @@ const App = () => {
             />
           )}
         />
-        <Route
+        {/* <Route
           exact
           path="/calendar"
-          render={(routerProps) => <EventCalender {...routerProps} />}
-        />
+          render={(routerProps) => (
+            <EventCalender {...routerProps} allEvents={allEvents} />
+          )}
+        /> */}
         <Route
           exact
           path="/main"
@@ -155,6 +157,7 @@ const App = () => {
             <LogIn
               {...routerProps}
               logInUrl={logInUrl}
+              setCurrentMember={setCurrentMember}
               // status={status}
               // logged_in={logged_in}
             />

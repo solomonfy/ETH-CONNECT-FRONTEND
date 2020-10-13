@@ -6,6 +6,7 @@ import "../CSS/Login.css";
 
 const LogIn = (props) => {
   const [loggedInMember, setLoggedInMember] = useState({});
+  const [state, setState] = useState(false);
 
   let handleLogin = (e) => {
     let configObj = {
@@ -24,9 +25,9 @@ const LogIn = (props) => {
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
+        props.setCurrentMember(member);
         localStorage.token = member.token;
         localStorage.id = member.id;
-        setLoggedInMember(member);
         props.history.push("/main");
 
         // props.status();
@@ -36,6 +37,10 @@ const LogIn = (props) => {
     e.preventDefault();
     e.target.reset();
   };
+
+  setTimeout(() => {
+    setState(true);
+  }, 5);
 
   // let loggedIn = () => {
   // console.log(localStorage.token);
