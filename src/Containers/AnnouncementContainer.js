@@ -16,15 +16,8 @@ const AnnouncementContainer = (props) => {
 
   return (
     <div>
-      <List divided relaxed>
-        <List.Item>
-          <List.Icon name="thumbtack" size="large" verticalAlign="middle" />
-          <List.Content>
-            <List.Header as="a"> {announcement}</List.Header>
-            <List.Description as="a"></List.Description>
-          </List.Content>
-        </List.Item>
-      </List>
+      <h2>Announcements</h2>
+      {announcement}
     </div>
   );
 };

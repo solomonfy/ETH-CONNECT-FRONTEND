@@ -10,11 +10,11 @@ const EventCard = (props) => {
     <div>
       {/* <Card.Group itemsPerRow={2}> */}
       <Card color="green">
-        <Image
+        {/* <Image
           src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
           wrapped
           ui={false}
-        />
+        /> */}
         <Card.Content>
           <Card.Header>{name}</Card.Header>
           <Card.Meta>
@@ -23,7 +23,7 @@ const EventCard = (props) => {
         </Card.Content>
         <Card.Content extra>
           <Icon name="user" />
-          {" " + first_name + " " + last_name}
+          {" " + host.first_name + " " + host.last_name}
         </Card.Content>
 
         <div>
@@ -44,7 +44,7 @@ const EventCard = (props) => {
                 <Header>
                   Host:
                   {/* {" " + host.first_name + " " + host.last_name} */}
-                  {" " + first_name + " " + last_name}
+                  {" " + host.first_name + " " + host.last_name}
                 </Header>
                 <p>
                   <strong>Description:</strong> {description}
