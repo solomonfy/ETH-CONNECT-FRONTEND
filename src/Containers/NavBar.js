@@ -33,9 +33,9 @@ const NavBar = (props) => {
     <div>
       <div className="navbar">
         <DropDown member={member} logOut={logOut} />
-        <Link to="/main">
+        {/* <Link to="/main">
           <span style={navStyle}>Events</span>
-        </Link>
+        </Link> */}
         <nav>
           <div className="nav-links">
             <Link style={navStyle} to="/photo-gallery">
@@ -81,9 +81,7 @@ const NavBar = (props) => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <div>
-          <Country />
-        </div>
+        <div>{/* <Country /> */}</div>
       </div>
     </div>
   );

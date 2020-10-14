@@ -5,18 +5,21 @@ import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
 import MainContainer from "./Containers/MainContainer";
 import SignUp from "./Components/SignUp";
+import SideNavBar from "./Components/SideNavBar";
 import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
 import InvitationContainer from "./Containers/InvitationContainer";
+// import SideBar from "./Components/SideBar";
 // import EventCalender from "./Containers/EventCalender";
 
-let baseUrl = "http://localhost:3000/";
-let membersUrl = baseUrl + "members/";
-let logInUrl = baseUrl + "login/";
-let eventsUrl = baseUrl + "events/";
-let invitationsUrl = baseUrl + "invitations/";
+let BASE_URL = "http://localhost:3000/";
+let membersUrl = BASE_URL + "members/";
+let logInUrl = BASE_URL + "login/";
+let eventsUrl = BASE_URL + "events/";
+let invitationsUrl = BASE_URL + "invitations/";
+let announcementsUrl = BASE_URL + "announcements/";
 
 const App = () => {
   // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
@@ -28,6 +31,7 @@ const App = () => {
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
   const [allEvents, setEvents] = useState([]);
+  const [allAnnouncements, setAnnouncements] = useState([]);
   // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
@@ -49,9 +53,23 @@ const App = () => {
       .then((resp) => resp.json())
       .then((allMembers) => setAllMembers(() => allMembers));
 
-    fetch(eventsUrl)
+    fetch(eventsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
       .then((resp) => resp.json())
       .then((eventsArray) => setEvents(eventsArray));
+
+    fetch(announcementsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => setAnnouncements(data));
   }, []);
 
   const deleteEvent = (foundEvent) => {
@@ -63,7 +81,7 @@ const App = () => {
     }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
   };
 
-  // console.log(allEvents)
+  // console.log(currentMember.announcements);
 
   return (
     <div className="App">
@@ -75,6 +93,8 @@ const App = () => {
             // status={status}
             // logged_in={logged_in}
           />
+          {/* <SideBar/> */}
+          <SideNavBar />
         </>
       ) : null}
       <Switch>
@@ -108,11 +128,6 @@ const App = () => {
             />
           )}
         />
-        {/* <Route
-          exact
-          path="/invitations"
-          render={(routerProps) => <InvitationCard {...routerProps} />}
-        /> */}
         <Route
           exact
           path="/invitations"
@@ -137,6 +152,7 @@ const App = () => {
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
               allEvents={allEvents}
+              allAnnouncements={allAnnouncements}
               setEvents={setEvents}
               deleteEvent={deleteEvent}
               // status={status}
@@ -175,7 +191,7 @@ const App = () => {
           exact
           path="/signup"
           render={(routerProps) => (
-            <SignUp {...routerProps} baseUrl={baseUrl} />
+            <SignUp {...routerProps} BASE_URL={BASE_URL} />
           )}
         />
       </Switch>

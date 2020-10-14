@@ -15,7 +15,10 @@ const MainContainer = (props) => {
       {/* <Grid container columns={2}> */}
       {/* <Grid.Column> */}
       {/* {props.logged_in} */}
-      {/* <AnnouncementContainer /> */}
+      <AnnouncementContainer
+        currentMember={props.currentMember}
+        allAnnouncements={props.allAnnouncements}
+      />
       <EventContainer
         eventsUrl={props.eventsUrl}
         currentMember={props.currentMember}
