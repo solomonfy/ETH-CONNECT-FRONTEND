@@ -4,7 +4,7 @@ import { Grid, Container, Divider, List } from "semantic-ui-react";
 
 const AnnouncementContainer = (props) => {
   // console.log(props.currentMember);
-  console.log(props.allAnnouncements);
+  // console.log(props.allAnnouncements);
 
   const announcement = props.allAnnouncements.map((anAnnouncement) => (
     <Announcement

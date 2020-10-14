@@ -13,7 +13,7 @@ import AnnouncementForm from "./Components/Forms/AnnouncementForm";
 import Accounts from "./Components/Accounts";
 import InvitationContainer from "./Containers/InvitationContainer";
 // import SideBar from "./Components/SideBar";
-// import EventCalender from "./Containers/EventCalender";
+import EventCalender from "./Containers/EventCalender";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -99,6 +99,7 @@ const App = () => {
         </>
       ) : null}
       <Switch>
+        <Route exact path="/calendar" component={EventCalender} />
         <Route
           exact
           path="/new_event"

@@ -35,7 +35,12 @@ const MainContainer = (props) => {
       </Grid.Row>
       {/* </Grid.Column> */}
 
-      {/* <EventCalender eventsUrl={props.eventsUrl} /> */}
+      <EventCalender
+        eventsUrl={props.eventsUrl}
+        currentMember={props.currentMember}
+        allEvents={props.allEvents}
+        deleteEvent={props.deleteEvent}
+      />
       {/* <Grid.Column>
           <Sticky>
           </Sticky>
