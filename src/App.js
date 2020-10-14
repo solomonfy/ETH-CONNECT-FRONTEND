@@ -9,6 +9,7 @@ import SideNavBar from "./Components/SideNavBar";
 import NavBar from "./Containers/NavBar";
 import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
+import AnnouncementForm from "./Components/Forms/AnnouncementForm";
 import Accounts from "./Components/Accounts";
 import InvitationContainer from "./Containers/InvitationContainer";
 // import SideBar from "./Components/SideBar";
@@ -123,6 +124,22 @@ const App = () => {
               allEvents={allEvents}
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
+
+              // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/new_announcement"
+          render={(routerProps) => (
+            <AnnouncementForm
+              {...routerProps}
+              // allMembers={allMembers}
+              currentMember={currentMember}
+              allAnnouncements={allAnnouncements}
+              announcementsUrl={announcementsUrl}
+              setAnnouncements={setAnnouncements}
 
               // status={status} logged_in={logged_in}
             />

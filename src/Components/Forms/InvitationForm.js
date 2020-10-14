@@ -7,6 +7,8 @@ class InvitationForm extends React.Component {
   state = {
     attendee_id: "",
     event_id: "",
+    invitation: {},
+    allInvitations: [],
   };
 
   handleAttendeeChange = (event, data) => {
@@ -50,22 +52,22 @@ class InvitationForm extends React.Component {
     };
     fetch(this.props.invitationsUrl, configObj)
       .then((res) => res.json())
-      .then((newInvitation) => console.log(newInvitation));
+      // .then((newInvitation) => console.log(newInvitation));
+      .then((newInvitation) =>
+        this.setState({
+          allInvitations: [...this.state.allInvitations, newInvitation],
+        })
+      );
     this.props.history.push("/main");
-
     e.target.reset();
   };
 
   render() {
-    console.log();
-
     let allMembers = this.props.allMembers;
     let allEvents = this.props.allEvents;
     return (
       <div className="invitation-form">
         <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
-          {/* <Form.Input
-          > */}
           <Dropdown
             onChange={this.handleAttendeeChange}
             label="Attendee"
@@ -90,7 +92,8 @@ class InvitationForm extends React.Component {
                   })
             }
           />
-          {/* </Form.Input> */}
+          <br />
+          <br />
           <Dropdown
             onChange={this.handleEventChange}
             label="Event"
@@ -114,6 +117,8 @@ class InvitationForm extends React.Component {
                   })
             }
           />
+          <br />
+          <br />
 
           <Form.Button>Submit</Form.Button>
         </Form>

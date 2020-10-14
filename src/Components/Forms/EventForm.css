@@ -10,8 +10,10 @@
   font-size: calc(10px + 2vmin);
   background-color: lightgray;
 }
-.invitation-form {
+.invitation-form, .ann-form {
   padding-top: 200px;
+  padding-left: 500px;
+  padding-right: 500px;
   min-height: 50vh;
  
   text-emphasis-color: black;

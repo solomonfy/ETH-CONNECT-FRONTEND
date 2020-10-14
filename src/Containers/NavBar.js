@@ -70,7 +70,7 @@ const NavBar = (props) => {
                     text="Add announcement"
                     icon="bullhorn"
                     as={Link}
-                    to="/new_invitation"
+                    to="/new_announcement"
                   />
                 </>
               ) : (
