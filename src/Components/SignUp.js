@@ -38,101 +38,101 @@ class SignUp extends React.Component {
       .then((resp) => resp.json())
       .then((data) => console.log(data));
     e.target.reset();
-    this.props.history.push("/main");
+    this.props.history.push("/login");
   };
 
   render() {
     return (
       <div className="sign-up-form">
         <Segment placeholder>
-        <br />
-        <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
-          <Grid columns="equal">
-            <Grid.Column width={8}>
-              <Form.Input
-                icon="user"
-                iconPosition="left"
-                label="First Name"
-                name="first_name"
-                placeholder="First name"
-                onChange={this.handleChange}
-              />
-              <Form.Input
-                icon="user"
-                iconPosition="left"
-                label="Last Name"
-                name="last_name"
-                placeholder="Last name"
-                onChange={this.handleChange}
-              />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <Form.Input
-                icon="internet explorer"
-                iconPosition="left"
-                label="E-mail"
-                name="email"
-                type="email"
-                placeholder="email"
-                onChange={this.handleChange}
-              />
-              <Form.Input
-                icon="user"
-                iconPosition="left"
-                label="Username"
-                name="username"
-                placeholder="Username"
-                onChange={this.handleChange}
-              />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <Form.Input
-                icon="user"
-                iconPosition="left"
-                label="Address"
-                name="address"
-                placeholder="address"
-                onChange={this.handleChange}
-              />
+          <br />
+          <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
+            <Grid columns="equal">
+              <Grid.Column width={8}>
+                <Form.Input
+                  icon="user"
+                  iconPosition="left"
+                  label="First Name"
+                  name="first_name"
+                  placeholder="First name"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  icon="user"
+                  iconPosition="left"
+                  label="Last Name"
+                  name="last_name"
+                  placeholder="Last name"
+                  onChange={this.handleChange}
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Form.Input
+                  icon="internet explorer"
+                  iconPosition="left"
+                  label="E-mail"
+                  name="email"
+                  type="email"
+                  placeholder="email"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  icon="user"
+                  iconPosition="left"
+                  label="Username"
+                  name="username"
+                  placeholder="Username"
+                  onChange={this.handleChange}
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Form.Input
+                  icon="user"
+                  iconPosition="left"
+                  label="Address"
+                  name="address"
+                  placeholder="address"
+                  onChange={this.handleChange}
+                />
 
-              <Form.Input
-                icon="user circle"
-                iconPosition="left"
-                label="Family size"
-                name="family_size"
-                type="number"
-                placeholder="family size"
-                onChange={this.handleChange}
-              />
-            </Grid.Column>
-            <Grid.Column width={8}>
-              <Form.Input
-                icon="lock"
-                iconPosition="left"
-                label="Password"
-                name="password"
-                type="password"
-                placeholder="password"
-                onChange={this.handleChange}
-              />
-              <Form.Input
-                icon="user circle"
-                iconPosition="left"
-                label="Profile picture"
-                name="image"
-                placeholder="Image url.."
-                onChange={this.handleChange}
-              />
-            </Grid.Column>
-            <Button content="Sign up" primary />
+                <Form.Input
+                  icon="user circle"
+                  iconPosition="left"
+                  label="Family size"
+                  name="family_size"
+                  type="number"
+                  placeholder="family size"
+                  onChange={this.handleChange}
+                />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Form.Input
+                  icon="lock"
+                  iconPosition="left"
+                  label="Password"
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  icon="user circle"
+                  iconPosition="left"
+                  label="Profile picture"
+                  name="image"
+                  placeholder="Image url.."
+                  onChange={this.handleChange}
+                />
+              </Grid.Column>
+              <Button content="Sign up" primary center/>
 
-            <Grid.Column verticalAlign="middle"></Grid.Column>
-            <Link to="/login">
-              <Button content="Back" />
-            </Link>
-          </Grid>
-          <Divider vertical></Divider>
-        </Form>
+              <Grid.Column verticalAlign="middle"></Grid.Column>
+              <Link to="/login">
+                <Button content="Back" />
+              </Link>
+            </Grid>
+            <Divider vertical></Divider>
+          </Form>
         </Segment>
       </div>
     );

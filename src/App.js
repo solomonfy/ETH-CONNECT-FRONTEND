@@ -10,7 +10,7 @@ import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import Accounts from "./Components/Accounts";
 import InvitationContainer from "./Containers/InvitationContainer";
-import EventCalender from "./Containers/EventCalender";
+// import EventCalender from "./Containers/EventCalender";
 
 let baseUrl = "http://localhost:3000/";
 let membersUrl = baseUrl + "members/";
@@ -19,7 +19,7 @@ let eventsUrl = baseUrl + "events/";
 let invitationsUrl = baseUrl + "invitations/";
 
 const App = () => {
-  const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
+  // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
 
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);

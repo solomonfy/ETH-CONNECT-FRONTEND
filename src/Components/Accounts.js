@@ -8,9 +8,9 @@ const Accounts = (props) => {
     first_name,
     last_name,
     address,
-    email,
+    // email,
     username,
-    family_size,
+    // family_size,
     image,
   } = props.currentMember;
   // console.log(props.currentMember);

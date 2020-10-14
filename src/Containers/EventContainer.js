@@ -5,6 +5,7 @@ import { Grid } from "semantic-ui-react";
 const EventContainer = (props) => {
   return (
     <div>
+      <h1>All Community Events</h1>
       <Grid celled="internally">
         <Grid.Row>
           {!props.allEvents

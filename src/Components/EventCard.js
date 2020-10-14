@@ -57,13 +57,18 @@ const EventCard = (props) => {
             </Modal.Content>
             <Modal.Actions>
               {host.id === props.currentMember.id ? (
-                <Button
-                  // negative onClick={() => setOpen(false)}
-                  negative
-                  onClick={() => props.deleteEvent(props.anEvent)}
-                >
-                  Delete Event
-                </Button>
+                <>
+                  <Button primary onClick={null}>
+                    Edit Event
+                  </Button>
+                  <Button
+                    // negative onClick={() => setOpen(false)}
+                    negative
+                    onClick={() => props.deleteEvent(props.anEvent)}
+                  >
+                    Delete Event
+                  </Button>
+                </>
               ) : (
                 <Button
                   content="Yep"
