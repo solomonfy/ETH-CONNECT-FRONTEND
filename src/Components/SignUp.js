@@ -5,6 +5,9 @@ import "../CSS/Signup.css";
 import { Form, Divider, Grid, Button, Segment } from "semantic-ui-react";
 
 class SignUp extends React.Component {
+  state = {
+    signUpError: "",
+  };
   handleChange = (e) => {
     // debugger;
     this.setState({
@@ -36,7 +39,17 @@ class SignUp extends React.Component {
 
     fetch(membersUrl, configObj)
       .then((resp) => resp.json())
-      .then((data) => console.log(data));
+      .then((newMembar) => {
+        if (!newMembar.error) {
+          // console.log(newMembar)
+          // localStorage.token = newMembar.token;
+          // localStorage.id = newMembar.id;
+          alert("Account created");
+        } else {
+          this.setState({ signUpError: newMembar.error });
+          alert(newMembar.error);
+        }
+      });
     e.target.reset();
     this.props.history.push("/login");
   };
@@ -124,7 +137,7 @@ class SignUp extends React.Component {
                   onChange={this.handleChange}
                 />
               </Grid.Column>
-              <Button content="Sign up" primary center/>
+              <Button content="Sign up" primary center />
 
               <Grid.Column verticalAlign="middle"></Grid.Column>
               <Link to="/login">

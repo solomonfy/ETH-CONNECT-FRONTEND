@@ -8,6 +8,7 @@ const LogIn = (props) => {
   // const [loggedInMember, setLoggedInMember] = useState({});
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setLoginSignupError] = useState("");
 
   let handleLogin = (e) => {
     let configObj = {
@@ -26,14 +27,21 @@ const LogIn = (props) => {
     fetch(props.logInUrl, configObj)
       .then((resp) => resp.json())
       .then((member) => {
-        props.setCurrentMember(member);
-        localStorage.token = member.token;
-        localStorage.id = member.id;
-        props.history.push("/main");
+        if (!member.error) {
+          props.setCurrentMember(member);
+          localStorage.token = member.token;
+          localStorage.id = member.id;
+          props.history.push("/main");
 
-        // props.status();
-        // console.log(member);
-      });
+          // props.status();
+          // console.log(member);
+        } else {
+          setLoginSignupError(member.error);
+          alert(member.error);
+          // console.log("check login error", member.error);
+        }
+      })
+      .catch((error) => {});
 
     e.preventDefault();
     e.target.reset();
