@@ -82,6 +82,12 @@ const NavBar = (props) => {
           </Dropdown>
         </div>
         <div>{/* <Country /> */}</div>
+        <input
+          placeholder="search event"
+          type="text"
+          id="search"
+          name="search"
+        />
       </div>
     </div>
   );

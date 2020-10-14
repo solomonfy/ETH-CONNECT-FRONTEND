@@ -4,7 +4,7 @@ import AnnouncementContainer from "./AnnouncementContainer";
 import EventCalender from "./EventCalender";
 import EventContainer from "./EventContainer";
 
-// import { Grid, Sticky, Image } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import InvitationContainer from "./InvitationContainer";
 
 const MainContainer = (props) => {
@@ -12,19 +12,27 @@ const MainContainer = (props) => {
 
   return (
     <div className="main-container">
+      <Grid celled="internally"></Grid>
       {/* <Grid container columns={2}> */}
       {/* <Grid.Column> */}
       {/* {props.logged_in} */}
-      <AnnouncementContainer
-        currentMember={props.currentMember}
-        allAnnouncements={props.allAnnouncements}
-      />
-      <EventContainer
-        eventsUrl={props.eventsUrl}
-        currentMember={props.currentMember}
-        allEvents={props.allEvents}
-        deleteEvent={props.deleteEvent}
-      />
+      <Grid.Row>
+        <EventContainer
+          eventsUrl={props.eventsUrl}
+          currentMember={props.currentMember}
+          allEvents={props.allEvents}
+          deleteEvent={props.deleteEvent}
+        />
+      </Grid.Row>
+      <br />
+      <br />
+      <br />
+      <Grid.Row>
+        <AnnouncementContainer
+          currentMember={props.currentMember}
+          allAnnouncements={props.allAnnouncements}
+        />
+      </Grid.Row>
       {/* </Grid.Column> */}
 
       {/* <EventCalender eventsUrl={props.eventsUrl} /> */}
