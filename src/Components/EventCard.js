@@ -4,6 +4,7 @@ import { Card, Icon, Image, Modal, Button, Header } from "semantic-ui-react";
 
 const EventCard = (props) => {
   const { name, description, location, date, event_type, host } = props.anEvent;
+  const { first_name, last_name } = props.currentMember;
   const [open, setOpen] = React.useState(false);
   return (
     <div>
@@ -22,7 +23,7 @@ const EventCard = (props) => {
         </Card.Content>
         <Card.Content extra>
           <Icon name="user" />
-          {" " + host.first_name + " " + host.last_name}
+          {" " + first_name + " " + last_name}
         </Card.Content>
 
         <div>
@@ -42,7 +43,8 @@ const EventCard = (props) => {
               <Modal.Description>
                 <Header>
                   Host:
-                  {" " + host.first_name + " " + host.last_name}
+                  {/* {" " + host.first_name + " " + host.last_name} */}
+                  {" " + first_name + " " + last_name}
                 </Header>
                 <p>
                   <strong>Description:</strong> {description}
