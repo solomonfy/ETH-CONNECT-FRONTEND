@@ -25,6 +25,8 @@ const MainContainer = (props) => {
           deleteEvent={props.deleteEvent}
           addReviewToEvent={props.addReviewToEvent}
           reviewsUrl={props.reviewsUrl}
+          allReviews={props.allReviews}
+          setReviews={props.setReviews}
         />
       </Grid.Row>
       <br />

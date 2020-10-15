@@ -25,16 +25,13 @@ const EventCard = (props) => {
 
   // compare event date with todays date
 
-  const aReview = reviews.map((rv) => <li>rv.description</li>);
-
   const [showResults, setShowResults] = React.useState(false);
   const onClick = () => setShowResults(true);
 
-  // console.log(reviews);
-  // const { first_name, last_name } = props.currentMember;
   const [open, setOpen] = React.useState(false);
   return (
     <div>
+      {/* {host ? ( */}
       <Card color="green">
         {/* <Image
           src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
@@ -49,7 +46,12 @@ const EventCard = (props) => {
         </Card.Content>
         <Card.Content extra>
           <Icon name="user" />
-          {" " + host.first_name + " " + host.last_name}
+          {props.anEvent.host
+            ? " " +
+              props.anEvent.host.first_name +
+              " " +
+              props.anEvent.host.last_name
+            : null}
         </Card.Content>
 
         <div>
@@ -69,8 +71,9 @@ const EventCard = (props) => {
               <Modal.Description>
                 <Header>
                   Host:
-                  {/* {" " + host.first_name + " " + host.last_name} */}
-                  {" " + host.first_name + " " + host.last_name}
+                  {props.anEvent.host
+                    ? " " + host.first_name + " " + host.last_name
+                    : null}
                 </Header>
                 <p>
                   <strong>Description:</strong> {description}
@@ -81,14 +84,14 @@ const EventCard = (props) => {
                 <p>
                   <strong>Location:</strong> {location}
                 </p>
-                {reviews.length > 0 ? <strong>Reviews:</strong> : null}
-                {reviews.length > 0
+                {/* {reviews.length > 0 ? <strong>Reviews:</strong> : null} */}
+                {reviews
                   ? reviews.map((rv) => <li>{rv.description}</li>)
                   : null}
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
-              {host.id === props.currentMember.id ? (
+              {props.anEvent.host && host.id === props.currentMember.id ? (
                 <>
                   <Button primary onClick={null}>
                     Edit Event
@@ -122,6 +125,8 @@ const EventCard = (props) => {
                         addReviewToEvent={props.addReviewToEvent}
                         reviewsUrl={props.reviewsUrl}
                         event_id={id}
+                        setReviews={props.setReviews}
+                        allReviews={props.allReviews}
                       />
                     ) : null}
                   </div>
@@ -133,6 +138,7 @@ const EventCard = (props) => {
           <br />
         </div>
       </Card>
+      {/* ) : null} */}
     </div>
   );
 };

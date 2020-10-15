@@ -198,11 +198,13 @@ const App = () => {
               logInUrl={logInUrl}
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
+              reviewsUrl={reviewsUrl}
               allEvents={allEvents}
               allAnnouncements={allAnnouncements}
+              allReviews={allReviews}
+              setReviews={setReviews}
               setEvents={setEvents}
               deleteEvent={deleteEvent}
-              reviewsUrl={reviewsUrl}
 
               // status={status}
               // logged_in={logged_in}

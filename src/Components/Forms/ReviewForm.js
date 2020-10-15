@@ -23,15 +23,18 @@ const ReviewForm = (props) => {
         },
       }),
     };
-    fetch(props.reviewsUrl, configObj).then((res) => res.json())
+    fetch(props.reviewsUrl, configObj)
+      .then((res) => res.json())
       .then((data) => {
-        // props.setAnnouncements([...props.allAnnouncements, data]);
-        console.log(data);
+        props.setReviews([...props.allReviews, data]);
+        // console.log(data);
         // props.history.push("/main");
       });
-    // e.preventDefault();
-    // e.target.reset();
+    e.preventDefault();
+    e.target.reset();
   };
+
+  console.log(props.allReviews)
 
   return (
     <div className="ann-form">
@@ -42,18 +45,10 @@ const ReviewForm = (props) => {
               label="Description"
               placeholder="description"
               name="description"
-              // onChange={(e) =>
-              //   setDescription(e.target.value, (ev_id) => props.event_id)
-              // }
+              onChange={(e) =>
+                setDescription(e.target.value, (ev_id) => props.event_id)
+              }
             />
-            {/* <Input
-              type="hidden"
-              name="action"
-              value="login"
-              ref={(input) => {
-                props.actionInput = props.event_id;
-              }}
-            /> */}
 
             <Form.Button>Submit</Form.Button>
           </Grid.Column>

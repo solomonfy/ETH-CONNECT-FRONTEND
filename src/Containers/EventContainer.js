@@ -71,6 +71,8 @@ const EventContainer = (props) => {
                     deleteEvent={props.deleteEvent}
                     addReviewToEvent={props.addReviewToEvent}
                     reviewsUrl={props.reviewsUrl}
+                    setReviews={props.setReviews}
+                    allReviews={props.allReviews}
                   />
                 </Grid.Column>
               ))}
