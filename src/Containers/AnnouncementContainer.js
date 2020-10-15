@@ -10,8 +10,8 @@ const AnnouncementContainer = (props) => {
     <Announcement
       anAnnouncement={anAnnouncement}
       key={anAnnouncement.id}
-      // name={anAnnouncement.member.first_name}
-      />
+      currentMember={props.currentMember}
+    />
   ));
 
   return (
