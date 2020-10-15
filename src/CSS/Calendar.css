@@ -1,8 +1,8 @@
 .event_calendar {
   /* background-color: #5a978d; */
   padding-top: 150px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 150px;
+  padding-left: 150px;
+  /* padding-right: 50px; */
+  padding-bottom: 200px;
   font-size: calc(1px + 2vmin);
 }

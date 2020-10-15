@@ -5,6 +5,7 @@ import EventCalender from "./EventCalender";
 import EventContainer from "./EventContainer";
 
 import { Grid } from "semantic-ui-react";
+import { Card } from "react-bootstrap";
 import InvitationContainer from "./InvitationContainer";
 
 const MainContainer = (props) => {
@@ -22,6 +23,7 @@ const MainContainer = (props) => {
           currentMember={props.currentMember}
           allEvents={props.allEvents}
           deleteEvent={props.deleteEvent}
+          addReviewToEvent={props.addReviewToEvent}
         />
       </Grid.Row>
       <br />
@@ -35,12 +37,12 @@ const MainContainer = (props) => {
       </Grid.Row>
       {/* </Grid.Column> */}
 
-      <EventCalender
+      {/* <EventCalender
         eventsUrl={props.eventsUrl}
         currentMember={props.currentMember}
         allEvents={props.allEvents}
         deleteEvent={props.deleteEvent}
-      />
+      /> */}
       {/* <Grid.Column>
           <Sticky>
           </Sticky>
@@ -72,6 +74,7 @@ const MainContainer = (props) => {
           </Grid.Column>
         </Grid.Row>
       </Grid> */}
+      {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
     </div>
   );
 };

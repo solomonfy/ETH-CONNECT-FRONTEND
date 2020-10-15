@@ -1,6 +1,13 @@
 import React from "react";
 import MovingText from "react-moving-text";
-import { Grid, Container, Divider, List } from "semantic-ui-react";
+import {
+  Grid,
+  Container,
+  Divider,
+  Card,
+  List,
+  Button,
+} from "semantic-ui-react";
 // import { Card } from "react-bootstrap";
 
 const Announcement = (props) => {
@@ -20,19 +27,25 @@ const Announcement = (props) => {
     //   <br />
     // </MovingText>
     <div>
-      {/* <Card body> */}
-      <List divided relaxed>
-        <List.Item>
-          <List.Icon name="" size="large" verticalAlign="middle" />
-          <List.Content>
-            <List.Header as="a"> {description}</List.Header>
-            <span>{member.first_name}</span>
-            {/* <span>{created_at}</span> */}
-            <List.Description as="a"></List.Description>
-          </List.Content>
-        </List.Item>
-      </List>
-      {/* </Card> */}
+      <Card body>
+        <br />
+        <List divided relaxed>
+          <List.Item>
+            <List.Icon name="" size="large" verticalAlign="middle" />
+            <List.Content>
+              <List.Header as="a"> {description}</List.Header>
+              <span>{member.first_name}</span>
+              {/* {created_at} */}
+              <List.Description as="a"></List.Description>
+            </List.Content>
+          </List.Item>
+        </List>
+        <Button.Group>
+          <Button>Delete</Button>
+          <Button>Edit</Button>
+        </Button.Group>
+      </Card>
+      <br />
       <br />
     </div>
   );
