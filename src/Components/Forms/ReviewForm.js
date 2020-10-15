@@ -9,45 +9,42 @@ const ReviewForm = (props) => {
   // console.log(props.event_id);
   let handleSubmit = (e) => {
     // debugger;
-    // let configObj = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //     Authorization: `Bearer ${localStorage.token}`,
-    //   },
-    //   body: JSON.stringify({
-    //     announcement: {
-    //       description: e.target.description.value,
-    //     },
-    //   }),
-    // };
-    // fetch(props.reviewsUrl, configObj)
-    //   .then((res) => res.json())
-    //   .then((newAnn) => {
-    //     props.setAnnouncements([...props.allAnnouncements, newAnn]);
-    //     // console.log(newAnn);
-    //     props.history.push("/main");
-    //   });
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        announcement: {
+          description: e.target.description.value,
+          event_id: props.event_id,
+        },
+      }),
+    };
+    fetch(props.reviewsUrl, configObj).then((res) => res.json())
+      .then((data) => {
+        // props.setAnnouncements([...props.allAnnouncements, data]);
+        console.log(data);
+        // props.history.push("/main");
+      });
     // e.preventDefault();
     // e.target.reset();
   };
 
   return (
     <div className="ann-form">
-      <Form
-        size={"large"}
-        onSubmit={(e) =>
-          props.addReviewToEvent(e.target[0].value)
-        }
-      >
+      <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
         <Grid columns="equal">
           <Grid.Column width={16}>
             <Form.TextArea
               label="Description"
               placeholder="description"
               name="description"
-              onChange={(e) => setDescription(e.target.value, ev_id => props.event_id)}
+              // onChange={(e) =>
+              //   setDescription(e.target.value, (ev_id) => props.event_id)
+              // }
             />
             {/* <Input
               type="hidden"

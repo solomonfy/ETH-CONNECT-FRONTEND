@@ -87,26 +87,6 @@ const App = () => {
     }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
   };
 
-  const addReviewToEvent = (description, ev) => {
-    console.log(description);
-    console.log(ev);
-    // console.log(event_id);
-
-    // let configObj = {
-    //   method: "POST",
-    //   headers: {
-    //     Authorization: `Bearer ${localStorage.token}`,
-    //   },
-    //   body: JSON.stringify({
-    //     review: {
-    //       event_id: id,
-    //       description: "",
-    //     },
-    //   }),
-    // };
-    // fetch(reviewsUrl, configObj);
-  };
-
   // console.log(currentMember.announcements);
 
   return (
@@ -158,7 +138,7 @@ const App = () => {
             <ReviewForm
             // {...routerProps}
             // reviewsUrl={reviewsUrl}
-            // addReviewToEvent={addReviewToEvent}
+
             // // status={status} logged_in={logged_in}
             />
           )}
@@ -223,7 +203,7 @@ const App = () => {
               setEvents={setEvents}
               deleteEvent={deleteEvent}
               reviewsUrl={reviewsUrl}
-              addReviewToEvent={addReviewToEvent}
+
               // status={status}
               // logged_in={logged_in}
             />
