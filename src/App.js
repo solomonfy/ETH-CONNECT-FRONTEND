@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
 import SignUp from "./Components/SignUp";
+import EditAccount from "./Components/EditAccount";
 import Accounts from "./Components/Accounts";
 
 import InvitationContainer from "./Containers/InvitationContainer";
@@ -94,6 +95,20 @@ const App = () => {
         Authorization: `Bearer ${localStorage.token}`,
       },
     }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
+  };
+
+  const deleteAnnouncement = (selectedId) => {
+    // console.log(selectedId);
+    fetch(announcementsUrl + `${selectedId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    }).then(
+      setAnnouncements(
+        allAnnouncements.filter((announc) => announc.id !== selectedId)
+      )
+    );
   };
 
   // console.log(currentMember.announcements);
@@ -210,6 +225,7 @@ const App = () => {
               reviewsUrl={reviewsUrl}
               allEvents={allEvents}
               allAnnouncements={allAnnouncements}
+              deleteAnnouncement={deleteAnnouncement}
               allReviews={allReviews}
               setReviews={setReviews}
               setEvents={setEvents}
@@ -251,7 +267,7 @@ const App = () => {
           exact
           path="/signup"
           render={(routerProps) => (
-            <SignUp {...routerProps} BASE_URL={BASE_URL} />
+            <SignUp {...routerProps} membersUrl={membersUrl} />
           )}
         />
       </Switch>

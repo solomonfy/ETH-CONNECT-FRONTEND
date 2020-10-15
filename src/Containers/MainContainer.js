@@ -36,6 +36,7 @@ const MainContainer = (props) => {
         <AnnouncementContainer
           currentMember={props.currentMember}
           allAnnouncements={props.allAnnouncements}
+          deleteAnnouncement={props.deleteAnnouncement}
         />
       </Grid.Row>
       {/* </Grid.Column> */}

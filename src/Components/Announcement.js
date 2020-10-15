@@ -1,31 +1,11 @@
 import React from "react";
-import MovingText from "react-moving-text";
-import {
-  Grid,
-  Container,
-  Divider,
-  Card,
-  List,
-  Button,
-} from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 // import { Card } from "react-bootstrap";
 
 const Announcement = (props) => {
-  const { description, created_at, member } = props.anAnnouncement;
+  const { description, created_at, member, id } = props.anAnnouncement;
 
   return (
-    // <MovingText
-    //   type="animation_type"
-    //   duration="1000ms"
-    //   delay="0s"
-    //   direction="normal"
-    //   timing="ease"
-    //   iteration="infinite"
-    //   fillMode="none"
-    // >
-    //   <h2>{description}</h2>
-    //   <br />
-    // </MovingText>
     <div>
       <li>
         <h3>{description}</h3>
@@ -36,16 +16,22 @@ const Announcement = (props) => {
       {/* {created_at} */}
       {member.id === props.currentMember.id ? (
         <span>
-          <Button.Group>
-            <Button>Delete</Button>
-            <Button>Edit</Button>
-          </Button.Group>
+          <Button
+            basic
+            color="red"
+            onClick={() => props.deleteAnnouncement(id)}
+          >
+            <Icon name="remove" />
+          </Button>
+          <Button color="green" inverted onClick={null}>
+            <Icon name="edit" />
+          </Button>
         </span>
       ) : (
         <span>
-          <Button.Group>
-            <Button>Like</Button>
-          </Button.Group>
+          <Button color="green" inverted onClick={null}>
+            <Icon name="heart" />
+          </Button>
         </span>
       )}
 

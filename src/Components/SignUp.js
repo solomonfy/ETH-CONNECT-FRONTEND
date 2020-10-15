@@ -35,7 +35,7 @@ class SignUp extends React.Component {
         },
       }),
     };
-    let membersUrl = this.props.baseUrl + "members";
+    let membersUrl = this.props.membersUrl;
 
     fetch(membersUrl, configObj)
       .then((resp) => resp.json())

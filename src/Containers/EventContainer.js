@@ -63,7 +63,7 @@ const EventContainer = (props) => {
           {!props.allEvents
             ? null
             : props.allEvents.map((anEvent) => (
-                <Grid.Column width={5}>
+                <Grid.Column width={3}>
                   <EventCard
                     anEvent={anEvent}
                     key={anEvent.id}
@@ -83,3 +83,4 @@ const EventContainer = (props) => {
 };
 
 export default EventContainer;
+

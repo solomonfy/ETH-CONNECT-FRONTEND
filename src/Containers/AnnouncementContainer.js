@@ -11,6 +11,7 @@ const AnnouncementContainer = (props) => {
       anAnnouncement={anAnnouncement}
       key={anAnnouncement.id}
       currentMember={props.currentMember}
+      deleteAnnouncement={props.deleteAnnouncement}
     />
   ));
 

@@ -1,0 +1,18 @@
+.account-div {
+    /* margin-top: 45px; */
+    /* background-color: #5a978d; */
+  padding-top: 200px;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  
+  }
+  
+  .header {
+    font-weight: bold;
+    color: #f16451;
+  }
+  
