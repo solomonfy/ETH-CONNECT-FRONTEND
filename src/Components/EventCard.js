@@ -7,6 +7,8 @@ import {
   Button,
   Header,
   Input,
+  Form,
+  Grid,
 } from "semantic-ui-react";
 import ReviewForm from "./Forms/ReviewForm";
 // import { Link } from "react-router-dom";
@@ -25,8 +27,14 @@ const EventCard = (props) => {
 
   // compare event date with todays date
 
+  // const onClick = () => setshowForm(true);
+
+
+  
+
   const [showResults, setShowResults] = React.useState(false);
   const onClick = () => setShowResults(true);
+  
 
   const [open, setOpen] = React.useState(false);
   return (
@@ -111,7 +119,7 @@ const EventCard = (props) => {
                       content="Add review"
                       labelPosition="right"
                       icon="checkmark"
-                      onClick={() => props.addReviewToEvent(id)} // send the event id to add review for the event
+                      onClick={() => getForm(id)} // send the event id to add review for the event
                       positive
                     /> */}
                     <Input

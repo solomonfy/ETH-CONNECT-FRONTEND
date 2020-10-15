@@ -75,7 +75,16 @@ const App = () => {
       },
     })
       .then((resp) => resp.json())
-      .then((data) => setAnnouncements(data));
+      .then((announcementsArray) => setAnnouncements(announcementsArray));
+
+    fetch(reviewsUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((reviewsArray) => setReviews(reviewsArray));
   }, []);
 
   const deleteEvent = (foundEvent) => {

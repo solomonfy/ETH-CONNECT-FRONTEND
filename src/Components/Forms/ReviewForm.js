@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Form, Grid, Button, Icon, Input } from "semantic-ui-react";
 import "./EventForm.css";
 
@@ -28,13 +28,11 @@ const ReviewForm = (props) => {
       .then((data) => {
         props.setReviews([...props.allReviews, data]);
         // console.log(data);
-        // props.history.push("/main");
       });
-    e.preventDefault();
+      e.preventDefault();
+      props.history.push("/main");
     e.target.reset();
   };
-
-  console.log(props.allReviews)
 
   return (
     <div className="ann-form">
@@ -45,9 +43,9 @@ const ReviewForm = (props) => {
               label="Description"
               placeholder="description"
               name="description"
-              onChange={(e) =>
-                setDescription(e.target.value, (ev_id) => props.event_id)
-              }
+              // onChange={(e) =>
+              //   setDescription(e.target.value, (ev_id) => props.event_id)
+              // }
             />
 
             <Form.Button>Submit</Form.Button>
@@ -66,4 +64,4 @@ const ReviewForm = (props) => {
   );
 };
 
-export default ReviewForm;
+export default withRouter(ReviewForm);
