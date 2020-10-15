@@ -63,8 +63,12 @@ class InvitationForm extends React.Component {
   };
 
   render() {
-    let allMembers = this.props.allMembers;
-    let allEvents = this.props.allEvents;
+    let allMembers = this.props.allMembers.filter(
+      (memb) => memb.id !== this.props.currentMember.id
+    );
+    let allEvents = this.props.allEvents.filter(
+      (ev) => ev.host_id === this.props.currentMember.id
+    );
     return (
       <div className="invitation-form">
         <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
@@ -123,7 +127,7 @@ class InvitationForm extends React.Component {
           <Form.Button>Submit</Form.Button>
         </Form>
         <Link to="/main">
-          <Form.Button>Back</Form.Button>
+          <Form.Button>Cancel</Form.Button>
         </Link>
       </div>
     );
