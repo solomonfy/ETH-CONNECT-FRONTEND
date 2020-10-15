@@ -244,6 +244,7 @@ const App = () => {
               membersUrl={membersUrl}
               {...routerProps}
               currentMember={currentMember}
+              setCurrentMember={(member) => setCurrentMember(member)}
               // status={status}
               // logged_in={logged_in}
             />

@@ -165,41 +165,67 @@
 // }
 
 // export default EditAccount;
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
 // import "./EditUser.css";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { Header, Image, Modal, ButtonOr } from "semantic-ui-react";
 
 const EditAccount = (props) => {
-  const [open, setOpen] = React.useState(false);
+  let member = props.currentMember;
+
+  const [username, setUsername] = useState(member.username);
+  const [first_name, setFirstName] = useState(member.first_name);
+  const [last_name, setLastName] = useState(member.last_name);
+  const [address, setAddress] = useState(member.address);
+  const [email, setEmail] = useState(member.email);
+  const [image, setImage] = useState(member.image);
+  const [id, setId] = useState(member.id);
+  const [open, setOpen] = useState(false);
+
+  // console.log(props.currentMember.first_name);
+  useEffect(() => {
+    let member = props.currentMember;
+    setUsername(member.username);
+    setFirstName(member.first_name);
+    setLastName(member.last_name);
+    setAddress(member.address);
+    setEmail(member.email);
+    setImage(member.image);
+    setId(member.id);
+  }, []);
 
   let updateUser = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     // debugger;
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        username: username,
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        address: address,
+      }),
+    };
+    fetch(props.membersUrl + `${id}`, configObj)
+      .then((res) => res.json())
+      .then((updatedMember) => {
+        if (updatedMember.error) alert(updatedMember.error);
+        else {
+          props.setCurrentMember(updatedMember);
+          alert(updatedMember.message);
+          setOpen(false);
+          props.history.push("/account");
+        }
+      });
     e.preventDefault();
-    // let configObj = {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: `Bearer ${localStorage.token}`,
-    //   },
-    //   body: JSON.stringify({
-    //     username: props.username,
-    //     first_name: props.first_name,
-    //     last_name: props.last_name,
-    //     email: props.email,
-    //     address: props.address,
-    //   }),
-    // };
-    // fetch(props.membersUrl + `${props.id}`, configObj)
-    //   .then((res) => res.json())
-    //   .then((updatedMember) => {
-    //     if (updatedMember.error) alert(updatedMember.error);
-    //     else {
-    //       setOpen(false);
-    //       alert(updatedMember.message);
-    //     }
-    //   });
+    e.target.reset();
   };
 
   return (
@@ -218,8 +244,8 @@ const EditAccount = (props) => {
                 label="Username"
                 placeholder="Username"
                 name="username"
-                value={props.username}
-                onChange={(e) => props.setUsername(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
@@ -227,8 +253,8 @@ const EditAccount = (props) => {
                 label="First Name"
                 placeholder="First Name"
                 name="first_name"
-                value={props.first_name}
-                onChange={(e) => props.setFirstName(e.target.value)}
+                value={first_name}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
@@ -236,8 +262,8 @@ const EditAccount = (props) => {
                 label="Last Name"
                 placeholder="Last Name"
                 name="last_name"
-                value={props.last_name}
-                onChange={(e) => props.setLastName(e.target.value)}
+                value={last_name}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
@@ -245,8 +271,8 @@ const EditAccount = (props) => {
                 label="Email"
                 placeholder="Email"
                 name="email"
-                value={props.email}
-                onChange={(e) => props.setEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
@@ -254,8 +280,8 @@ const EditAccount = (props) => {
                 label="Address"
                 placeholder="Address"
                 name="address"
-                value={props.address}
-                onChange={(e) => props.setAddress(e.target.value)}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
@@ -273,4 +299,4 @@ const EditAccount = (props) => {
   );
 };
 
-export default EditAccount;
+export default withRouter(EditAccount);

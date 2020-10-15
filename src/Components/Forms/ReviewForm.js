@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Form, Grid, Button, Icon, Input } from "semantic-ui-react";
-import "./EventForm.css";
+import { Form, Grid, Button, Icon, Modal } from "semantic-ui-react";
+// import "./EventForm.css";
 
 const ReviewForm = (props) => {
   const [description, setDescription] = useState("");
+  const [open, setOpen] = React.useState(false);
 
   // console.log(props.event_id);
   let handleSubmit = (e) => {
@@ -29,37 +30,41 @@ const ReviewForm = (props) => {
         props.setReviews([...props.allReviews, data]);
         // console.log(data);
       });
-      e.preventDefault();
-      props.history.push("/main");
+    e.preventDefault();
+    props.history.push("/calendar");
     e.target.reset();
   };
 
   return (
     <div className="ann-form">
-      <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
-        <Grid columns="equal">
-          <Grid.Column width={16}>
-            <Form.TextArea
-              label="Description"
-              placeholder="description"
-              name="description"
-              // onChange={(e) =>
-              //   setDescription(e.target.value, (ev_id) => props.event_id)
-              // }
-            />
+      <Modal
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+        open={open}
+        trigger={<Button>Add Review</Button>}
+      >
+        <Modal.Header>Add Review</Modal.Header>
+        <Modal.Content>
+          <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
+            <Grid columns="equal">
+              <Grid.Column width={8}>
+                <Form.TextArea
+                  label="Description"
+                  placeholder="description"
+                  name="description"
+                />
 
-            <Form.Button>Submit</Form.Button>
-          </Grid.Column>
-        </Grid>
-      </Form>
-      <Link to="/main">
-        <Button animated primary>
-          <Button.Content visible>Back</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow left" />
-          </Button.Content>
-        </Button>
-      </Link>
+                <Form.Button>Submit</Form.Button>
+              </Grid.Column>
+            </Grid>
+          </Form>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button color="green" onClick={() => setOpen(false)}>
+            Back
+          </Button>
+        </Modal.Actions>
+      </Modal>
     </div>
   );
 };

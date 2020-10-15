@@ -5,24 +5,14 @@ import "../CSS/Account.css";
 import EditAccount from "./EditAccount";
 
 const Accounts = (props) => {
-  const [username, setUsername] = useState("");
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
-  const [address, setAddress] = useState("");
-  const [email, setEmail] = useState("");
-  const [image, setImage] = useState("");
-  const [id, setId] = useState("");
-
-  useEffect(() => {
-    let member = props.currentMember;
-    setUsername(member.username);
-    setFirstName(member.first_name);
-    setLastName(member.last_name);
-    setAddress(member.address);
-    setEmail(member.email);
-    setImage(member.image);
-    setId(member.id);
-  });
+  let member = props.currentMember;
+  const [username, setUsername] = useState(member.username);
+  const [first_name, setFirstName] = useState(member.first_name);
+  const [last_name, setLastName] = useState(member.last_name);
+  const [address, setAddress] = useState(member.address);
+  const [email, setEmail] = useState(member.email);
+  const [image, setImage] = useState(member.image);
+  const [id, setId] = useState(member.id);
 
   const deleteAccount = () => {
     fetch(props.membersUrl + `${props.currentMember.id}`, {
@@ -31,7 +21,7 @@ const Accounts = (props) => {
     }).then(() => {
       localStorage.clear();
       alert("Account successfully deleted");
-      props.history.push("/");
+      // props.history.push("/");
       // props.status();
     });
   };
@@ -89,18 +79,9 @@ const Accounts = (props) => {
         </Link> */}
       {/* </Button.Group> */}
       <EditAccount
-        username={username}
-        setUsername={setUsername}
-        first_name={first_name}
-        setFirstName={setFirstName}
-        last_name={last_name}
-        setLastName={setLastName}
-        address={address}
-        setAddress={setAddress}
-        email={email}
-        setEmail={setEmail}
-        id={id}
+        currentMember={props.currentMember}
         membersUrl={props.membersUrl}
+        setCurrentMember={props.setCurrentMember}
       />
       <br></br>
       <Button onClick={() => deleteAccount()}>Delete Account</Button>
