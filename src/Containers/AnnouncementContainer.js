@@ -1,22 +1,23 @@
 import React from "react";
 import Announcement from "../Components/Announcement";
-import { Grid } from "semantic-ui-react";
+import { Grid, Container, Divider, List, Button } from "semantic-ui-react";
 
 const AnnouncementContainer = (props) => {
-  console.log(props.currentMember);
-  console.log(props.allAnnouncements);
+  // console.log(props.currentMember);
+  // console.log(props.allAnnouncements);
 
-  const announcement = props.allAnnouncements.map((ann) => (
-    <Announcement ann={ann} key={ann.id} />
+  const announcement = props.allAnnouncements.map((anAnnouncement) => (
+    <Announcement
+      anAnnouncement={anAnnouncement}
+      key={anAnnouncement.id}
+      // name={anAnnouncement.member.first_name}
+      />
   ));
 
   return (
-    <div>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column width={4}>{announcement}</Grid.Column>
-        </Grid.Row>
-      </Grid>
+    <div className="announcement-card">
+      <h2>Announcements</h2>
+      {announcement}
     </div>
   );
 };

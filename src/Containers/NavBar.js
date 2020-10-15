@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
 import "../CSS/NavBar.css";
-import { Button, Dropdown, Image } from "semantic-ui-react";
+import { Button, Dropdown, Image, Input } from "semantic-ui-react";
 import Country from "../Components/Country";
 import DropDown from "../Components/DropDown";
 
@@ -70,7 +70,7 @@ const NavBar = (props) => {
                     text="Add announcement"
                     icon="bullhorn"
                     as={Link}
-                    to="/new_invitation"
+                    to="/new_announcement"
                   />
                 </>
               ) : (
@@ -82,12 +82,7 @@ const NavBar = (props) => {
           </Dropdown>
         </div>
         <div>{/* <Country /> */}</div>
-        <input
-          placeholder="search event"
-          type="text"
-          id="search"
-          name="search"
-        />
+        <Input focus placeholder="Search..." />
       </div>
     </div>
   );

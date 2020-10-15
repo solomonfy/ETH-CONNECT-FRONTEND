@@ -3,16 +3,20 @@ import { Route, Switch, withRouter } from "react-router-dom";
 
 import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
-import MainContainer from "./Containers/MainContainer";
 import SignUp from "./Components/SignUp";
-import SideNavBar from "./Components/SideNavBar";
+import Accounts from "./Components/Accounts";
+
+import InvitationContainer from "./Containers/InvitationContainer";
+import EventCalender from "./Containers/EventCalender";
+import MainContainer from "./Containers/MainContainer";
+
 import NavBar from "./Containers/NavBar";
+import SideNavBar from "./Components/SideNavBar";
+
 import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
-import Accounts from "./Components/Accounts";
-import InvitationContainer from "./Containers/InvitationContainer";
-// import SideBar from "./Components/SideBar";
-// import EventCalender from "./Containers/EventCalender";
+import ReviewForm from "./Components/Forms/ReviewForm";
+import AnnouncementForm from "./Components/Forms/AnnouncementForm";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -20,6 +24,7 @@ let logInUrl = BASE_URL + "login/";
 let eventsUrl = BASE_URL + "events/";
 let invitationsUrl = BASE_URL + "invitations/";
 let announcementsUrl = BASE_URL + "announcements/";
+let reviewsUrl = BASE_URL + "reviews/";
 
 const App = () => {
   // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
@@ -27,11 +32,13 @@ const App = () => {
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);
   // };
+  
 
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
   const [allEvents, setEvents] = useState([]);
   const [allAnnouncements, setAnnouncements] = useState([]);
+  const [allReviews, setReviews] = useState([]);
   // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
@@ -81,6 +88,25 @@ const App = () => {
     }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
   };
 
+  const addReviewToEvent = (id) => {
+    console.log(id);
+    console.log(currentMember.id);
+
+    let configObj = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        review: {
+          event_id: id,
+          description: "",
+        },
+      }),
+    };
+    fetch(reviewsUrl, configObj);
+  };
+
   // console.log(currentMember.announcements);
 
   return (
@@ -100,11 +126,23 @@ const App = () => {
       <Switch>
         <Route
           exact
+          path="/calendar"
+          render={() => (
+            <EventCalender
+              allEvents={allEvents}
+              currentMember={currentMember}
+              eventsUrl={eventsUrl}
+              deleteEvent={deleteEvent}
+            />
+          )}
+        />
+
+        <Route
+          exact
           path="/new_event"
           render={(routerProps) => (
             <EventForm
               {...routerProps}
-              // logInUrl={logInUrl}
               eventsUrl={eventsUrl}
               setEvents={setEvents}
               allEvents={allEvents}
@@ -115,6 +153,19 @@ const App = () => {
         />
         <Route
           exact
+          path="/add_review"
+          render={(routerProps) => (
+            <ReviewForm
+              {...routerProps}
+              reviewsUrl={reviewsUrl}
+              addReviewToEvent={addReviewToEvent}
+              // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+
+        <Route
+          exact
           path="/new_invitation"
           render={(routerProps) => (
             <InvitationForm
@@ -123,6 +174,22 @@ const App = () => {
               allEvents={allEvents}
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
+
+              // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/new_announcement"
+          render={(routerProps) => (
+            <AnnouncementForm
+              {...routerProps}
+              // allMembers={allMembers}
+              currentMember={currentMember}
+              allAnnouncements={allAnnouncements}
+              announcementsUrl={announcementsUrl}
+              setAnnouncements={setAnnouncements}
 
               // status={status} logged_in={logged_in}
             />
@@ -155,6 +222,7 @@ const App = () => {
               allAnnouncements={allAnnouncements}
               setEvents={setEvents}
               deleteEvent={deleteEvent}
+              addReviewToEvent={addReviewToEvent}
               // status={status}
               // logged_in={logged_in}
             />
