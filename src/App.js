@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+import moment from "moment";
 
 import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
@@ -33,6 +34,18 @@ const App = () => {
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);
   // };
+  // var myDateVariable = moment("2019-01-01").format("dddd Do MMMM YYYY");
+  // console.log(myDateVariable);
+  // var date = moment("2020-10-15").format("YYYY-MM-DD");
+  // var now = moment().format("YYYY-MM-DD");
+
+  // if (now > date) {
+  //   console.log("date is past");
+  // } else if (now === date) {
+  //   console.log("the day is today");
+  // } else {
+  //   console.log("date is future");
+  // }
 
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
@@ -109,6 +122,57 @@ const App = () => {
         allAnnouncements.filter((announc) => announc.id !== selectedId)
       )
     );
+  };
+
+  const sortEvents = (type) => {
+    switch (type) {
+      case "upcoming":
+        // console.log(
+        //   allEvents.filter(
+        //     (ev) =>
+        //       moment(ev.date).format("YYYY-MM-DD") >=
+        //       moment(new Date()).format("YYYY-MM-DD")
+        //   )
+        // );
+        setEvents(
+          allEvents.filter(
+            (ev) =>
+              moment(ev.date).format("YYYY-MM-DD") >=
+              moment(new Date()).format("YYYY-MM-DD")
+          )
+        );
+        break;
+      case "past":
+        // console.log(
+        //   allEvents.filter(
+        //     (ev) =>
+        //       moment(ev.date).format("YYYY-MM-DD") <
+        //       moment(new Date()).format("YYYY-MM-DD")
+        //   )
+        // );
+        setEvents(
+          allEvents.filter(
+            (ev) =>
+              moment(ev.date).format("YYYY-MM-DD") <
+              moment(new Date()).format("YYYY-MM-DD")
+          )
+        );
+
+        break;
+      case "name":
+        // console.log(allEvents)
+        // console.log(allEvents.sort((a, b) => a.name.localeCompare(b.name)));
+        setEvents((allEvents) =>
+          allEvents.sort((a, b) => a.name.localeCompare(b.name))
+        );
+        break;
+      case "date":
+        break;
+
+      default:
+        setEvents(allEvents);
+        break;
+    }
   };
 
   return (
@@ -195,7 +259,6 @@ const App = () => {
               logInUrl={logInUrl}
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
-              
             />
           )}
         />
@@ -217,6 +280,7 @@ const App = () => {
               setReviews={setReviews}
               setEvents={setEvents}
               deleteEvent={deleteEvent}
+              sortEvents={sortEvents}
 
               // status={status}
               // logged_in={logged_in}

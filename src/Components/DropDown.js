@@ -16,7 +16,7 @@ const DropDown = (props) => {
     const { first_name, last_name, image } = props.member;
     const trigger = (
       <span style={dropDown}>
-        <Image avatar src={image} /> {first_name + " " + last_name}
+        <Image avatar size="40px" src={image} /> {first_name + " " + last_name}
       </span>
     );
 
