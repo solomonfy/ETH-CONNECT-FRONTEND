@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import {
   Card,
   Icon,
@@ -7,11 +9,8 @@ import {
   Button,
   Header,
   Input,
-  Form,
-  Grid,
 } from "semantic-ui-react";
 import ReviewForm from "./Forms/ReviewForm";
-// import { Link } from "react-router-dom";
 
 const EventCard = (props) => {
   const {
@@ -29,12 +28,8 @@ const EventCard = (props) => {
 
   // const onClick = () => setshowForm(true);
 
-
-  
-
   const [showResults, setShowResults] = React.useState(false);
   const onClick = () => setShowResults(true);
-  
 
   const [open, setOpen] = React.useState(false);
   return (
@@ -101,6 +96,9 @@ const EventCard = (props) => {
             <Modal.Actions>
               {props.anEvent.host && host.id === props.currentMember.id ? (
                 <>
+                  <Link to="/new_invitation">
+                    <Button primary>Invite members</Button>
+                  </Link>
                   <Button primary onClick={null}>
                     Edit Event
                   </Button>
