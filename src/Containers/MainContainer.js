@@ -3,6 +3,7 @@ import "../CSS/Maincontainer.css";
 import AnnouncementContainer from "./AnnouncementContainer";
 import EventCalender from "./EventCalender";
 import EventContainer from "./EventContainer";
+import Test from "../Components/Forms/Test";
 
 import { Grid } from "semantic-ui-react";
 import { Card } from "react-bootstrap";
@@ -13,6 +14,7 @@ const MainContainer = (props) => {
 
   return (
     <div className="main-container">
+      {/* <Test /> */} {/* // react validation */}
       <Grid celled="internally"></Grid>
       {/* <Grid container columns={2}> */}
       {/* <Grid.Column> */}

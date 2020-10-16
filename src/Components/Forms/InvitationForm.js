@@ -47,6 +47,8 @@ class InvitationForm extends React.Component {
         invitation: {
           attendee_id: this.state.attendee_id,
           event_id: this.state.event_id,
+          message: e.target.message.value,
+          card: e.target.invitation_card.value,
         },
       }),
     };
@@ -115,7 +117,7 @@ class InvitationForm extends React.Component {
                       value: `${ev.id}`,
                       image: {
                         avatar: true,
-                        src: `${ev.image}`,
+                        src: `${ev.event_card}`,
                       },
                     };
                   })
@@ -123,7 +125,18 @@ class InvitationForm extends React.Component {
           />
           <br />
           <br />
-
+          <Form.Input
+            fluid
+            label="Card"
+            placeholder="card url..."
+            name="invitation_card"
+          />
+          <Form.Input
+            fluid
+            label="Message"
+            placeholder="message"
+            name="message"
+          />
           <Form.Button>Submit</Form.Button>
         </Form>
         <Link to="/main">

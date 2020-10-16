@@ -195,6 +195,7 @@ const App = () => {
               logInUrl={logInUrl}
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
+              
             />
           )}
         />

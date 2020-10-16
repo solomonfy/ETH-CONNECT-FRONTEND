@@ -22,7 +22,8 @@ const EventForm = (props) => {
           description: e.target.description.value,
           location: e.target.location.value,
           date: e.target.date.value,
-          event_type: e.target.e_type.value,
+          event_type: e.target.event_type.value,
+          event_card: e.target.event_card.value,
         },
       }),
     };
@@ -73,7 +74,13 @@ const EventForm = (props) => {
               fluid
               label="Event type"
               placeholder="event type"
-              name="e_type"
+              name="event_type"
+            />
+            <Form.Input
+              fluid
+              label="Event Card"
+              placeholder="card url..."
+              name="event_card"
             />
             <Form.TextArea
               label="Summary"

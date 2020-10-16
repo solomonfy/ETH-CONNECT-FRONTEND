@@ -21,6 +21,7 @@ const EventCard = (props) => {
     event_type,
     host,
     id,
+    event_card,
     reviews,
   } = props.anEvent;
 
@@ -66,11 +67,7 @@ const EventCard = (props) => {
           >
             <Modal.Header>{name}</Modal.Header>
             <Modal.Content image>
-              <Image
-                size="medium"
-                src="https://ethiopianairlines.ca/rrm/wp-content/uploads/2018/09/40026370_1921028777981823_5062009800359936_o-1-1080x628.jpg"
-                wrapped
-              />
+              <Image size="medium" src={event_card} wrapped />
               <Modal.Description>
                 <Header>
                   Host:
