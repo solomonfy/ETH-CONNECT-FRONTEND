@@ -8,6 +8,8 @@ const EventForm = (props) => {
 
   // console.log(props.histroy.push());
   let handleSubmit = (e) => {
+    e.preventDefault();
+    let name = e.target.name.value;
     // debugger;
     let configObj = {
       method: "POST",
@@ -18,7 +20,7 @@ const EventForm = (props) => {
       },
       body: JSON.stringify({
         event: {
-          name: e.target.name.value,
+          name: name[0].toUpperCase() + name.slice(1),
           description: e.target.description.value,
           location: e.target.location.value,
           date: e.target.date.value,
@@ -33,10 +35,9 @@ const EventForm = (props) => {
         props.setEvents([...props.allEvents, newEvent]);
         // console.log(newEvent);
       });
-    e.preventDefault();
     props.history.push("/main");
     e.target.reset();
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

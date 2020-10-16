@@ -7,6 +7,7 @@ const AnnouncementForm = (props) => {
   const [description, setDescription] = useState("");
 
   let handleSubmit = (e) => {
+    e.preventDefault();
     // debugger;
     let configObj = {
       method: "POST",
@@ -27,10 +28,9 @@ const AnnouncementForm = (props) => {
         props.setAnnouncements([...props.allAnnouncements, newAnn]);
         // console.log(newAnn);
       });
-    e.preventDefault();
     props.history.push("/main");
     e.target.reset();
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (

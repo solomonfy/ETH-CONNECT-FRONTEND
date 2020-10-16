@@ -33,9 +33,9 @@ const EventCard = (props) => {
   const onClick = () => setShowResults(true);
 
   const [open, setOpen] = React.useState(false);
+
   return (
     <div>
-      {/* {host ? ( */}
       <Card color="green">
         {/* <Image
           src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
@@ -51,10 +51,7 @@ const EventCard = (props) => {
         <Card.Content extra>
           <Icon name="user" />
           {props.anEvent.host
-            ? " " +
-              props.anEvent.host.first_name +
-              " " +
-              props.anEvent.host.last_name
+            ? `${props.anEvent.host.first_name} ${props.anEvent.host.last_name}`
             : null}
         </Card.Content>
 
@@ -67,12 +64,20 @@ const EventCard = (props) => {
           >
             <Modal.Header>{name}</Modal.Header>
             <Modal.Content image>
-              <Image size="medium" src={event_card} wrapped />
+              {event_card ? (
+                <Image size="medium" src={event_card} wrapped />
+              ) : (
+                <Image
+                  size="medium"
+                  src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
+                  wrapped
+                />
+              )}
               <Modal.Description>
                 <Header>
                   Host:
                   {props.anEvent.host
-                    ? " " + host.first_name + " " + host.last_name
+                    ? ` ${props.anEvent.host.first_name} ${props.anEvent.host.last_name}`
                     : null}
                 </Header>
                 <p>
@@ -84,10 +89,16 @@ const EventCard = (props) => {
                 <p>
                   <strong>Location:</strong> {location}
                 </p>
-                {/* {reviews.length > 0 ? <strong>Reviews:</strong> : null} */}
+                {reviews ? <strong>Reviews:</strong> : null}
                 {reviews
-                  ? reviews.map((rv) => <li>{rv.description}</li>)
+                  ? reviews.map((rv) => (
+                      <li>
+                        {`${rv.description}`}
+                        {/* `${rv.attendee.first_name}` */}
+                      </li>
+                    ))
                   : null}
+                {/* {reviews ? `${rv.attendee.first_name}` : null} */}
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
@@ -100,7 +111,6 @@ const EventCard = (props) => {
                     Edit Event
                   </Button>
                   <Button
-                    // negative onClick={() => setOpen(false)}
                     negative
                     onClick={() => props.deleteEvent(props.anEvent)}
                   >
@@ -110,13 +120,6 @@ const EventCard = (props) => {
               ) : (
                 <>
                   <div>
-                    {/* <Button
-                      content="Add review"
-                      labelPosition="right"
-                      icon="checkmark"
-                      onClick={() => getForm(id)} // send the event id to add review for the event
-                      positive
-                    /> */}
                     <Input
                       type="submit"
                       value="Add review"

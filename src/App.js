@@ -52,6 +52,7 @@ const App = () => {
   const [allEvents, setEvents] = useState([]);
   const [allAnnouncements, setAnnouncements] = useState([]);
   const [allReviews, setReviews] = useState([]);
+  const [displayEvents, setDisplayEvents] = useState([]);
   // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
@@ -80,7 +81,10 @@ const App = () => {
       },
     })
       .then((resp) => resp.json())
-      .then((eventsArray) => setEvents(eventsArray));
+      .then((eventsArray) => {
+        setEvents(eventsArray);
+        setDisplayEvents(eventsArray);
+      });
 
     fetch(announcementsUrl, {
       method: "GET",
@@ -126,8 +130,11 @@ const App = () => {
 
   const sortEvents = (type) => {
     switch (type) {
+      case "all":
+        setDisplayEvents(allEvents);
+        break;
       case "upcoming":
-        setEvents(
+        setDisplayEvents(
           allEvents.filter(
             (ev) =>
               moment(ev.date).format("YYYY-MM-DD") >=
@@ -136,27 +143,27 @@ const App = () => {
         );
         break;
       case "past":
-        setEvents(
+        setDisplayEvents(
           allEvents.filter(
             (ev) =>
               moment(ev.date).format("YYYY-MM-DD") <
               moment(new Date()).format("YYYY-MM-DD")
           )
         );
-
         break;
       case "name":
         // console.log(allEvents)
-        console.log(allEvents.sort((a, b) => a.name.localeCompare(b.name)));
-        setEvents((allEvents) =>
-          allEvents.sort((a, b) => a.name.localeCompare(b.name))
-        );
+        // console.log(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
+        setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
         break;
-      case "date":
+      case "my_events":
+        setDisplayEvents(
+          allEvents.filter((ev) => ev.host.id === currentMember.id)
+        );
         break;
 
       default:
-        setEvents(allEvents);
+        setDisplayEvents(allEvents);
         break;
     }
   };
@@ -196,7 +203,10 @@ const App = () => {
             <EventForm
               {...routerProps}
               eventsUrl={eventsUrl}
-              setEvents={setEvents}
+              setEvents={(value) => {
+                setEvents(value);
+                setDisplayEvents(value);
+              }}
               allEvents={allEvents}
 
               // status={status} logged_in={logged_in}
@@ -259,7 +269,7 @@ const App = () => {
               currentMember={currentMember}
               invitationsUrl={invitationsUrl}
               reviewsUrl={reviewsUrl}
-              allEvents={allEvents}
+              allEvents={displayEvents}
               allAnnouncements={allAnnouncements}
               deleteAnnouncement={deleteAnnouncement}
               allReviews={allReviews}
