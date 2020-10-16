@@ -30,13 +30,11 @@ const Accounts = (props) => {
     <div className="account-div">
       <h1 className="header">Account Information</h1>
       <br />
-      <h3>User Name: </h3>
-      <br />
-      <span>{username}</span>
+      <h3>User Name: {username}</h3>
       <br />
       <h3>First Name: {first_name}</h3>
       <br />
-      <h3>Lat Name: {last_name}</h3>
+      <h3>Last Name: {last_name}</h3>
       <br />
       <h3>Address: {address}</h3>
       <br />
@@ -45,7 +43,6 @@ const Accounts = (props) => {
       <span>
         <Image avatar src={image} />
       </span>
-
       <br />
       <br />
       {/* <Button.Group> */}
@@ -57,7 +54,6 @@ const Accounts = (props) => {
           </Button.Content>
         </Button>
       </Link>
-
       {/* <Link to="/edit_account">
           <Button animated primary>
             <Button.Content visible onClick={() => props.currentMember}>
@@ -68,7 +64,6 @@ const Accounts = (props) => {
             </Button.Content>
           </Button>
         </Link> */}
-
       {/* <Link to="/main">
           <Button animated negative>
             <Button.Content visible>Delete Account</Button.Content>

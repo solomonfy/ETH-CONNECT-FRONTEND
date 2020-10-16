@@ -127,13 +127,6 @@ const App = () => {
   const sortEvents = (type) => {
     switch (type) {
       case "upcoming":
-        // console.log(
-        //   allEvents.filter(
-        //     (ev) =>
-        //       moment(ev.date).format("YYYY-MM-DD") >=
-        //       moment(new Date()).format("YYYY-MM-DD")
-        //   )
-        // );
         setEvents(
           allEvents.filter(
             (ev) =>
@@ -143,13 +136,6 @@ const App = () => {
         );
         break;
       case "past":
-        // console.log(
-        //   allEvents.filter(
-        //     (ev) =>
-        //       moment(ev.date).format("YYYY-MM-DD") <
-        //       moment(new Date()).format("YYYY-MM-DD")
-        //   )
-        // );
         setEvents(
           allEvents.filter(
             (ev) =>
@@ -161,7 +147,7 @@ const App = () => {
         break;
       case "name":
         // console.log(allEvents)
-        // console.log(allEvents.sort((a, b) => a.name.localeCompare(b.name)));
+        console.log(allEvents.sort((a, b) => a.name.localeCompare(b.name)));
         setEvents((allEvents) =>
           allEvents.sort((a, b) => a.name.localeCompare(b.name))
         );

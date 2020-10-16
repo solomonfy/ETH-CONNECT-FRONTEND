@@ -8,6 +8,7 @@ const Sort = (props) => {
   return (
     <div>
       <div>
+          <label>Sort events by:</label>
         <select 
         onChange={(e) => props.sortEvents(e.target.value)}
         >
@@ -16,8 +17,8 @@ const Sort = (props) => {
           </option>
           <option value="upcoming">Upcoming events</option>
           <option value="past">Past events</option>
-          <option value="name">Sort by Event Name</option>
-          <option value="date">Sort by Date</option>
+          <option value="name">Name</option>
+          <option value="date">Date</option>
         </select>
         {/* <button onClick={(e) => props.sortEvents(e.target.value)}> Show </button> */}
       </div>
