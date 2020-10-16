@@ -221,15 +221,16 @@ const EditAccount = (props) => {
           props.setCurrentMember(updatedMember);
           alert(updatedMember.message);
           setOpen(false);
-          props.history.push("/account");
         }
       });
     e.preventDefault();
     e.target.reset();
+    window.location.reload();
+    props.history.push("/account");
   };
 
   return (
-    <div className="form-div">
+    <div>
       <Modal
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -285,14 +286,14 @@ const EditAccount = (props) => {
               />
             </Form.Group>
             <Form.Group>
-              <Button>Update Account</Button>
+              <Button primary>Update Account</Button>
             </Form.Group>
           </Form>
         </Modal.Content>
         <Modal.Actions>
-          <button color="green" onClick={() => setOpen(false)}>
+          <Button color="green" onClick={() => setOpen(false)}>
             Back
-          </button>
+          </Button>
         </Modal.Actions>
       </Modal>
     </div>

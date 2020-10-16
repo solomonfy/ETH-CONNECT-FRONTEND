@@ -111,8 +111,6 @@ const App = () => {
     );
   };
 
-  // console.log(currentMember.announcements);
-
   return (
     <div className="App">
       {localStorage.token ? (
@@ -152,18 +150,6 @@ const App = () => {
               allEvents={allEvents}
 
               // status={status} logged_in={logged_in}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/add_review"
-          render={(routerProps) => (
-            <ReviewForm
-            // {...routerProps}
-            // reviewsUrl={reviewsUrl}
-
-            // // status={status} logged_in={logged_in}
             />
           )}
         />

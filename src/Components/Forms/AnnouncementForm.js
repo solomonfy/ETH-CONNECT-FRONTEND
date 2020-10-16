@@ -26,14 +26,16 @@ const AnnouncementForm = (props) => {
       .then((newAnn) => {
         props.setAnnouncements([...props.allAnnouncements, newAnn]);
         // console.log(newAnn);
-        props.history.push("/main");
       });
     e.preventDefault();
+    props.history.push("/main");
     e.target.reset();
+    window.location.reload();
   };
 
   return (
     <div className="ann-form">
+      <h3>Add announcement</h3>
       <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
         <Grid columns="equal">
           <Grid.Column width={16}>

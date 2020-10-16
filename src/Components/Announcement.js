@@ -7,9 +7,7 @@ const Announcement = (props) => {
 
   return (
     <div>
-      <li>
         <h3>{description}</h3>
-      </li>
       {/* <br /> */}
       {!member ? null : (
         <>
@@ -38,6 +36,7 @@ const Announcement = (props) => {
           )}
         </>
       )}
+      <br />
       <br />
       <br />
     </div>

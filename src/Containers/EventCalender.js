@@ -20,14 +20,12 @@ const EventCalender = (props) => {
   const formatEvents = () => {
     return eventsArray.map((anEvent) => {
       const { name, date } = anEvent;
-      let hostName = anEvent.host.first_name;
+      let hostName = anEvent.host.first_name + " " + anEvent.host.last_name
+      // console.log(hostName)
       return {
         title: name,
         date,
-        hostName,
-        extendedProps: {
-          hostName: hostName,
-        },
+        hostName: hostName,
         backgroundColor: "green",
         borderColor: "green",
       };

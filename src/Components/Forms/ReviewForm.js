@@ -18,7 +18,7 @@ const ReviewForm = (props) => {
         Authorization: `Bearer ${localStorage.token}`,
       },
       body: JSON.stringify({
-        announcement: {
+        review: {
           description: e.target.description.value,
           event_id: props.event_id,
         },
@@ -26,22 +26,25 @@ const ReviewForm = (props) => {
     };
     fetch(props.reviewsUrl, configObj)
       .then((res) => res.json())
-      .then((data) => {
-        props.setReviews([...props.allReviews, data]);
-        // console.log(data);
+      .then((newReview) => {
+        props.setReviews([...props.allReviews, newReview]);
+        console.log(newReview);
+        console.log(props.allReviews);
       });
     e.preventDefault();
-    props.history.push("/calendar");
+    // props.history.push("/calendar");
+    props.history.push("/main");
     e.target.reset();
+    window.location.reload();
   };
 
   return (
-    <div className="ann-form">
+    <div>
       <Modal
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>Add Review</Button>}
+        trigger={<Button>+</Button>}
       >
         <Modal.Header>Add Review</Modal.Header>
         <Modal.Content>
