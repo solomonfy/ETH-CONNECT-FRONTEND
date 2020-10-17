@@ -19,6 +19,7 @@ import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import ReviewForm from "./Components/Forms/ReviewForm";
 import AnnouncementForm from "./Components/Forms/AnnouncementForm";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -33,19 +34,6 @@ const App = () => {
 
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);
-  // };
-  // var myDateVariable = moment("2019-01-01").format("dddd Do MMMM YYYY");
-  // console.log(myDateVariable);
-  // var date = moment("2020-10-15").format("YYYY-MM-DD");
-  // var now = moment().format("YYYY-MM-DD");
-
-  // if (now > date) {
-  //   console.log("date is past");
-  // } else if (now === date) {
-  //   console.log("the day is today");
-  // } else {
-  //   console.log("date is future");
-  // }
 
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
@@ -112,6 +100,7 @@ const App = () => {
         Authorization: `Bearer ${localStorage.token}`,
       },
     }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
+    window.location.reload();
   };
 
   const deleteAnnouncement = (selectedId) => {
@@ -264,18 +253,18 @@ const App = () => {
           render={(routerProps) => (
             <MainContainer
               {...routerProps}
+              currentMember={currentMember}
               eventsUrl={eventsUrl}
               logInUrl={logInUrl}
-              currentMember={currentMember}
               invitationsUrl={invitationsUrl}
               reviewsUrl={reviewsUrl}
               allEvents={displayEvents}
               allAnnouncements={allAnnouncements}
-              deleteAnnouncement={deleteAnnouncement}
               allReviews={allReviews}
               setReviews={setReviews}
               setEvents={setEvents}
               deleteEvent={deleteEvent}
+              deleteAnnouncement={deleteAnnouncement}
               sortEvents={sortEvents}
 
               // status={status}

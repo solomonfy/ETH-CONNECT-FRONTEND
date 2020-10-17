@@ -10,6 +10,8 @@ const EventForm = (props) => {
   let handleSubmit = (e) => {
     e.preventDefault();
     let name = e.target.name.value;
+    let description = e.target.description.value;
+    let event_type = e.target.event_type.value;
     // debugger;
     let configObj = {
       method: "POST",
@@ -21,10 +23,10 @@ const EventForm = (props) => {
       body: JSON.stringify({
         event: {
           name: name[0].toUpperCase() + name.slice(1),
-          description: e.target.description.value,
+          description: description[0].toUpperCase() + description.slice(1),
           location: e.target.location.value,
           date: e.target.date.value,
-          event_type: e.target.event_type.value,
+          event_type: event_type[0].toUpperCase() + event_type.slice(1),
           event_card: e.target.event_card.value,
         },
       }),

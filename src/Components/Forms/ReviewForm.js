@@ -9,6 +9,7 @@ const ReviewForm = (props) => {
 
   // console.log(props.event_id);
   let handleSubmit = (e) => {
+    let description = e.target.description.value;
     // debugger;
     let configObj = {
       method: "POST",
@@ -19,7 +20,7 @@ const ReviewForm = (props) => {
       },
       body: JSON.stringify({
         review: {
-          description: e.target.description.value,
+          description: description[0].toUpperCase() + description.slice(1),
           event_id: props.event_id,
         },
       }),
@@ -28,8 +29,8 @@ const ReviewForm = (props) => {
       .then((res) => res.json())
       .then((newReview) => {
         props.setReviews([...props.allReviews, newReview]);
-        console.log(newReview);
-        console.log(props.allReviews);
+        // console.log(newReview);
+        // console.log(props.allReviews);
       });
     e.preventDefault();
     // props.history.push("/calendar");

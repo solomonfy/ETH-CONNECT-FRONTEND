@@ -29,6 +29,7 @@ const EditAccount = (props) => {
   }, []);
 
   let updateUser = (e) => {
+    e.preventDefault();
     // console.log(e.target);
     // debugger;
     let configObj = {
@@ -56,7 +57,6 @@ const EditAccount = (props) => {
           setOpen(false);
         }
       });
-    e.preventDefault();
     e.target.reset();
     window.location.reload();
     props.history.push("/account");

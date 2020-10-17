@@ -13,6 +13,7 @@ const Accounts = (props) => {
   const [email, setEmail] = useState(member.email);
   const [image, setImage] = useState(member.image);
   const [id, setId] = useState(member.id);
+  const [deactivate, setDeactivate] = useState(member.active);
 
   const deleteAccount = () => {
     fetch(props.membersUrl + `${props.currentMember.id}`, {
@@ -26,6 +27,22 @@ const Accounts = (props) => {
     });
   };
 
+  const diactivateAccount = () => {
+    console.log("Clicked")
+    // fetch(props.membersUrl + `${props.currentMember.id}`, {
+    //   method: "PATCH",
+    //   body: JSON.stringify({
+    //     member: {
+    //       active: false,
+    //     },
+    //   }),
+    //   headers: { Authorization: `Bearer ${localStorage.token}` },
+    // })
+    //   .then((resp) => resp.json())
+    //   .then((data) => console.log(data));
+  };
+
+  // console.log(props.currentMember);
   return (
     <div className="account-div">
       <h1 className="header">Account Information</h1>
@@ -79,7 +96,8 @@ const Accounts = (props) => {
         setCurrentMember={props.setCurrentMember}
       />
       <br></br>
-      <Button onClick={() => deleteAccount()}>Delete Account</Button>
+      {/* <Button onClick={() => deleteAccount()}>Delete Account</Button> */}
+      <Button onClick={() => diactivateAccount()}>Deactivate Account</Button>
     </div>
   );
 };

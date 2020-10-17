@@ -16,6 +16,8 @@ const MainContainer = (props) => {
     <div className="main-container">
       {/* <Test /> */} {/* // react validation */}
       <Sort sortEvents={props.sortEvents} />
+      <br/>
+      <br/>
       <Grid celled="internally"></Grid>
       <Grid.Row>
         <EventContainer
