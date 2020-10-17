@@ -26,6 +26,7 @@ const EventCard = (props) => {
   } = props.anEvent;
 
   // compare event date with todays date
+  // console.log(props.anEvent.reviews);
 
   // const onClick = () => setshowForm(true);
 
@@ -94,12 +95,13 @@ const EventCard = (props) => {
                 {reviews
                   ? reviews.map((rv) => (
                       <li>
-                        {`${rv.description}`}
-                        {/* `${rv.attendee.first_name}` */}
+                        {rv.description}
+                        <span>
+                          {rv.attendee.first_name} {rv.attendee.last_name}
+                        </span>
                       </li>
                     ))
                   : null}
-                {/* {reviews ? `${rv.attendee.first_name}` : null} */}
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>

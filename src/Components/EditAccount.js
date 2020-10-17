@@ -31,10 +31,8 @@ const EditAccount = (props) => {
 
   return (
     <div className="edit-account">
-      <Form onSubmit={(e) => props.editMemberAccount(e)}>
-        <Form.Group></Form.Group>
-        <Form.Group></Form.Group>
-        <Form.Group>
+      <Form size={"large"} onSubmit={(e) => props.editMemberAccount(e)}>
+        <Form.Group width={"equal"}>
           <Form.Input
             label="First Name"
             placeholder="First Name"
@@ -50,7 +48,8 @@ const EditAccount = (props) => {
             onChange={(e) => setLastName(e.target.value)}
           />
         </Form.Group>
-        <Form.Group>
+        <br />
+        <Form.Group width={"equal"}>
           <Form.Input
             label="Username"
             placeholder="Username"
@@ -66,7 +65,8 @@ const EditAccount = (props) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group>
+        <br />
+        <Form.Group width={"equal"}>
           <Form.Input
             icon="user circle"
             iconPosition="left"
@@ -88,6 +88,7 @@ const EditAccount = (props) => {
             onChange={(e) => setFamilySize(e.target.value)}
           />
         </Form.Group>
+        <br />
         <Form.TextArea
           label="Address"
           placeholder="Address"
@@ -95,6 +96,7 @@ const EditAccount = (props) => {
           value={address}
           onChange={(e) => setAddress(e.target.value)}
         />
+
         <br />
         <Button primary>Update Account</Button>
       </Form>

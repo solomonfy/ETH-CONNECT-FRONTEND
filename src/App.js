@@ -111,6 +111,8 @@ const App = () => {
           last_name: e.target.last_name.value,
           email: e.target.email.value,
           address: e.target.address.value,
+          image: e.target.image.value,
+          family_size: e.target.family_size.value,
         },
       }),
     };

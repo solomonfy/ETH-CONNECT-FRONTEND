@@ -24,12 +24,12 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify({
         member: {
-          first_name:
-            this.state.first_name[0].toUpperCase() +
-            this.state.first_name.slice(1),
-          last_name:
-            this.state.last_name[0].toUpperCase() +
-            this.state.last_name.slice(1),
+          first_name: this.state.first_name,
+          // this.state.first_name[0].toUpperCase() +
+          // this.state.first_name.slice(1),
+          last_name: this.state.last_name,
+          // this.state.last_name[0].toUpperCase() +
+          // this.state.last_name.slice(1),
           email: this.state.email,
           username: this.state.username,
           password: this.state.password,
@@ -46,16 +46,17 @@ class SignUp extends React.Component {
       .then((newMembar) => {
         if (!newMembar.error) {
           // console.log(newMembar)
-          // localStorage.token = newMembar.token;
-          // localStorage.id = newMembar.id;
+          localStorage.token = newMembar.token;
+          localStorage.id = newMembar.id;
           alert("Account created");
+          this.props.history.push("/login");
         } else {
           this.setState({ signUpError: newMembar.error });
-          alert(newMembar.error);
+          // alert(newMembar.error);
+          alert("Fileds can not be empty");
         }
       });
     e.target.reset();
-    this.props.history.push("/login");
   };
 
   render() {

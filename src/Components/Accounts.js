@@ -54,7 +54,7 @@ const Accounts = (props) => {
       <br />
       <h3>Address: {address}</h3>
       <br />
-      <h3>Profile Image:</h3>
+      {/* <h3>Profile Image:</h3> */}
       <br />
       <span>
         <Image avatar src={image} />
