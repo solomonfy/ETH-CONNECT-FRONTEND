@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import moment from "moment";
 
 import "./CSS/App.css";
@@ -19,7 +20,6 @@ import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import ReviewForm from "./Components/Forms/ReviewForm";
 import AnnouncementForm from "./Components/Forms/AnnouncementForm";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -31,9 +31,9 @@ let reviewsUrl = BASE_URL + "reviews/";
 
 const App = () => {
   // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
-
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);
+  const history = useHistory();
 
   const [currentMember, setCurrentMember] = useState({});
   const [allMembers, setAllMembers] = useState(() => []);
@@ -93,6 +93,36 @@ const App = () => {
       .then((reviewsArray) => setReviews(reviewsArray));
   }, []);
 
+  const editMemberAccount = (e) => {
+    e.preventDefault();
+    // debugger;
+    // console.log(e.target);
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        member: {
+          username: e.target.username.value,
+          first_name: e.target.first_name.value,
+          last_name: e.target.last_name.value,
+          email: e.target.email.value,
+          address: e.target.address.value,
+        },
+      }),
+    };
+    fetch(membersUrl + `${localStorage.id}`, configObj)
+      .then((res) => res.json())
+      .then((updatedMember) => {
+        setCurrentMember(updatedMember);
+      });
+    e.target.reset();
+    history.push("/account");
+  };
+
   const deleteEvent = (foundEvent) => {
     fetch(eventsUrl + `${foundEvent.id}`, {
       method: "DELETE",
@@ -141,8 +171,6 @@ const App = () => {
         );
         break;
       case "name":
-        // console.log(allEvents)
-        // console.log(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
         setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
         break;
       case "my_events":
@@ -167,7 +195,6 @@ const App = () => {
             // status={status}
             // logged_in={logged_in}
           />
-          {/* <SideBar/> */}
           <SideNavBar />
         </>
       ) : null}
@@ -218,6 +245,23 @@ const App = () => {
             />
           )}
         />
+
+        <Route
+          exact
+          path="/edit_account"
+          render={(routerProps) => (
+            <EditAccount
+              {...routerProps}
+              allMembers={allMembers}
+              currentMember={currentMember}
+              // setCurrentMember={(value) => setCurrentMember(value)}
+              setCurrentMember={setCurrentMember}
+              editMemberAccount={(e) => editMemberAccount(e)}
+              // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+
         <Route
           exact
           path="/new_announcement"

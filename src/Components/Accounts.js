@@ -2,18 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Image, Icon } from "semantic-ui-react";
 import "../CSS/Account.css";
-import EditAccount from "./EditAccount";
 
 const Accounts = (props) => {
-  let member = props.currentMember;
-  const [username, setUsername] = useState(member.username);
-  const [first_name, setFirstName] = useState(member.first_name);
-  const [last_name, setLastName] = useState(member.last_name);
-  const [address, setAddress] = useState(member.address);
-  const [email, setEmail] = useState(member.email);
-  const [image, setImage] = useState(member.image);
-  const [id, setId] = useState(member.id);
-  const [deactivate, setDeactivate] = useState(member.active);
+  const {
+    username,
+    first_name,
+    last_name,
+    address,
+    email,
+    image,
+    id,
+    active,
+  } = props.currentMember;
 
   const deleteAccount = () => {
     fetch(props.membersUrl + `${props.currentMember.id}`, {
@@ -42,7 +42,6 @@ const Accounts = (props) => {
     //   .then((data) => console.log(data));
   };
 
-  // console.log(props.currentMember);
   return (
     <div className="account-div">
       <h1 className="header">Account Information</h1>
@@ -62,45 +61,22 @@ const Accounts = (props) => {
       </span>
       <br />
       <br />
-      {/* <Button.Group> */}
-      <Link to="/main">
-        <Button animated secondary>
-          <Button.Content visible>Cancel</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow left" />
-          </Button.Content>
+      <Button.Group>
+        <Link to="/main">
+          <Button animated secondary>
+            <Button.Content visible>Cancel</Button.Content>
+            <Button.Content hidden>
+              <Icon name="arrow left" />
+            </Button.Content>
+          </Button>
+        </Link>
+        <Button negative onClick={() => deactivateAccount()}>
+          Deactivate
         </Button>
-      </Link>
-      <br />
-      {/* <Link to="/edit_account">
-          <Button animated primary>
-            <Button.Content visible onClick={() => props.currentMember}>
-              Edit Account
-            </Button.Content>
-            <Button.Content hidden>
-              <Icon name="edit" />
-            </Button.Content>
-          </Button>
-        </Link> */}
-      {/* <Link to="/main">
-          <Button animated negative>
-            <Button.Content visible>Delete Account</Button.Content>
-            <Button.Content hidden>
-              <Icon name="delete" />
-            </Button.Content>
-          </Button>
-        </Link> */}
-      {/* </Button.Group> */}
-      <EditAccount
-        currentMember={props.currentMember}
-        membersUrl={props.membersUrl}
-        setCurrentMember={props.setCurrentMember}
-      />
-      <br></br>
-      <Button negative onClick={() => deactivateAccount()}>
-        Deactivate Account
-      </Button>
-      {/* <Button onClick={() => deleteAccount()}>Delete Account</Button> */}
+        <Link to="/edit_account">
+          <Button primary>Edit Account</Button>
+        </Link>
+      </Button.Group>
     </div>
   );
 };

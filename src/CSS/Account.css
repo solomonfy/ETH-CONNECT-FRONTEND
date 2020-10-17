@@ -16,3 +16,13 @@
     color: #f16451;
   }
   
+
+  .edit-account {
+  padding-left: 200px;
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: left; */
+  font-size: calc(10px + 3vmin);
+  }
