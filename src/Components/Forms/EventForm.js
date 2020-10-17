@@ -90,13 +90,13 @@ const EventForm = (props) => {
               placeholder="summary..."
               name="summary"
             />
-            <Form.Button>Submit</Form.Button>
+            <Form.Button primary>Submit</Form.Button>
           </Grid.Column>
         </Grid>
       </Form>
       <Link to="/main">
-        <Button animated primary>
-          <Button.Content visible>Back</Button.Content>
+        <Button animated secondary>
+          <Button.Content visible>Cancel</Button.Content>
           <Button.Content hidden>
             <Icon name="arrow left" />
           </Button.Content>

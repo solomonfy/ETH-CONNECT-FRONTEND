@@ -68,7 +68,7 @@ const EditAccount = (props) => {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>Edit Account</Button>}
+        trigger={<Button primary>Edit Account</Button>}
       >
         <Modal.Header>Edit Account</Modal.Header>
         <Modal.Content>

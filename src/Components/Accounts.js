@@ -27,8 +27,8 @@ const Accounts = (props) => {
     });
   };
 
-  const diactivateAccount = () => {
-    console.log("Clicked")
+  const deactivateAccount = () => {
+    console.log("Clicked");
     // fetch(props.membersUrl + `${props.currentMember.id}`, {
     //   method: "PATCH",
     //   body: JSON.stringify({
@@ -64,13 +64,14 @@ const Accounts = (props) => {
       <br />
       {/* <Button.Group> */}
       <Link to="/main">
-        <Button animated>
-          <Button.Content visible>Back</Button.Content>
+        <Button animated secondary>
+          <Button.Content visible>Cancel</Button.Content>
           <Button.Content hidden>
             <Icon name="arrow left" />
           </Button.Content>
         </Button>
       </Link>
+      <br />
       {/* <Link to="/edit_account">
           <Button animated primary>
             <Button.Content visible onClick={() => props.currentMember}>
@@ -96,8 +97,10 @@ const Accounts = (props) => {
         setCurrentMember={props.setCurrentMember}
       />
       <br></br>
+      <Button negative onClick={() => deactivateAccount()}>
+        Deactivate Account
+      </Button>
       {/* <Button onClick={() => deleteAccount()}>Delete Account</Button> */}
-      <Button onClick={() => diactivateAccount()}>Deactivate Account</Button>
     </div>
   );
 };

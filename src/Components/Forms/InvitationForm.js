@@ -131,16 +131,21 @@ class InvitationForm extends React.Component {
             placeholder="card url..."
             name="invitation_card"
           />
+          <br />
+          <br />
           <Form.Input
             fluid
             label="Message"
             placeholder="message"
             name="message"
           />
-          <Form.Button>Submit</Form.Button>
+          <br />
+          <br />
+          <Form.Button primary>Submit</Form.Button>
         </Form>
+        <br />
         <Link to="/main">
-          <Form.Button>Cancel</Form.Button>
+          <Form.Button secondary>Cancel</Form.Button>
         </Link>
       </div>
     );
