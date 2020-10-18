@@ -96,9 +96,7 @@ const EventCard = (props) => {
                   ? reviews.map((rv) => (
                       <li>
                         {rv.description}
-                        <span>
-                          {rv.attendee.first_name} {rv.attendee.last_name}
-                        </span>
+                        <span>{rv.attendee.first_name}</span>
                       </li>
                     ))
                   : null}
