@@ -252,6 +252,8 @@ const App = () => {
               allPhotos={allPhotos}
               setAllPhotos={setAllPhotos}
               photosUrl={photosUrl}
+              currentMember={currentMember}
+              allEvents={allEvents}
             />
           )}
         />
