@@ -3,7 +3,8 @@ import { Form, Grid, Input, Button, Dropdown } from "semantic-ui-react";
 // import { Form, Button } from "react-bootstrap";
 
 const AddNewPhoto = (props) => {
-  const [event_id, setEventId] = useState();
+  const [event_id, setEventId] = useState("");
+  
   let handleEventChange = (event, data) => {
     const { value } = data;
     const { key } = data.options.find((o) => o.value === value);
@@ -49,7 +50,7 @@ const AddNewPhoto = (props) => {
         </Form.Field>
         <Form.Field>
           <label>Photo</label>
-          <input placeholder="Last Name" name="src" />
+          <input placeholder="photo url..." name="src" />
         </Form.Field>
         <Dropdown
           onChange={handleEventChange}

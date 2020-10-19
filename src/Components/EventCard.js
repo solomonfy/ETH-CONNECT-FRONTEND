@@ -13,6 +13,7 @@ import {
 import ReviewForm from "./Forms/ReviewForm";
 
 const EventCard = (props) => {
+  let e_vent = props.anEvent;
   const {
     name,
     description,
@@ -108,9 +109,11 @@ const EventCard = (props) => {
                   <Link to="/new_invitation">
                     <Button primary>Invite members</Button>
                   </Link>
-                  <Button primary onClick={null}>
-                    Edit Event
-                  </Button>
+                  <Link to={{ pathname: "edit-event", eventToBeEdited: props.anEvent }}>
+                    <Button primary onClick={null}>
+                      Edit Event
+                    </Button>
+                  </Link>
                   <Button
                     negative
                     onClick={() => props.deleteEvent(props.anEvent)}

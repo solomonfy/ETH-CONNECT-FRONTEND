@@ -17,6 +17,7 @@ import NavBar from "./Containers/NavBar";
 import SideNavBar from "./Components/SideNavBar";
 
 import EventForm from "./Components/Forms/EventForm";
+import EditEvent from "./Components/Forms/EditEvent";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import ReviewForm from "./Components/Forms/ReviewForm";
 import AnnouncementForm from "./Components/Forms/AnnouncementForm";
@@ -140,6 +141,47 @@ const App = () => {
       });
     e.target.reset();
     history.push("/account");
+  };
+
+  const editEvent = (e) => {
+    // debugger;
+    let event_id = e.target.id.value;
+    // console.log(event_id);
+    e.preventDefault();
+    let name = e.target.name.value;
+    let description = e.target.description.value;
+    let event_type = e.target.event_type.value;
+
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        event: {
+          event_id,
+          name: name[0].toUpperCase() + name.slice(1),
+          description: description[0].toUpperCase() + description.slice(1),
+          location: e.target.location.value,
+          date: e.target.date.value,
+          event_type: event_type[0].toUpperCase() + event_type.slice(1),
+          event_card: e.target.event_card.value,
+          // summary: e.target.summary.value,
+        },
+      }),
+    };
+    fetch(eventsUrl + `${event_id}`, configObj)
+      .then((res) => res.json())
+      .then((editedEvent) => {
+        setEvents([...allEvents, editedEvent]);
+        // console.log(editedEvent);
+        setDisplayEvents([...allEvents, editedEvent]);
+      });
+    history.push("/main");
+    window.location.reload();
+    e.target.reset();
   };
 
   const deleteEvent = (foundEvent) => {
@@ -270,6 +312,25 @@ const App = () => {
                 setDisplayEvents(value);
               }}
               allEvents={allEvents}
+
+              // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/edit-event"
+          render={(routerProps) => (
+            <EditEvent
+              {...routerProps}
+              eventsUrl={eventsUrl}
+              setEvents={(value) => {
+                setEvents(value);
+                setDisplayEvents(value);
+              }}
+              allEvents={allEvents}
+              editEvent={(e) => editEvent(e)}
 
               // status={status} logged_in={logged_in}
             />
