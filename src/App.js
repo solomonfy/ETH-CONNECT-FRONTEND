@@ -20,6 +20,9 @@ import EventForm from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import ReviewForm from "./Components/Forms/ReviewForm";
 import AnnouncementForm from "./Components/Forms/AnnouncementForm";
+import AddNewPhoto from "./Components/Forms/AddNewPhoto";
+
+import Photo from "./Components/Photo";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -28,6 +31,7 @@ let eventsUrl = BASE_URL + "events/";
 let invitationsUrl = BASE_URL + "invitations/";
 let announcementsUrl = BASE_URL + "announcements/";
 let reviewsUrl = BASE_URL + "reviews/";
+let photosUrl = BASE_URL + "photos/";
 
 const App = () => {
   // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
@@ -41,6 +45,7 @@ const App = () => {
   const [allAnnouncements, setAnnouncements] = useState([]);
   const [allReviews, setReviews] = useState([]);
   const [displayEvents, setDisplayEvents] = useState([]);
+  const [allPhotos, setAllPhotos] = useState([]);
   // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
@@ -91,6 +96,18 @@ const App = () => {
     })
       .then((resp) => resp.json())
       .then((reviewsArray) => setReviews(reviewsArray));
+
+    fetch(photosUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setAllPhotos(data);
+        // console.log(data);
+      });
   }, []);
 
   const editMemberAccount = (e) => {
@@ -210,6 +227,31 @@ const App = () => {
               currentMember={currentMember}
               eventsUrl={eventsUrl}
               deleteEvent={deleteEvent}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/photo-gallery"
+          render={(routerProps) => (
+            <Photo
+              {...routerProps}
+              allPhotos={allPhotos}
+              setAllPhotos={setAllPhotos}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/add-photo"
+          render={(routerProps) => (
+            <AddNewPhoto
+              {...routerProps}
+              allPhotos={allPhotos}
+              setAllPhotos={setAllPhotos}
+              photosUrl={photosUrl}
             />
           )}
         />
