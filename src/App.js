@@ -3,7 +3,6 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 
-
 import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
 import SignUp from "./Components/SignUp";
@@ -216,7 +215,6 @@ const App = () => {
             // status={status}
             // logged_in={logged_in}
           />
-          <SideNavBar />
         </>
       ) : null}
       <Switch>
