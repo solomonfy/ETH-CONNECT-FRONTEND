@@ -38,12 +38,13 @@ const EventCard = (props) => {
   return (
     <div>
       <Card color="green">
-        <Image
+        {/* <Image
           src={event_card}
           // src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
           wrapped
           ui={false}
-        />
+        /> */}
+        <img src={event_card} height={200} />
         <Card.Content>
           <Card.Header>{name}</Card.Header>
           <Card.Meta>
