@@ -80,7 +80,7 @@ const LogIn = (props) => {
 
           <Grid.Column verticalAlign="middle">
             <Link to="/signup">
-              <Button content="Create account" icon="signup" size="big" />
+              <Button content="Sign up" icon="signup" size="big" />
             </Link>
           </Grid.Column>
         </Grid>

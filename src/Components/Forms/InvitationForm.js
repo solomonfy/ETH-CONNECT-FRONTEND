@@ -147,6 +147,7 @@ class InvitationForm extends React.Component {
         <Link to="/main">
           <Form.Button secondary>Cancel</Form.Button>
         </Link>
+        <br/>
       </div>
     );
   }

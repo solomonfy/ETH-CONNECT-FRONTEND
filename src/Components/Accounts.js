@@ -60,7 +60,12 @@ const Accounts = (props) => {
         {image ? (
           <Image avatar src={image} />
         ) : (
-          <Image avatar src="../Images/reactapp.png" />
+          // <Image avatar src="../Images/reactapp.png" />
+          <Image
+            size="medium"
+            src="https://camelotlanes.com/wp-content/uploads/2020/08/FUN.jpg"
+            wrapped
+          />
         )}
       </span>
       <br />

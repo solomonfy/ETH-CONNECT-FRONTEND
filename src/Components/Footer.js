@@ -17,12 +17,17 @@ const Footer = () => {
   var phantom = {
     display: "block",
     // padding: "10px",
-    height: "60px",
+    height: "80px",
     width: "100%",
+    // position: "fixed",
+    left: "0",
+    bottom: "150",
   };
 
   return (
     <div style={phantom}>
+      <br />
+      <br />
       <Segment inverted vertical style={{ padding: "1em 1em" }}>
         <br />
         <Container>

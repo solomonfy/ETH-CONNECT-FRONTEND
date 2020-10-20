@@ -1,17 +1,13 @@
 .sign-up-form {
   min-height: 100vh;
-  display: grid;
+  background-image: url("../Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  /* background-image: url("../Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg"); */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  /* padding-top: 200px;
-  padding-left: 500px;
-  padding-right: 500px;
-  min-height: 50vh; */
- 
-  text-emphasis-color: black;
-  display: grid;
   font-size: calc(10px + 2vmin);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }

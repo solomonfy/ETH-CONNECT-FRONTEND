@@ -62,7 +62,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-up-form">
-        {/* <Segment placeholder> */}
+        <Segment placeholder>
         <br />
         <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
           <Grid columns="equal">
@@ -144,13 +144,12 @@ class SignUp extends React.Component {
                 />
               </Form.Group>
             </Grid.Column>
-            {/* <Button content="Sign up" primary center /> */}
           </Grid>
           <Form.Button primary>Sign up</Form.Button>
           Already have account?
           <Link to="/login"> Login</Link>
         </Form>
-        {/* </Segment> */}
+        </Segment>
       </div>
     );
   }
