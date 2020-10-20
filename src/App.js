@@ -17,7 +17,7 @@ import NavBar from "./Containers/NavBar";
 import SideNavBar from "./Components/SideNavBar";
 
 import EventForm from "./Components/Forms/EventForm";
-import EditEvent from "./Components/Forms/EventForm";
+import EditEvent from "./Components/Forms/EditEvent";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import ReviewForm from "./Components/Forms/ReviewForm";
 import AnnouncementForm from "./Components/Forms/AnnouncementForm";
