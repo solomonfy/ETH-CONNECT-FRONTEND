@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Icon } from "semantic-ui-react";
-// import { Card } from "react-bootstrap";
+import moment from "moment";
 
 const Announcement = (props) => {
   const { description, created_at, member, id } = props.anAnnouncement;
@@ -16,7 +16,7 @@ const Announcement = (props) => {
         <>
           <strong>{member.first_name}</strong>
           <br />
-          {/* {created_at} */}
+          {moment(created_at).format("YYYY-MM-DD")}
           {member.id === props.currentMember.id ? (
             <span>
               <Button
