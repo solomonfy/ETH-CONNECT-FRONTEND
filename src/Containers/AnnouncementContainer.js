@@ -12,7 +12,7 @@ const AnnouncementContainer = (props) => {
     setAnnouncements(props.allAnnouncements);
   });
 
-  console.log(arrayOfAllAnnouncements);
+  // console.log(arrayOfAllAnnouncements);
   return (
     <div className="announcement-card">
       <br />

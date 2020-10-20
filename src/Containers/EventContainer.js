@@ -32,7 +32,7 @@ const EventContainer = (props) => {
                 <Grid.Column width={3}>
                   <EventCard
                     anEvent={anEvent}
-                    key={anEvent.id}
+                    key={anEvent}
                     currentMember={props.currentMember}
                     deleteEvent={props.deleteEvent}
                     addReviewToEvent={props.addReviewToEvent}

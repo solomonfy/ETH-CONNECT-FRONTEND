@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
 import "../CSS/NavBar.css";
+import Logo from "../Images/ETHIO-CONNECT2.png";
 import { Button, Dropdown, Image, Input } from "semantic-ui-react";
-import Country from "../Components/Country";
+// import Country from "../Components/Country";
 import DropDown from "../Components/DropDown";
 
 // import CalendarContainer from "./CalendarContainer";
@@ -36,6 +37,7 @@ const NavBar = (props) => {
   return (
     <div>
       <div className="navbar">
+        <Image src={Logo}  />
         <DropDown member={member} logOut={logOut} />
         <Dropdown item simple text="Menu" style={navStyle}>
           <Dropdown.Menu>

@@ -16,7 +16,7 @@ const DropDown = (props) => {
     const { first_name, last_name, image } = props.member;
     const trigger = (
       <span style={dropDown}>
-        <Image avatar size="40px" src={image} /> {first_name + " " + last_name}
+        <Image avatar size="mini" src={image} /> {first_name + " " + last_name}
       </span>
     );
 
@@ -42,6 +42,10 @@ const DropDown = (props) => {
             // to="/sign-out"
             onClick={() => props.logOut()}
           />
+
+
+
+
         </Dropdown.Menu>
       </Dropdown>
     );

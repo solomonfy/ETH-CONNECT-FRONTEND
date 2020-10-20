@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../Images/ETHIO-CONNECT2.png";
 
 import {
   List,
@@ -31,20 +32,16 @@ const Footer = () => {
                 <Header inverted as="h4" content="Contact" />
                 {/* <Icon loading name="spinner" /> */}
                 <List horizontal inverted divided link size="small">
-                  <a>
-                    <Icon name="github" inverted size={"big"} />
-                    <List link inverted>
-                      <List.Item as="a">GitHub</List.Item>
-                    </List>
-                  </a>
+                  <Icon name="github" inverted size={"big"} />
+                  <List link inverted>
+                    <List.Item as="a">GitHub</List.Item>
+                  </List>
                   <br />
                   {/* <Button circular color="linkedin" icon="linkedin" /> */}
-                  <a>
-                    <Icon name="linkedin" inverted size={"big"} />
-                    <List link inverted>
-                      <List.Item as="a">LinkedIn</List.Item>
-                    </List>
-                  </a>
+                  <Icon name="linkedin" inverted size={"big"} />
+                  <List link inverted>
+                    <List.Item as="a">LinkedIn</List.Item>
+                  </List>
                 </List>
               </Grid.Column>
               <Grid.Column width={6}>
@@ -56,10 +53,11 @@ const Footer = () => {
             </Grid.Row>
           </Grid>
           <Divider inverted section />
-          {/* <Image centered size="mini" src="/logo.png" /> */}
+          {/* <Image  size="mini" src="/logo.png" /> */}
+          <Image centered src={Logo} size="small" />
+
           <Icon name="copyright outline" />
           <p>2020 ETH-CONNECT INC.</p>
-
           <List horizontal inverted divided link size="small">
             <List.Item as="a" href="#">
               Site Map

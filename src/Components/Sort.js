@@ -7,7 +7,7 @@ const Sort = (props) => {
       {/* <div> */}
       <Label size="large">Sort events by:</Label>
       <select onChange={(e) => props.sortEvents(e.target.value)}>
-        <option value="all" selected>
+        <option value="all" defaultValue>
           All
         </option>
         <option value="upcoming">Upcoming events</option>
