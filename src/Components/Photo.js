@@ -32,7 +32,9 @@ function Photo(props) {
               views={allImages.map((image) => ({
                 ...image,
                 srcset: image.srcSet,
-                caption: image.title,
+                caption: image.event_id,
+                // width: image.width,
+                // height: image.height,
               }))}
             />
           </Modal>

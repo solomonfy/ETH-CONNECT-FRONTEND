@@ -25,6 +25,7 @@ import AddNewPhoto from "./Components/Forms/AddNewPhoto";
 import Photo from "./Components/Photo";
 import Footer from "./Components/Footer";
 import SideNavBar from "./Components/SideNavBar";
+import AllPhotos from "./Containers/AllPhotos";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -456,6 +457,7 @@ const App = () => {
           )}
         />
       </Switch>
+      {/* <AllPhotos allPhotos={allPhotos} /> */}
       {localStorage.token ? <Footer /> : null}
     </div>
   );
