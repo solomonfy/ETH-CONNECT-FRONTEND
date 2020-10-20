@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 
+
 import "./CSS/App.css";
 import LogIn from "./Components/LogIn";
 import SignUp from "./Components/SignUp";
@@ -23,6 +24,7 @@ import AnnouncementForm from "./Components/Forms/AnnouncementForm";
 import AddNewPhoto from "./Components/Forms/AddNewPhoto";
 
 import Photo from "./Components/Photo";
+import Footer from "./Components/Footer";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -399,6 +401,8 @@ const App = () => {
         />
       </Switch>
       {/* <header className="App-header"></header> */}
+
+      <Footer />
     </div>
   );
 };
