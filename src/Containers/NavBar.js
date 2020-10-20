@@ -39,12 +39,7 @@ const NavBar = (props) => {
         <DropDown member={member} logOut={logOut} />
         <Dropdown item simple text="Menu" style={navStyle}>
           <Dropdown.Menu>
-            <Dropdown.Item
-              text="All Events"
-              icon="home"
-              as={Link}
-              to="/main"
-            />
+            <Dropdown.Item text="All Events" icon="home" as={Link} to="/main" />
             <Dropdown.Item
               text="Calendar View"
               icon="calendar alternate outline"
@@ -75,8 +70,18 @@ const NavBar = (props) => {
               <i className="dropdown icon" />
               <span className="text">Photo</span>
               <Dropdown.Menu>
-                <Dropdown.Item text="Gallery" as={Link} to="/photo-gallery" />
-                <Dropdown.Item text="Add photo" as={Link} to="/add-photo" />
+                <Dropdown.Item
+                  text="Gallery"
+                  icone="picture"
+                  as={Link}
+                  to="/photo-gallery"
+                />
+                <Dropdown.Item
+                  text="Add photo"
+                  icone="photo"
+                  as={Link}
+                  to="/add-photo"
+                />
               </Dropdown.Menu>
             </Dropdown.Item>
             <Dropdown.Item>List Item</Dropdown.Item>

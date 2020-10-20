@@ -9,6 +9,7 @@ import {
   Icon,
   Divider,
   Image,
+  Button,
 } from "semantic-ui-react";
 
 const Footer = () => {
@@ -37,6 +38,7 @@ const Footer = () => {
                     </List>
                   </a>
                   <br />
+                  {/* <Button circular color="linkedin" icon="linkedin" /> */}
                   <a>
                     <Icon name="linkedin" inverted size={"big"} />
                     <List link inverted>

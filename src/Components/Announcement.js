@@ -9,30 +9,33 @@ const Announcement = (props) => {
     <div>
       <h3>
         <Icon name="quote left" />
-        {description}
+        {description + " "}
         <Icon name="quote right" />
       </h3>
       {!member ? null : (
         <>
           <strong>{member.first_name}</strong>
-          <br />
+          {`${" " + "--" + " "}`}
           {moment(created_at).format("YYYY-MM-DD")}
+          {`${" " + " " + " "}`}
+          {`${" " + " " + " "}`}
           {member.id === props.currentMember.id ? (
             <span>
               <Button
                 basic
                 color="red"
+                size="mini"
                 onClick={() => props.deleteAnnouncement(id)}
               >
                 <Icon name="remove" />
               </Button>
               <Button color="green" inverted onClick={null}>
-                <Icon name="edit" />
+                <Icon name="edit" size="mini" />
               </Button>
             </span>
           ) : (
             <span>
-              <Button color="green" inverted onClick={null}>
+              <Button color="green" size="tiny" inverted onClick={null}>
                 <Icon name="heart" />
               </Button>
             </span>
