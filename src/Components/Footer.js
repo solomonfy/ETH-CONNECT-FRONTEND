@@ -12,9 +12,16 @@ import {
 } from "semantic-ui-react";
 
 const Footer = () => {
+  var phantom = {
+    display: "block",
+    padding: "20px",
+    height: "60px",
+    width: "100%",
+  };
+
   return (
-    <div>
-      <Segment inverted vertical style={{ padding: "5em 0em" }}>
+    <div style={phantom}>
+      <Segment inverted vertical style={{ padding: "1em 0em" }}>
         <br />
         <Container>
           <Grid divided inverted stackable>
