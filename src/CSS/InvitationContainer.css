@@ -8,6 +8,8 @@
 }
 
 .announcement-card {
+  background-color: rgb(236, 236, 236);
+  padding-left: 40px;
   /* min-height: 100vh; */
   /* display: flex; */
   /* flex-direction: column; */

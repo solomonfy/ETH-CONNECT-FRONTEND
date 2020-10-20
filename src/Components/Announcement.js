@@ -7,8 +7,11 @@ const Announcement = (props) => {
 
   return (
     <div>
-        <h3>{description}</h3>
-      {/* <br /> */}
+      <h3>
+        <Icon name="quote left" />
+        {description}
+        <Icon name="quote right" />
+      </h3>
       {!member ? null : (
         <>
           <strong>{member.first_name}</strong>
