@@ -86,7 +86,8 @@ const EditEvent = (props) => {
               name="summary"
               onChange={(e) => setSummary(e.target.value)}
             /> */}
-            <Form.Button primary>Submit</Form.Button>
+            <Form.Button primary>Update</Form.Button>
+            <br />
           </Grid.Column>
         </Grid>
       </Form>
@@ -98,6 +99,7 @@ const EditEvent = (props) => {
           </Button.Content>
         </Button>
       </Link>
+      <br />
     </div>
   );
 };

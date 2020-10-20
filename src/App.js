@@ -14,7 +14,6 @@ import EventCalender from "./Containers/EventCalender";
 import MainContainer from "./Containers/MainContainer";
 
 import NavBar from "./Containers/NavBar";
-import SideNavBar from "./Components/SideNavBar";
 
 import EventForm from "./Components/Forms/EventForm";
 import EditEvent from "./Components/Forms/EditEvent";

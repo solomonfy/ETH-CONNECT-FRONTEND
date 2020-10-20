@@ -141,7 +141,7 @@ class InvitationForm extends React.Component {
           />
           <br />
           <br />
-          <Form.Button primary>Submit</Form.Button>
+          <Form.Button primary>Invite</Form.Button>
         </Form>
         <br />
         <Link to="/main">

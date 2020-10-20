@@ -40,18 +40,18 @@ const AnnouncementForm = (props) => {
         <Grid columns="equal">
           <Grid.Column width={16}>
             <Form.TextArea
-              label="Description"
+              // label="Description"
               placeholder="description"
               name="description"
               onChange={(e) => setDescription(e.target.value)}
             />
-
-            <Form.Button>Submit</Form.Button>
+            <br />
+            <Form.Button primary>Add</Form.Button>
           </Grid.Column>
         </Grid>
       </Form>
       <Link to="/main">
-        <Button animated primary>
+        <Button animated secondary>
           <Button.Content visible>Back</Button.Content>
           <Button.Content hidden>
             <Icon name="arrow left" />

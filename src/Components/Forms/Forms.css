@@ -18,3 +18,13 @@
   font-size: calc(10px + 2vmin);
   /* background-color: rgb(195, 187, 187); */
 }
+
+
+.photo-form {
+  padding-top: 200px;
+  padding-left: 500px;
+  padding-right: 500px;
+  min-height: 50vh;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+}

@@ -14,14 +14,14 @@ import {
 const Footer = () => {
   var phantom = {
     display: "block",
-    padding: "20px",
+    // padding: "10px",
     height: "60px",
     width: "100%",
   };
 
   return (
     <div style={phantom}>
-      <Segment inverted vertical style={{ padding: "1em 0em" }}>
+      <Segment inverted vertical style={{ padding: "1em 1em" }}>
         <br />
         <Container>
           <Grid divided inverted stackable>

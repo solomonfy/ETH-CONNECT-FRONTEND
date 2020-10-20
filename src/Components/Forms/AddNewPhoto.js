@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, Grid, Input, Button, Dropdown } from "semantic-ui-react";
-// import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Form, Icon, Button, Dropdown } from "semantic-ui-react";
+import "./Forms.css";
 
 const AddNewPhoto = (props) => {
   const [event_id, setEventId] = useState();
@@ -41,16 +42,13 @@ const AddNewPhoto = (props) => {
   };
 
   return (
-    <div className="new-photo">
+    <div className="photo-form">
       <Form onSubmit={(e) => handleSubmit(e)}>
         <Form.Field>
-          <label>First Name</label>
-          <input placeholder="First Name" />
-        </Form.Field>
-        <Form.Field>
           <label>Photo</label>
-          <input placeholder="Last Name" name="src" />
+          <input placeholder="image url..." name="src" />
         </Form.Field>
+        <br />
         <Dropdown
           onChange={handleEventChange}
           label="Event"
@@ -74,8 +72,21 @@ const AddNewPhoto = (props) => {
                 })
           }
         />
-        <Button type="submit">Submit</Button>
+        <br />
+        <br />
+        <Button primary type="submit">
+          Submit
+        </Button>
       </Form>
+      <br />
+      <Link to="/photo-gallery">
+        <Button animated secondary>
+          <Button.Content visible>Cancel</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow left" />
+          </Button.Content>
+        </Button>
+      </Link>
     </div>
   );
 };

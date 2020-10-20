@@ -92,16 +92,15 @@ const EventForm = (props) => {
               />
             </Form.Group>
             <br />
-            <Form.TextArea
+            {/* <Form.TextArea
               label="Summary"
               placeholder="summary..."
               name="summary"
-            />
+            /> */}
             <br />
-
-            <Form.Button primary>Submit</Form.Button>
           </Grid.Column>
         </Grid>
+        <Form.Button primary>Submit</Form.Button>
       </Form>
       <br />
       <Link to="/main">
@@ -112,6 +111,7 @@ const EventForm = (props) => {
           </Button.Content>
         </Button>
       </Link>
+      <br />
     </div>
   );
 };
