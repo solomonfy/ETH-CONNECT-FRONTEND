@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import "../CSS/Account.css";
-import { Button, Form } from "semantic-ui-react";
-import { Image, Modal } from "semantic-ui-react";
+import { Button, Form, Grid } from "semantic-ui-react";
 
 const EditAccount = (props) => {
   let member = props.currentMember;
@@ -32,74 +31,82 @@ const EditAccount = (props) => {
   return (
     <div className="edit-account">
       <Form size={"large"} onSubmit={(e) => props.editMemberAccount(e)}>
-        <Form.Group width={"equal"}>
-          <Form.Input
-            label="First Name"
-            placeholder="First Name"
-            name="first_name"
-            value={first_name}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <Form.Input
-            label="Last Name"
-            placeholder="Last Name"
-            name="last_name"
-            value={last_name}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </Form.Group>
-        <br />
-        <Form.Group width={"equal"}>
-          <Form.Input
-            label="Username"
-            placeholder="Username"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Form.Input
-            label="Email"
-            placeholder="Email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <br />
-        <Form.Group width={"equal"}>
-          <Form.Input
-            icon="user circle"
-            iconPosition="left"
-            label="Profile picture"
-            name="image"
-            value={image}
-            placeholder="Image url.."
-            onChange={(e) => setImage(e.target.value)}
-          />
+        <Grid columns="equal">
+          <Grid.Column width={16}>
+            <Form.Group widths="equal">
+              <Form.Input
+                label="First Name"
+                placeholder="First Name"
+                name="first_name"
+                value={first_name}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <Form.Input
+                label="Last Name"
+                placeholder="Last Name"
+                name="last_name"
+                value={last_name}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Form.Group>
+            <br />
+            <Form.Group widths="equal">
+              <Form.Input
+                label="Username"
+                placeholder="Username"
+                name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Form.Input
+                label="Email"
+                placeholder="Email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <br />
+            <Form.Group widths="equal">
+              <Form.Input
+                icon="user circle"
+                iconPosition="left"
+                label="Profile picture"
+                name="image"
+                value={image}
+                placeholder="Image url.."
+                onChange={(e) => setImage(e.target.value)}
+              />
 
-          <Form.Input
-            icon="user circle"
-            iconPosition="left"
-            label="Family size"
-            name="family_size"
-            type="number"
-            value={family_size}
-            placeholder="family size"
-            onChange={(e) => setFamilySize(e.target.value)}
-          />
-        </Form.Group>
-        <br />
-        <Form.TextArea
-          label="Address"
-          placeholder="Address"
-          name="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
+              <Form.Input
+                icon="user circle"
+                iconPosition="left"
+                label="Family size"
+                name="family_size"
+                type="number"
+                value={family_size}
+                placeholder="family size"
+                onChange={(e) => setFamilySize(e.target.value)}
+              />
+            </Form.Group>
+            <br />
+            <Form.TextArea
+              label="Address"
+              placeholder="Address"
+              name="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
 
-        <br />
-        <Button primary>Update Account</Button>
+            <br />
+            <Button primary>Update Account</Button>
+            <Link to="/account">
+              <Button secondary>Cancel</Button>
+            </Link>
+          </Grid.Column>
+        </Grid>
       </Form>
+      <br />
     </div>
   );
 };

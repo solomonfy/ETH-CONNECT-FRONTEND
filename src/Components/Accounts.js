@@ -77,6 +77,7 @@ const Accounts = (props) => {
           <Button primary>Edit Account</Button>
         </Link>
       </Button.Group>
+      <br />
     </div>
   );
 };

@@ -41,7 +41,7 @@ const NavBar = (props) => {
           <Dropdown.Menu>
             <Dropdown.Item
               text="All Events"
-              icon="alternate outline"
+              icon="home"
               as={Link}
               to="/main"
             />

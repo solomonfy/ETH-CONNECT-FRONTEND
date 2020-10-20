@@ -18,11 +18,10 @@
   
 
   .edit-account {
-  padding-left: 200px;
-  padding-top: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: left; */
-  font-size: calc(10px + 3vmin);
+    padding-top: 200px;
+    padding-left: 500px;
+    padding-right: 500px;
+    min-height: 50vh;
+    justify-content: left;
+    font-size: calc(10px + 2vmin);
   }

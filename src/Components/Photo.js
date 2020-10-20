@@ -22,16 +22,17 @@ function Photo(props) {
 
   return (
     <div className="photo-container">
+      <h1> Event photos </h1>
       <Gallery photos={allImages} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={allImages.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
+              views={allImages.map((image) => ({
+                ...image,
+                srcset: image.srcSet,
+                caption: image.title,
               }))}
             />
           </Modal>
