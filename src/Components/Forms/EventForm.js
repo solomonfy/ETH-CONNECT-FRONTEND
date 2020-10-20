@@ -100,7 +100,7 @@ const EventForm = (props) => {
             <br />
           </Grid.Column>
         </Grid>
-        <Form.Button primary>Submit</Form.Button>
+        <Button primary>Submit</Button>
       </Form>
       <br />
       <Link to="/main">
@@ -111,6 +111,7 @@ const EventForm = (props) => {
           </Button.Content>
         </Button>
       </Link>
+      <br />
       <br />
     </div>
   );

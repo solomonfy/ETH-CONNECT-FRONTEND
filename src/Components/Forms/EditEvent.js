@@ -100,6 +100,7 @@ const EditEvent = (props) => {
         </Button>
       </Link>
       <br />
+      <br />
     </div>
   );
 };

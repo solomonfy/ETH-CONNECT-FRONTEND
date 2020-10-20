@@ -1,6 +1,6 @@
 .main-container {
   padding-top: 200px;
-  padding-left: 130px;
+  padding-left: 300px;
   /* background-image: "/src/Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg"; */
   /* background-image: url("../Images/eth_plates.jpg");
   background-repeat: no-repeat;
@@ -8,6 +8,8 @@
   background-size: cover; */
   /* opacity: 0.75; */
   /* background-color: lightgray; */
+  width:80%;
+
 }
 
 .main-container::after {

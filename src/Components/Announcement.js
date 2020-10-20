@@ -14,7 +14,9 @@ const Announcement = (props) => {
       </h3>
       {!member ? null : (
         <>
-          <strong>{member.first_name}</strong>
+          <strong style={{ textAlign: 'right'  }}>
+            {member.first_name}
+          </strong>
           {`${" " + "--" + " "}`}
           {moment(created_at).format("YYYY-MM-DD")}
           {`${" " + " " + " "}`}
@@ -35,13 +37,14 @@ const Announcement = (props) => {
             </span>
           ) : (
             <span>
-              <Button color="green" size="mini" inverted onClick={null}>
+              {/* <Button color="green" size="mini" inverted onClick={null}>
                 <Icon name="heart" />
-              </Button>
+              </Button> */}
             </span>
           )}
         </>
       )}
+      <br />
       <br />
       <br />
       <br />

@@ -32,12 +32,13 @@ const Footer = () => {
                 <Header inverted as="h4" content="Contact" />
                 {/* <Icon loading name="spinner" /> */}
                 <List horizontal inverted divided link size="small">
+                  {/* <p style={{ display: "inline-block" }}>GitHub</p> */}
                   <Icon name="github" inverted size={"big"} />
                   <List link inverted>
                     <List.Item as="a">GitHub</List.Item>
                   </List>
                   <br />
-                  {/* <Button circular color="linkedin" icon="linkedin" /> */}
+                  {/* <p style={{ display: "inline-block" }}>Linkedin</p> */}
                   <Icon name="linkedin" inverted size={"big"} />
                   <List link inverted>
                     <List.Item as="a">LinkedIn</List.Item>
@@ -57,7 +58,8 @@ const Footer = () => {
           <Image centered src={Logo} size="small" />
 
           <Icon name="copyright outline" />
-          <p>2020 ETH-CONNECT INC.</p>
+          <p style={{ display: "inline-block" }}>2020 ETHIO-CONNECT INC.</p>
+          <br />
           <List horizontal inverted divided link size="small">
             <List.Item as="a" href="#">
               Site Map

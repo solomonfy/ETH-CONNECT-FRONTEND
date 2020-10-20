@@ -1,115 +1,117 @@
-// import React from "react";
-// import styled from "styled-components";
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link,
-//   withRouter,
-// } from "react-router-dom";
+// import React from 'react';
+// import Avatar from '@material-ui/core/Avatar';
+// import Button from '@material-ui/core/Button';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+// import TextField from '@material-ui/core/TextField';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import Link from '@material-ui/core/Link';
+// import Grid from '@material-ui/core/Grid';
+// import Box from '@material-ui/core/Box';
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import Typography from '@material-ui/core/Typography';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Container from '@material-ui/core/Container';
 
-// const StyledSideNav = styled.div`
-//   position: fixed; /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
-//   height: 120%;
-//   width: 75px; /* Set the width of the sidebar */
-//   z-index: 1; /* Stay on top of everything */
-//   top: 10em; /* Stay at the top */
-//   background-color: #111; /* Gray */
-//   overflow-x: hidden; /* Disable horizontal scroll */
-//   padding-top: 10px;
-// `;
-
-// class SideNav extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       activePath: props.location.pathname,
-//       items: [
-//         {
-//           path:
-//             "/main",
-//           name: "Home",
-//           css: "fa fa-fw fa-home",
-//           key: 1,
-//         },
-//         {
-//           path: "/new_event",
-//           name: "About",
-//           css: "fa fa-fw fa-clock",
-//           key: 2,
-//         },
-        
-//       ],
-//     };
-//   }
-
-//   onItemClick = (path) => {
-//     this.setState({ activePath: path });
-//   };
-
-//   render() {
-//     const { items, activePath } = this.state;
-//     return (
-//       <StyledSideNav>
-//         {items.map((item) => {
-//           return (
-//             <NavItem
-//               path={item.path}
-//               name={item.name}
-//               css={item.css}
-//               onItemClick={this.onItemClick}
-//               active={item.path === activePath}
-//               key={item.key}
-//             />
-//           );
-//         })}
-//       </StyledSideNav>
-//     );
-//   }
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         Your Website
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
 // }
 
-// const RouterSideNav = withRouter(SideNav);
+// const useStyles = makeStyles((theme) => ({
+//   paper: {
+//     marginTop: theme.spacing(8),
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//   },
+//   avatar: {
+//     margin: theme.spacing(1),
+//     backgroundColor: theme.palette.secondary.main,
+//   },
+//   form: {
+//     width: '100%', // Fix IE 11 issue.
+//     marginTop: theme.spacing(1),
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//   },
+// }));
 
-// const StyledNavItem = styled.div`
-//   height: 70px;
-//   width: 75px; /* width must be same size as NavBar to center */
-//   text-align: center; /* Aligns <a> inside of NavIcon div */
-//   margin-bottom: 0; /* Puts space between NavItems */
-//   a {
-//     font-size: 2.7em;
-//     color: ${(props) => (props.active ? "white" : "#9FFFCB")};
-//     :hover {
-//       opacity: 0.7;
-//       text-decoration: none; /* Gets rid of underlining of icons */
-//     }
-//   }
-// `;
+// export default function SideNavBar() {
+//   const classes = useStyles();
 
-// class NavItem extends React.Component {
-//   handleClick = () => {
-//     const { path, onItemClick } = this.props;
-//     onItemClick(path);
-//   };
-
-//   render() {
-//     const { active } = this.props;
-//     return (
-//       <StyledNavItem active={active}>
-//         <Link
-//           to={this.props.path}
-//           className={this.props.css}
-//           onClick={this.handleClick}
-//         >
-//           <NavIcon></NavIcon>
-//         </Link>
-//       </StyledNavItem>
-//     );
-//   }
-// }
-
-// const NavIcon = styled.div``;
-
-// export default class SideNavBar extends React.Component {
-//   render() {
-//     return <RouterSideNav></RouterSideNav>;
-//   }
+//   return (
+//     <Container component="main" maxWidth="xs">
+//       <CssBaseline />
+//       <div className={classes.paper}>
+//         <Avatar className={classes.avatar}>
+//           <LockOutlinedIcon />
+//         </Avatar>
+//         <Typography component="h1" variant="h5">
+//           Sign in
+//         </Typography>
+//         <form className={classes.form} noValidate>
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             id="email"
+//             label="Email Address"
+//             name="email"
+//             autoComplete="email"
+//             autoFocus
+//           />
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             name="password"
+//             label="Password"
+//             type="password"
+//             id="password"
+//             autoComplete="current-password"
+//           />
+//           <FormControlLabel
+//             control={<Checkbox value="remember" color="primary" />}
+//             label="Remember me"
+//           />
+//           <Button
+//             type="submit"
+//             fullWidth
+//             variant="contained"
+//             color="primary"
+//             className={classes.submit}
+//           >
+//             Sign In
+//           </Button>
+//           <Grid container>
+//             <Grid item xs>
+//               <Link href="#" variant="body2">
+//                 Forgot password?
+//               </Link>
+//             </Grid>
+//             <Grid item>
+//               <Link href="#" variant="body2">
+//                 {"Don't have an account? Sign Up"}
+//               </Link>
+//             </Grid>
+//           </Grid>
+//         </form>
+//       </div>
+//       <Box mt={8}>
+//         <Copyright />
+//       </Box>
+//     </Container>
+//   );
 // }

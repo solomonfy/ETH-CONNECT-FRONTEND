@@ -24,6 +24,7 @@ import AddNewPhoto from "./Components/Forms/AddNewPhoto";
 
 import Photo from "./Components/Photo";
 import Footer from "./Components/Footer";
+import SideNavBar from "./Components/SideNavBar";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
@@ -455,7 +456,6 @@ const App = () => {
           )}
         />
       </Switch>
-      {/* <header className="App-header"></header> */}
       {localStorage.token ? <Footer /> : null}
     </div>
   );
