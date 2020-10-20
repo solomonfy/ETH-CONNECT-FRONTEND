@@ -16,8 +16,8 @@ import {
 const Footer = () => {
   var phantom = {
     display: "block",
-    // padding: "10px",
-    height: "80px",
+    padding: "1px",
+    height: "40%",
     width: "100%",
     // position: "fixed",
     left: "0",
