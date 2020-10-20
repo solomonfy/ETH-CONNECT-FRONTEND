@@ -7,7 +7,15 @@ const EventContainer = (props) => {
 
   return (
     <div>
-      <h1>
+      <h1
+        style={{
+          backgroundColor: "white",
+          borderRadius: 16,
+          borderWidth: 1,
+          borderColor: "black",
+          alignSelf: "flex-start",
+        }}
+      >
         All Community Events ({!props.allEvents ? null : props.allEvents.length}
         )
       </h1>

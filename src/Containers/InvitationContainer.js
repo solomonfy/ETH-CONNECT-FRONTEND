@@ -19,7 +19,17 @@ const InvitationContainer = (props) => {
   return (
     <div className="invitation-container">
       <Grid celled="internally">
-        <h1 style={{"text-align": "center"}}>My Invitations</h1>
+        <h1
+          style={{
+            backgroundColor: "white",
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: "black",
+            alignSelf: "flex-start",
+          }}
+        >
+          My Invitations
+        </h1>
         <Grid.Row>
           {props.currentMember === null && allInvitations.length === 0
             ? null
