@@ -64,7 +64,7 @@ const Accounts = (props) => {
       <Button.Group>
         <Link to="/main">
           <Button animated secondary>
-            <Button.Content visible>Cancel</Button.Content>
+            <Button.Content visible>Back</Button.Content>
             <Button.Content hidden>
               <Icon name="arrow left" />
             </Button.Content>
