@@ -7,10 +7,10 @@ const Sort = (props) => {
       {/* <div> */}
       <Label size="large">Sort events by:</Label>
       <select onChange={(e) => props.sortEvents(e.target.value)}>
-        <option value="all" defaultValue>
-          All
+        <option value="all">All</option>
+        <option value="upcoming" defaultValue>
+          Upcoming events
         </option>
-        <option value="upcoming">Upcoming events</option>
         <option value="past">Past events</option>
         <option value="name">Name</option>
         <option value="my_events">My Events</option>

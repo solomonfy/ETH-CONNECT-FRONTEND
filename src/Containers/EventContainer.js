@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
 import { Grid } from "semantic-ui-react";
+import moment from "moment";
 
 const EventContainer = (props) => {
   // let arrayOfEvents = props.allEvents;
