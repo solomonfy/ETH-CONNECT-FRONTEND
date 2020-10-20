@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Grid, Button, Icon } from "semantic-ui-react";
-import "./EventForm.css";
+import "./Forms.css";
 
 const AnnouncementForm = (props) => {
   const [description, setDescription] = useState("");
@@ -40,18 +40,18 @@ const AnnouncementForm = (props) => {
         <Grid columns="equal">
           <Grid.Column width={16}>
             <Form.TextArea
-              label="Description"
+              // label="Description"
               placeholder="description"
               name="description"
               onChange={(e) => setDescription(e.target.value)}
             />
-
-            <Form.Button>Submit</Form.Button>
+            <br />
+            <Form.Button primary>Add</Form.Button>
           </Grid.Column>
         </Grid>
       </Form>
       <Link to="/main">
-        <Button animated primary>
+        <Button animated secondary>
           <Button.Content visible>Back</Button.Content>
           <Button.Content hidden>
             <Icon name="arrow left" />

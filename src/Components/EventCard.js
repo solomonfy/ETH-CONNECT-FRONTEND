@@ -13,6 +13,7 @@ import {
 import ReviewForm from "./Forms/ReviewForm";
 
 const EventCard = (props) => {
+  let e_vent = props.anEvent;
   const {
     name,
     description,
@@ -38,12 +39,14 @@ const EventCard = (props) => {
   return (
     <div>
       <Card color="green">
-        <Image
+        {/* <Image
           src={event_card}
           // src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
           wrapped
           ui={false}
-        />
+        /> */}
+        <img src={event_card} height={200} />
+
         <Card.Content>
           <Card.Header>{name}</Card.Header>
           <Card.Meta>
@@ -108,9 +111,16 @@ const EventCard = (props) => {
                   <Link to="/new_invitation">
                     <Button primary>Invite members</Button>
                   </Link>
-                  <Button primary onClick={null}>
-                    Edit Event
-                  </Button>
+                  <Link
+                    to={{
+                      pathname: "edit-event",
+                      eventToBeEdited: props.anEvent,
+                    }}
+                  >
+                    <Button primary onClick={null}>
+                      Edit Event
+                    </Button>
+                  </Link>
                   <Button
                     negative
                     onClick={() => props.deleteEvent(props.anEvent)}

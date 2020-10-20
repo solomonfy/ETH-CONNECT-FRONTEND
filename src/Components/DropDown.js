@@ -42,6 +42,10 @@ const DropDown = (props) => {
             // to="/sign-out"
             onClick={() => props.logOut()}
           />
+
+
+
+
         </Dropdown.Menu>
       </Dropdown>
     );

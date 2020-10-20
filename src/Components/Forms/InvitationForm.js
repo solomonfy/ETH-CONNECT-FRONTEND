@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Dropdown } from "semantic-ui-react";
-import "./EventForm.css";
+import "./Forms.css";
 
 class InvitationForm extends React.Component {
   state = {
@@ -141,7 +141,7 @@ class InvitationForm extends React.Component {
           />
           <br />
           <br />
-          <Form.Button primary>Submit</Form.Button>
+          <Form.Button primary>Invite</Form.Button>
         </Form>
         <br />
         <Link to="/main">

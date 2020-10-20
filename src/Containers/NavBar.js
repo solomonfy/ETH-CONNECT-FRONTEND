@@ -13,6 +13,10 @@ const NavBar = (props) => {
 
   const navStyle = {
     color: "white",
+    borderRadius: 6,
+    // backgroundColor: "black",
+    borderWidth: 1,
+    // borderColor: "black",
   };
 
   const goToLogIn = () => {
@@ -33,54 +37,52 @@ const NavBar = (props) => {
     <div>
       <div className="navbar">
         <DropDown member={member} logOut={logOut} />
-        {/* <Link to="/main">
-          <span style={navStyle}>Events</span>
-        </Link> */}
-        <nav>
-          <div className="nav-links">
-            <Link style={navStyle} to="/photo-gallery">
-              <Button primary>Photo Gallery</Button>
-            </Link>
-          </div>
-        </nav>
-        <div style={navStyle}>
-          <Dropdown text="Actions">
-            <Dropdown.Menu>
-              {localStorage.token ? (
-                <>
-                  <Dropdown.Item
-                    text="Calendar View"
-                    icon="calendar alternate outline"
-                    as={Link}
-                    to="/calendar"
-                  />
-                  <Dropdown.Item
-                    text="Host event"
-                    icon="birthday cake"
-                    as={Link}
-                    to="/new_event"
-                  />
-                  <Dropdown.Item
-                    text="Invite members"
-                    icon="tasks"
-                    as={Link}
-                    to="/new_invitation"
-                  />
-                  <Dropdown.Item
-                    text="Add announcement"
-                    icon="bullhorn"
-                    as={Link}
-                    to="/new_announcement"
-                  />
-                </>
-              ) : (
-                <Link to="/login">
-                  <Dropdown.Item text="Login" />
-                </Link>
-              )}
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
+        <Dropdown item simple text="Menu" style={navStyle}>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              text="All Events"
+              icon="alternate outline"
+              as={Link}
+              to="/main"
+            />
+            <Dropdown.Item
+              text="Calendar View"
+              icon="calendar alternate outline"
+              as={Link}
+              to="/calendar"
+            />
+            <Dropdown.Item
+              text="Host event"
+              icon="birthday cake"
+              as={Link}
+              to="/new_event"
+            />
+            <Dropdown.Item
+              text="Invite members"
+              icon="tasks"
+              as={Link}
+              to="/new_invitation"
+            />
+            <Dropdown.Item
+              text="Add announcement"
+              icon="bullhorn"
+              as={Link}
+              to="/new_announcement"
+            />
+            <Dropdown.Divider />
+            <Dropdown.Header>Header Item</Dropdown.Header>
+            <Dropdown.Item>
+              <i className="dropdown icon" />
+              <span className="text">Photo</span>
+              <Dropdown.Menu>
+                <Dropdown.Item text="Gallery" as={Link} to="/photo-gallery" />
+                <Dropdown.Item text="Add photo" as={Link} to="/add-photo" />
+              </Dropdown.Menu>
+            </Dropdown.Item>
+            <Dropdown.Item>List Item</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
         <div>{/* <Country /> */}</div>
         <Input focus placeholder="Search..." />
       </div>

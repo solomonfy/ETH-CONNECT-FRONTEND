@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Grid, Button, Icon } from "semantic-ui-react";
-import "./EventForm.css";
+import "./Forms.css";
 
 const EventForm = (props) => {
   const [anEvent, setNewEvent] = useState({});
@@ -53,47 +53,56 @@ const EventForm = (props) => {
               placeholder="Event name"
               name="name"
             />
+            <br />
             <Form.TextArea
               label="Description"
-              placeholder="..."
+              placeholder="event description"
               name="description"
             />
+            <br />
+            <Form.Group widths="equal">
+              <Form.Input
+                fluid
+                label="Location"
+                placeholder="location"
+                name="location"
+              />
+              <Form.Input
+                fluid
+                type="date"
+                label="Date"
+                name="date"
+                min={new Date().toISOString().split("T")[0]}
+              />
+            </Form.Group>
+            <br />
 
-            <Form.Input
-              fluid
-              label="Location"
-              placeholder="location"
-              name="location"
-            />
-            <Form.Input
-              fluid
-              type="date"
-              label="Date"
-              name="date"
-              min={new Date().toISOString().split("T")[0]}
-            />
-
-            <Form.Input
-              fluid
-              label="Event type"
-              placeholder="event type"
-              name="event_type"
-            />
-            <Form.Input
-              fluid
-              label="Event Card"
-              placeholder="card url..."
-              name="event_card"
-            />
-            <Form.TextArea
+            <Form.Group widths="equal">
+              <Form.Input
+                fluid
+                label="Event type"
+                placeholder="event type"
+                name="event_type"
+              />
+              <Form.Input
+                fluid
+                label="Event Card"
+                placeholder="card url..."
+                name="event_card"
+              />
+            </Form.Group>
+            <br />
+            {/* <Form.TextArea
               label="Summary"
               placeholder="summary..."
               name="summary"
-            />
-            <Form.Button primary>Submit</Form.Button>
+            /> */}
+            <br />
           </Grid.Column>
         </Grid>
+        <Form.Button primary>Submit</Form.Button>
       </Form>
+      <br />
       <Link to="/main">
         <Button animated secondary>
           <Button.Content visible>Cancel</Button.Content>
@@ -102,6 +111,7 @@ const EventForm = (props) => {
           </Button.Content>
         </Button>
       </Link>
+      <br />
     </div>
   );
 };
