@@ -17,6 +17,7 @@ import NavBar from "./Containers/NavBar";
 import SideNavBar from "./Components/SideNavBar";
 
 import EventForm from "./Components/Forms/EventForm";
+import EditEvent from "./Components/Forms/EventForm";
 import InvitationForm from "./Components/Forms/InvitationForm";
 import ReviewForm from "./Components/Forms/ReviewForm";
 import AnnouncementForm from "./Components/Forms/AnnouncementForm";
@@ -312,6 +313,23 @@ const App = () => {
               allEvents={allEvents}
 
               // status={status} logged_in={logged_in}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/edit-event"
+          render={(routerProps) => (
+            <EditEvent
+              {...routerProps}
+              eventsUrl={eventsUrl}
+              setEvents={(value) => {
+                setEvents(value);
+                setDisplayEvents(value);
+              }}
+              allEvents={allEvents}
+              editEvent={(e) => editEvent(e)}
             />
           )}
         />
