@@ -57,7 +57,11 @@ const Accounts = (props) => {
       {/* <h3>Profile Image:</h3> */}
       <br />
       <span>
-        <Image avatar src={image} />
+        {image ? (
+          <Image avatar src={image} />
+        ) : (
+          <Image avatar src="../Images/reactapp.png" />
+        )}
       </span>
       <br />
       <br />

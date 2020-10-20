@@ -55,7 +55,8 @@ const Footer = () => {
           </Grid>
           <Divider inverted section />
           {/* <Image centered size="mini" src="/logo.png" /> */}
-          <p>Created by Solomon Yismaw, 2020</p>
+          <Icon name="copyright outline" />
+          <p>2020 ETH-CONNECT INC.</p>
 
           <List horizontal inverted divided link size="small">
             <List.Item as="a" href="#">

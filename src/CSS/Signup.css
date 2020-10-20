@@ -5,4 +5,13 @@
   background-image: url("../Images/Fasilidas_palace_Gonder_Ethiopia_04.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  /* padding-top: 200px;
+  padding-left: 500px;
+  padding-right: 500px;
+  min-height: 50vh; */
+ 
+  text-emphasis-color: black;
+  display: grid;
+  font-size: calc(10px + 2vmin);
 }
