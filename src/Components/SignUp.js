@@ -24,14 +24,12 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify({
         member: {
-          first_name:
-            // this.state.first_name,
-            this.state.first_name[0].toUpperCase() +
-            this.state.first_name.slice(1),
-          last_name:
-            // this.state.last_name,
-            this.state.last_name[0].toUpperCase() +
-            this.state.last_name.slice(1),
+          first_name: this.state.first_name,
+          // this.state.first_name[0].toUpperCase() +
+          // this.state.first_name.slice(1),
+          last_name: this.state.last_name,
+          // this.state.last_name[0].toUpperCase() +
+          // this.state.last_name.slice(1),
           email: this.state.email,
           username: this.state.username,
           password: this.state.password,

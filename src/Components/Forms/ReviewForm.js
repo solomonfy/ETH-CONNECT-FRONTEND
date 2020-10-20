@@ -20,7 +20,8 @@ const ReviewForm = (props) => {
       },
       body: JSON.stringify({
         review: {
-          description: description[0].toUpperCase() + description.slice(1),
+          // description: description[0].toUpperCase() + description.slice(1),
+          description: description,
           event_id: props.event_id,
         },
       }),
@@ -41,11 +42,12 @@ const ReviewForm = (props) => {
 
   return (
     <div>
+      <br />
       <Modal
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button>+</Button>}
+        trigger={<Button primary>+</Button>}
       >
         <Modal.Header>Add Review</Modal.Header>
         <Modal.Content>
@@ -58,7 +60,7 @@ const ReviewForm = (props) => {
                   name="description"
                 />
 
-                <Form.Button>Submit</Form.Button>
+                <Button primary>Add</Button>
               </Grid.Column>
             </Grid>
           </Form>

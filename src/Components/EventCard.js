@@ -26,6 +26,7 @@ const EventCard = (props) => {
     reviews,
   } = props.anEvent;
 
+  // console.log(e_vent.date);
   // compare event date with todays date
   // console.log(props.anEvent.reviews);
 
@@ -45,7 +46,15 @@ const EventCard = (props) => {
           wrapped
           ui={false}
         /> */}
-        <img src={event_card} height={200} />
+
+        {/* {event_card ? (
+          <img src={event_card} height={180} />
+        ) : (
+          <img
+            src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
+            height={180}
+          />
+        )} */}
 
         <Card.Content>
           <Card.Header>{name}</Card.Header>
@@ -68,13 +77,17 @@ const EventCard = (props) => {
             trigger={<Button positive>Detail</Button>}
           >
             <Modal.Header>{name}</Modal.Header>
+            <Icon
+              name="window close outline"
+              onClick={() => setOpen(false)}
+            ></Icon>
             <Modal.Content image>
               {event_card ? (
                 <Image size="medium" src={event_card} wrapped />
               ) : (
                 <Image
                   size="medium"
-                  src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
+                  src="https://camelotlanes.com/wp-content/uploads/2020/08/FUN.jpg"
                   wrapped
                 />
               )}
@@ -99,7 +112,7 @@ const EventCard = (props) => {
                   ? reviews.map((rv) => (
                       <li>
                         {rv.description}
-                        <span>{rv.attendee.first_name}</span>
+                        <span>{" " + " " + "- " + rv.attendee.first_name}</span>
                       </li>
                     ))
                   : null}
@@ -131,12 +144,9 @@ const EventCard = (props) => {
               ) : (
                 <>
                   <div>
-                    <Input
-                      type="submit"
-                      value="Add review"
-                      positive
-                      onClick={onClick}
-                    />
+                    <Button primary onClick={onClick}>
+                      Add review
+                    </Button>
                     {showResults ? (
                       <ReviewForm
                         addReviewToEvent={props.addReviewToEvent}

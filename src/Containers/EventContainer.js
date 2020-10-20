@@ -3,8 +3,13 @@ import EventCard from "../Components/EventCard";
 import { Grid } from "semantic-ui-react";
 
 const EventContainer = (props) => {
-  // console.log(props.allEvents);
+  // let arrayOfEvents = props.allEvents;
 
+  const [arrayOfEvents, setArrayOfEvents] = useState([]);
+
+  useEffect(() => {
+    setArrayOfEvents(props.allEvents);
+  });
   return (
     <div>
       <h1
@@ -21,9 +26,9 @@ const EventContainer = (props) => {
       </h1>
       <Grid celled="internally">
         <Grid.Row>
-          {!props.allEvents
+          {!arrayOfEvents
             ? null
-            : props.allEvents.map((anEvent) => (
+            : arrayOfEvents.map((anEvent) => (
                 <Grid.Column width={3}>
                   <EventCard
                     anEvent={anEvent}

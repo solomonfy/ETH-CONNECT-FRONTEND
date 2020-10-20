@@ -29,13 +29,13 @@ const Announcement = (props) => {
               >
                 <Icon name="remove" />
               </Button>
-              <Button color="green" inverted onClick={null}>
-                <Icon name="edit" size="mini" />
+              <Button color="green" size="mini" inverted onClick={null}>
+                <Icon name="edit" />
               </Button>
             </span>
           ) : (
             <span>
-              <Button color="green" size="tiny" inverted onClick={null}>
+              <Button color="green" size="mini" inverted onClick={null}>
                 <Icon name="heart" />
               </Button>
             </span>

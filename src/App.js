@@ -456,8 +456,7 @@ const App = () => {
         />
       </Switch>
       {/* <header className="App-header"></header> */}
-
-      <Footer />
+      {localStorage.token ? <Footer /> : null}
     </div>
   );
 };
