@@ -7,48 +7,60 @@ import {
   Segment,
   Container,
   Icon,
+  Divider,
+  Image,
 } from "semantic-ui-react";
 
 const Footer = () => {
   return (
     <div>
       <Segment inverted vertical style={{ padding: "5em 0em" }}>
-        <p>Created by Solomon Yismaw</p>
         <br />
         <Container>
           <Grid divided inverted stackable>
             <Grid.Row>
-              <Grid.Column width={3}>
+              <Grid.Column width={8}>
                 <Header inverted as="h4" content="Contact" />
                 {/* <Icon loading name="spinner" /> */}
-                <a>
-                  <Icon name="github" inverted size={"big"} />
-                  <List link inverted>
-                    <List.Item as="a">GitHub</List.Item>
-                  </List>
-                </a>
-                <br />
-                <a>
-                  <Icon name="linkedin" inverted size={"big"} />
-                  <List link inverted>
-                    <List.Item as="a">LinkedIn</List.Item>
-                  </List>
-                </a>
+                <List horizontal inverted divided link size="small">
+                  <a>
+                    <Icon name="github" inverted size={"big"} />
+                    <List link inverted>
+                      <List.Item as="a">GitHub</List.Item>
+                    </List>
+                  </a>
+                  <br />
+                  <a>
+                    <Icon name="linkedin" inverted size={"big"} />
+                    <List link inverted>
+                      <List.Item as="a">LinkedIn</List.Item>
+                    </List>
+                  </a>
+                </List>
               </Grid.Column>
-              <Grid.Column width={3}>
+              <Grid.Column width={6}>
                 <Header inverted as="h4" content="Services" />
                 <List link inverted>
                   <List.Item as="a">How To use the application</List.Item>
                 </List>
               </Grid.Column>
-              <Grid.Column width={7}>
-                <Header as="h4" inverted>
-                  Footer Header
-                </Header>
-                <p>This application is intended for social communication</p>
-              </Grid.Column>
             </Grid.Row>
           </Grid>
+          <Divider inverted section />
+          {/* <Image centered size="mini" src="/logo.png" /> */}
+          <p>Created by Solomon Yismaw, 2020</p>
+
+          <List horizontal inverted divided link size="small">
+            <List.Item as="a" href="#">
+              Site Map
+            </List.Item>
+            <List.Item as="a" href="#">
+              Terms and Conditions
+            </List.Item>
+            <List.Item as="a" href="#">
+              Privacy Policy
+            </List.Item>
+          </List>
         </Container>
       </Segment>
     </div>
