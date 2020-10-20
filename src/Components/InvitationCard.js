@@ -31,14 +31,14 @@ const InvitationCard = (props) => {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div className="ui two buttons">
+            {/* <div className="ui two buttons">
               <Button basic color="green">
                 Accept
               </Button>
               <Button basic color="red">
                 Decline
               </Button>
-            </div>
+            </div> */}
           </Card.Content>
         </Card>
       </Card.Group>

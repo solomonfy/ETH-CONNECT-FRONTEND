@@ -14,6 +14,7 @@ const NavBar = (props) => {
 
   const navStyle = {
     color: "white",
+    textSize: 12,
     borderRadius: 6,
     // backgroundColor: "black",
     borderWidth: 1,
@@ -38,7 +39,6 @@ const NavBar = (props) => {
     <div>
       <div className="navbar">
         <Image src={Logo}  />
-        <DropDown member={member} logOut={logOut} />
         <Dropdown item simple text="Menu" style={navStyle}>
           <Dropdown.Menu>
             <Dropdown.Item text="All Events" icon="home" as={Link} to="/main" />
@@ -91,7 +91,9 @@ const NavBar = (props) => {
         </Dropdown>
 
         <div>{/* <Country /> */}</div>
-        <Input focus placeholder="Search..." />
+        {/* <Input focus placeholder="Search..." /> */}
+        <DropDown member={member} logOut={logOut} />
+
       </div>
     </div>
   );

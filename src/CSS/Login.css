@@ -8,7 +8,9 @@
   font-size: calc(10px + 2vmin);
   background-image: url("../Images/eth_belt.jpg");
   background-attachment: fixed;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
+  background-size: cover;
+
   /* color: white; */
 }
 

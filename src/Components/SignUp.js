@@ -46,9 +46,9 @@ class SignUp extends React.Component {
       .then((newMembar) => {
         if (!newMembar.error) {
           // console.log(newMembar)
-          localStorage.token = newMembar.token;
-          localStorage.id = newMembar.id;
-          alert("Account created");
+          // localStorage.token = newMembar.token;
+          // localStorage.id = newMembar.id;
+          alert("Account has been created successfully!");
           this.props.history.push("/login");
         } else {
           this.setState({ signUpError: newMembar.error });
@@ -62,11 +62,12 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-up-form">
-        <Segment placeholder>
-          <br />
-          <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
-            <Grid columns="equal">
-              <Grid.Column width={8}>
+        {/* <Segment placeholder> */}
+        <br />
+        <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
+          <Grid columns="equal">
+            <Grid.Column width={8}>
+              <Form.Group widths="equal">
                 <Form.Input
                   icon="user"
                   iconPosition="left"
@@ -83,8 +84,8 @@ class SignUp extends React.Component {
                   placeholder="Last name"
                   onChange={this.handleChange}
                 />
-              </Grid.Column>
-              <Grid.Column width={8}>
+              </Form.Group>
+              <Form.Group widths="equal">
                 <Form.Input
                   icon="internet explorer"
                   iconPosition="left"
@@ -102,8 +103,8 @@ class SignUp extends React.Component {
                   placeholder="Username"
                   onChange={this.handleChange}
                 />
-              </Grid.Column>
-              <Grid.Column width={8}>
+              </Form.Group>
+              <Form.Group widths="equal">
                 <Form.Input
                   icon="user"
                   iconPosition="left"
@@ -122,8 +123,8 @@ class SignUp extends React.Component {
                   placeholder="family size"
                   onChange={this.handleChange}
                 />
-              </Grid.Column>
-              <Grid.Column width={8}>
+              </Form.Group>
+              <Form.Group widths="equal">
                 <Form.Input
                   icon="lock"
                   iconPosition="left"
@@ -141,17 +142,15 @@ class SignUp extends React.Component {
                   placeholder="Image url.."
                   onChange={this.handleChange}
                 />
-              </Grid.Column>
-              <Button content="Sign up" primary center />
-
-              <Grid.Column verticalAlign="middle"></Grid.Column>
-              <Link to="/login">
-                <Button content="Back" />
-              </Link>
-            </Grid>
-            <Divider vertical></Divider>
-          </Form>
-        </Segment>
+              </Form.Group>
+            </Grid.Column>
+            {/* <Button content="Sign up" primary center /> */}
+          </Grid>
+          <Form.Button primary>Sign up</Form.Button>
+          Already have account?
+          <Link to="/login"> Login</Link>
+        </Form>
+        {/* </Segment> */}
       </div>
     );
   }
