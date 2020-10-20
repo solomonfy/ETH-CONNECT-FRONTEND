@@ -7,14 +7,12 @@ const AnnouncementContainer = (props) => {
   // console.log(props.allAnnouncements);
 
   const announcement = props.allAnnouncements.map((anAnnouncement) => (
-    <li>
-      <Announcement
-        anAnnouncement={anAnnouncement}
-        key={anAnnouncement.id}
-        currentMember={props.currentMember}
-        deleteAnnouncement={props.deleteAnnouncement}
-      />
-    </li>
+    <Announcement
+      anAnnouncement={anAnnouncement}
+      key={anAnnouncement.id}
+      currentMember={props.currentMember}
+      deleteAnnouncement={props.deleteAnnouncement}
+    />
   ));
 
   return (
