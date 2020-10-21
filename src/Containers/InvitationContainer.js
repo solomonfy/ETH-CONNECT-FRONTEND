@@ -26,6 +26,7 @@ const InvitationContainer = (props) => {
   return (
     <div className="invitation-container">
       <Grid celled="internally">
+        <br />
         <h1 style={style}> My Invitations - የእኔ ግብዣዎች</h1>
         <Grid.Row>
           {props.currentMember === null && allInvitations.length === 0
@@ -33,7 +34,7 @@ const InvitationContainer = (props) => {
             : allInvitations
                 .filter((inv) => inv.attendee_id === props.currentMember.id)
                 .map((Inv) => (
-                  <Grid.Column width={5}>
+                  <Grid.Column width={3}>
                     <InvitationCard
                       currentMember={props.currentMember}
                       invitationsUrl={props.invitationsUrl}

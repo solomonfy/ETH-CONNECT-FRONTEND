@@ -6,7 +6,8 @@ const InvitationCard = (props) => {
   const myInvitation = props.myInvitations.event;
   // console.log(props.myInvitations);
   return (
-    <div className="invitation-container">
+    <div className="invitation-card">
+      <br/>
       <Card.Group>
         <Card>
           <Card.Content>
