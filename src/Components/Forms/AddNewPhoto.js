@@ -37,7 +37,12 @@ const AddNewPhoto = (props) => {
     };
     fetch(props.photosUrl, configObj)
       .then((resp) => resp.json())
-      .then((data) => console.log(data));
+      .then((newPhoto) => {
+        props.setAllPhotos([...props.allPhotos, newPhoto]);
+        console.log(newPhoto);
+      });
+    props.history.push("/photo-gallery");
+    e.target.reset();
     // props.setAllPhotos();
   };
 
