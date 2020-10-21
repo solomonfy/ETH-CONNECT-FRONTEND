@@ -49,7 +49,7 @@ const NavBar = (props) => {
           // trigger={trigger}
           item
           simple
-          text="Menu - ምናሌ"
+          text="Menu - ማውጫ"
           style={navStyle}
           // pointing="top center"
         >
