@@ -38,30 +38,35 @@ const NavBar = (props) => {
   return (
     <div>
       <div className="navbar">
-        <Image src={Logo}  />
-        <Dropdown item simple text="Menu" style={navStyle}>
+        <Image src={Logo} />
+        <Dropdown item simple text="Menu - ምናሌ" style={navStyle}>
           <Dropdown.Menu>
-            <Dropdown.Item text="All Events" icon="home" as={Link} to="/main" />
             <Dropdown.Item
-              text="Calendar View"
+              text="All Events - ክስተቶች"
+              icon="home"
+              as={Link}
+              to="/main"
+            />
+            <Dropdown.Item
+              text="Calendar View - ቀን መቁጠሪያ"
               icon="calendar alternate outline"
               as={Link}
               to="/calendar"
             />
             <Dropdown.Item
-              text="Host event"
+              text="Host event - ክስተት ማስተናገድ"
               icon="birthday cake"
               as={Link}
               to="/new_event"
             />
             <Dropdown.Item
-              text="Invite members"
+              text="Invite members - አባላትን ጋብዝ"
               icon="tasks"
               as={Link}
               to="/new_invitation"
             />
             <Dropdown.Item
-              text="Add announcement"
+              text="Add announcement - ማስታወቂያ አክል"
               icon="bullhorn"
               as={Link}
               to="/new_announcement"
@@ -70,16 +75,16 @@ const NavBar = (props) => {
             <Dropdown.Header>Header Item</Dropdown.Header>
             <Dropdown.Item>
               <i className="dropdown icon" />
-              <span className="text">Photo</span>
+              <span className="text">Photo - ፎቶ</span>
               <Dropdown.Menu>
                 <Dropdown.Item
-                  text="Gallery"
+                  text="Gallery - ማዕከለ-ስዕላት"
                   icone="picture"
                   as={Link}
                   to="/photo-gallery"
                 />
                 <Dropdown.Item
-                  text="Add photo"
+                  text="Add photo - ፎቶ ጨምር"
                   icone="photo"
                   as={Link}
                   to="/add-photo"
@@ -93,7 +98,6 @@ const NavBar = (props) => {
         <div>{/* <Country /> */}</div>
         {/* <Input focus placeholder="Search..." /> */}
         <DropDown member={member} logOut={logOut} />
-
       </div>
     </div>
   );
