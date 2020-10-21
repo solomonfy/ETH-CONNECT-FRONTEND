@@ -107,9 +107,8 @@ const App = () => {
       },
     })
       .then((resp) => resp.json())
-      .then((data) => {
-        setAllPhotos(data);
-        // console.log(data);
+      .then((image) => {
+        setAllPhotos(image);
       });
   }, []);
 

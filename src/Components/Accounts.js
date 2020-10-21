@@ -62,8 +62,8 @@ const Accounts = (props) => {
         ) : (
           // <Image avatar src="../Images/reactapp.png" />
           <Image
-            size="medium"
-            src="https://camelotlanes.com/wp-content/uploads/2020/08/FUN.jpg"
+            avatar
+            src="https://i.pinimg.com/originals/a1/f0/44/a1f044bca94a4d03598759f28ba02c59.jpg"
             wrapped
           />
         )}
@@ -79,9 +79,9 @@ const Accounts = (props) => {
             </Button.Content>
           </Button>
         </Link>
-        <Button negative onClick={() => deactivateAccount()}>
+        {/* <Button negative onClick={() => deactivateAccount()}>
           Deactivate
-        </Button>
+        </Button> */}
         <Link to="/edit_account">
           <Button primary>Edit Account</Button>
         </Link>
