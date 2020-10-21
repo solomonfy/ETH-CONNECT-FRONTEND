@@ -49,7 +49,7 @@ const ReviewForm = (props) => {
         open={open}
         trigger={<Button primary>+</Button>}
       >
-        <Modal.Header>Add Review</Modal.Header>
+        <Modal.Header></Modal.Header>
         <Modal.Content>
           <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
             <Grid columns="equal">

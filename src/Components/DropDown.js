@@ -37,7 +37,7 @@ const DropDown = (props) => {
             to="/invitations"
           />
           <Dropdown.Item
-            text="Sign Out - ዘግተ ውጣ"
+            text="Sign Out - ዘግተው ይውጡ"
             icon="sign out"
             // as={Link}
             // to="/sign-out"

@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import "../CSS/Photos.css";
+import moment from "moment";
 
 function Photo(props) {
   let allImages = props.allPhotos;
@@ -32,7 +33,7 @@ function Photo(props) {
               views={allImages.map((image) => ({
                 ...image,
                 srcset: image.srcSet,
-                caption: image.event_id,
+                caption: moment(image.event.date).format("YYYY-MM-DD"),
                 // width: image.width,
                 // height: image.height,
               }))}

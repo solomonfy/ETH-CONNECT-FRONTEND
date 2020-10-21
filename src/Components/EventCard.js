@@ -107,7 +107,7 @@ const EventCard = (props) => {
                 <p>
                   <strong>Location:</strong> {location}
                 </p>
-                {reviews ? <strong>Reviews:</strong> : null}
+                {reviews ? <strong>Comments:</strong> : null}
                 {reviews
                   ? reviews.map((rv) => (
                       <li>
@@ -145,7 +145,7 @@ const EventCard = (props) => {
                 <>
                   <div>
                     <Button primary onClick={onClick}>
-                      Add review
+                      Add comment
                     </Button>
                     {showResults ? (
                       <ReviewForm
