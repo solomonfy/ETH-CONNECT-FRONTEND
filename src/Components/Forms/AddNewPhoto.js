@@ -31,7 +31,7 @@ const AddNewPhoto = (props) => {
         photo: {
           src: e.target.src.value,
           member_id: props.currentMember.id,
-          event_id: event_id,
+          event_id: parseInt(Object.values(event_id).toString()),
         },
       }),
     };
