@@ -20,7 +20,7 @@ const EventCalender = (props) => {
   const formatEvents = () => {
     return eventsArray.map((anEvent) => {
       const { name, date } = anEvent;
-      let hostName = anEvent.host.first_name + " " + anEvent.host.last_name
+      let hostName = anEvent.host.first_name + " " + anEvent.host.last_name;
       // console.log(hostName)
       return {
         title: name,
@@ -37,7 +37,6 @@ const EventCalender = (props) => {
   return (
     <div className="event_calendar">
       <FullCalendar
-      
         initialView="dayGridMonth"
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{
@@ -46,7 +45,7 @@ const EventCalender = (props) => {
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
         editable={true}
-        weekNumbers={true}
+        // weekNumbers={true}
         // weekends={false}
         // eventDrop={this.handleEventDrop}
         eventClick={null}
