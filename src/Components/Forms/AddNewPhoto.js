@@ -39,11 +39,10 @@ const AddNewPhoto = (props) => {
       .then((resp) => resp.json())
       .then((newPhoto) => {
         props.setAllPhotos([...props.allPhotos, newPhoto]);
-        console.log(newPhoto);
+        // console.log(newPhoto);
       });
     props.history.push("/photo-gallery");
     e.target.reset();
-    // props.setAllPhotos();
   };
 
   return (
@@ -60,6 +59,7 @@ const AddNewPhoto = (props) => {
           placeholder="Select Event"
           fluid
           name="event_id"
+          search
           selection
           options={
             !props.allEvents
@@ -67,7 +67,7 @@ const AddNewPhoto = (props) => {
               : props.allEvents.map((ev) => {
                   return {
                     key: `${ev.name}`,
-                    text: `${ev.name}`,
+                    text: `${ev.name + " /" + ev.host.first_name}`,
                     value: `${ev.id}`,
                     image: {
                       avatar: true,

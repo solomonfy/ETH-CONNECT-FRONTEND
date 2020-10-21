@@ -107,6 +107,7 @@ class InvitationForm extends React.Component {
             fluid
             name="event_id"
             selection
+            search
             options={
               !allEvents
                 ? null
@@ -147,7 +148,7 @@ class InvitationForm extends React.Component {
         <Link to="/main">
           <Form.Button secondary>Cancel</Form.Button>
         </Link>
-        <br/>
+        <br />
       </div>
     );
   }
