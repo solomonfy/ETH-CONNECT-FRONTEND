@@ -22,8 +22,8 @@ const EventContainer = (props) => {
           alignSelf: "flex-start",
         }}
       >
-        All Community Events ({!props.allEvents ? null : props.allEvents.length}
-        )
+        All Community Events - ክስተቶች (
+        {!props.allEvents ? null : props.allEvents.length})
       </h1>
       <Grid celled="internally">
         <Grid.Row>
