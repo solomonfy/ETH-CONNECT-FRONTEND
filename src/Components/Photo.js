@@ -6,7 +6,6 @@ import moment from "moment";
 
 function Photo(props) {
   let allImages = props.allPhotos;
-  // console.log(allImages.map((i) => i));
 
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);

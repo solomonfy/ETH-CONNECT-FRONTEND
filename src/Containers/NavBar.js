@@ -66,6 +66,27 @@ const NavBar = (props) => {
               as={Link}
               to="/calendar"
             />
+
+            <Dropdown.Item>
+              <i className="dropdown icon" />
+              <span className="text">Photo - ፎቶ</span>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  text="Gallery - ማዕከለ-ስዕላት"
+                  icon="picture"
+                  as={Link}
+                  to="/photo-gallery"
+                />
+                <Dropdown.Item
+                  text="Add photo - ፎቶ ጨምር"
+                  icon="photo"
+                  as={Link}
+                  to="/add-photo"
+                />
+              </Dropdown.Menu>
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Header>Actions</Dropdown.Header>
             <Dropdown.Item
               text="Host event - ክስተት ማስተናገድ"
               icon="birthday cake"
@@ -84,27 +105,6 @@ const NavBar = (props) => {
               as={Link}
               to="/new_announcement"
             />
-            <Dropdown.Divider />
-            <Dropdown.Header>Header Item</Dropdown.Header>
-            <Dropdown.Item>
-              <i className="dropdown icon" />
-              <span className="text">Photo - ፎቶ</span>
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  text="Gallery - ማዕከለ-ስዕላት"
-                  icone="picture"
-                  as={Link}
-                  to="/photo-gallery"
-                />
-                <Dropdown.Item
-                  text="Add photo - ፎቶ ጨምር"
-                  icone="photo"
-                  as={Link}
-                  to="/add-photo"
-                />
-              </Dropdown.Menu>
-            </Dropdown.Item>
-            <Dropdown.Item>List Item</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
