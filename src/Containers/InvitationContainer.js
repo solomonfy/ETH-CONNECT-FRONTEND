@@ -16,20 +16,17 @@ const InvitationContainer = (props) => {
       .then((data) => setAllInvitations(data));
   }, []);
 
+  const style = {
+    backgroundColor: "white",
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: "black",
+    alignSelf: "flex-start",
+  };
   return (
     <div className="invitation-container">
       <Grid celled="internally">
-        <h1
-          style={{
-            backgroundColor: "white",
-            borderRadius: 16,
-            borderWidth: 1,
-            borderColor: "black",
-            alignSelf: "flex-start",
-          }}
-        >
-          My Invitations
-        </h1>
+        <h1 style={style}> My Invitations - የእኔ ግብዣዎች</h1>
         <Grid.Row>
           {props.currentMember === null && allInvitations.length === 0
             ? null

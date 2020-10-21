@@ -30,22 +30,18 @@ const DropDown = (props) => {
             to="/account"
           />
           <Dropdown.Item
-            text="My Invitations"
+            text="My Invitations - የእኔ ግብዣዎች"
             icon="folder open"
             as={Link}
             to="/invitations"
           />
           <Dropdown.Item
-            text="Sign Out"
+            text="Sign Out - ዘግተ ውጣ"
             icon="sign out"
             // as={Link}
             // to="/sign-out"
             onClick={() => props.logOut()}
           />
-
-
-
-
         </Dropdown.Menu>
       </Dropdown>
     );
