@@ -7,6 +7,7 @@ const DropDown = (props) => {
   // console.log(props);
   const dropDown = {
     color: "white",
+    fontSize: 20,
   };
 
   if (props.member === null) {

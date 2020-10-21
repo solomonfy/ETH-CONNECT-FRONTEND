@@ -46,7 +46,7 @@ const Accounts = (props) => {
     <div className="account-div">
       <h1 className="header">Account Information</h1>
       <br />
-      <h3>User Name: {username}</h3>
+      <h3>User Name: {" " + username}</h3>
       <br />
       <h3>First Name: {first_name}</h3>
       <br />

@@ -14,7 +14,8 @@ const NavBar = (props) => {
 
   const navStyle = {
     color: "white",
-    textSize: 12,
+    textSize: 20,
+    fontSize: 20,
     borderRadius: 6,
     // backgroundColor: "black",
     borderWidth: 1,
