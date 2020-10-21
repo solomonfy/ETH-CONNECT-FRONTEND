@@ -21,7 +21,7 @@ const DropDown = (props) => {
     );
 
     return (
-      <Dropdown trigger={trigger} pointing="top left" icon={null}>
+      <Dropdown trigger={trigger} pointing="top right" icon={null}>
         <Dropdown.Menu>
           <Dropdown.Item
             text="Account"

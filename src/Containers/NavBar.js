@@ -34,12 +34,24 @@ const NavBar = (props) => {
   let member = props.currentMember;
   // let fullName = member.first_name + " " + member.last_name;
   // console.log(member);
+  const trigger = (
+    <span>
+      <Image avatar size="mini" src={null} />
+    </span>
+  );
 
   return (
     <div>
       <div className="navbar">
         <Image src={Logo} />
-        <Dropdown item simple text="Menu - ምናሌ" style={navStyle}>
+        <Dropdown
+          // trigger={trigger}
+          item
+          simple
+          text="Menu - ምናሌ"
+          style={navStyle}
+          // pointing="top center"
+        >
           <Dropdown.Menu>
             <Dropdown.Item
               text="All Events - ክስተቶች"
