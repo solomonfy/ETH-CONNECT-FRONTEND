@@ -31,12 +31,6 @@ const DropDown = (props) => {
             to="/account"
           />
           <Dropdown.Item
-            text="My Invitations - የእኔ ግብዣዎች"
-            icon="folder open"
-            as={Link}
-            to="/invitations"
-          />
-          <Dropdown.Item
             text="Sign Out - ዘግተው ይውጡ"
             icon="sign out"
             // as={Link}
