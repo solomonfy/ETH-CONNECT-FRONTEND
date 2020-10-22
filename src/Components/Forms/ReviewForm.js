@@ -66,7 +66,7 @@ const ReviewForm = (props) => {
           </Form>
         </Modal.Content>
         <Modal.Actions>
-          <Button color="green" onClick={() => setOpen(false)}>
+          <Button secondary onClick={() => setOpen(false)}>
             Back
           </Button>
         </Modal.Actions>
