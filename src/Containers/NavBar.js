@@ -67,7 +67,7 @@ const NavBar = (props) => {
               to="/calendar"
             />
             <Dropdown.Item
-              text="My Invitations"
+              text="My Invitations - የእኔ ግብዣዎች"
               icon="folder open"
               as={Link}
               to="/invitations"
