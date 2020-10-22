@@ -32,7 +32,7 @@ function Photo(props) {
               views={allImages.map((image) => ({
                 ...image,
                 srcset: image.srcSet,
-                caption: moment(image.event.date).format("YYYY-MM-DD"),
+                caption: image.event_id,
                 // width: image.width,
                 // height: image.height,
               }))}
