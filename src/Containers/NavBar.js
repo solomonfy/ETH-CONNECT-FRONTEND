@@ -66,6 +66,12 @@ const NavBar = (props) => {
               as={Link}
               to="/calendar"
             />
+            <Dropdown.Item
+              text="My Invitations"
+              icon="folder open"
+              as={Link}
+              to="/invitations"
+            />
 
             <Dropdown.Item>
               <i className="dropdown icon" />
