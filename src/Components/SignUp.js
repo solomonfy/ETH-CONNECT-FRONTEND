@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../CSS/Signup.css";
-import { Form, Divider, Grid, Button, Segment } from "semantic-ui-react";
+import { Form, Divider, Grid, Button, Segment, Image } from "semantic-ui-react";
+
+import Logo from "../Images/ETHIO-CONNECT2.png";
 
 class SignUp extends React.Component {
   state = {
@@ -64,6 +66,8 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="sign-up-form">
+        <Image src={Logo} />
+
         <Segment placeholder>
           <br />
           <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
