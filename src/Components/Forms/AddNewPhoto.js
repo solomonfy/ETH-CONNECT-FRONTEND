@@ -67,7 +67,7 @@ const AddNewPhoto = (props) => {
               : props.allEvents.map((ev) => {
                   return {
                     key: `${ev.name}`,
-                    text: `${ev.name + " /" + ev.host.first_name}`,
+                    text: `${ev.name}`,
                     value: `${ev.id}`,
                     image: {
                       avatar: true,
