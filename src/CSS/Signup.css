@@ -1,6 +1,6 @@
 .sign-up-form {
   min-height: 100vh;
-  background-image: url("../Images/Traditional_white_scrf_with_colorful_tilet_large.jpg");
+  background-image: url("../Images/coffee.webp");
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,5 +9,6 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  /* /* background-image: url("../Images/Traditional_white_scrf_with_colorful_tilet_large.jpg"); */
 
 }
