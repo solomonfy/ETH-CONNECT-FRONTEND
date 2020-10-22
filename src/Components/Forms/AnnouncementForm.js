@@ -40,7 +40,8 @@ const AnnouncementForm = (props) => {
         <Grid columns="equal">
           <Grid.Column width={16}>
             <Form.TextArea
-              // label="Description"
+              required
+              label="Description"
               placeholder="description"
               name="description"
               onChange={(e) => setDescription(e.target.value)}

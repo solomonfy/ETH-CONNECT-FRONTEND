@@ -75,6 +75,7 @@ class InvitationForm extends React.Component {
       <div className="invitation-form">
         <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
           <Dropdown
+            required
             onChange={this.handleAttendeeChange}
             label="Attendee"
             placeholder="Select Attendee"
@@ -101,6 +102,7 @@ class InvitationForm extends React.Component {
           <br />
           <br />
           <Dropdown
+            required
             onChange={this.handleEventChange}
             label="Event"
             placeholder="Select Event"

@@ -30,6 +30,7 @@ const EditEvent = (props) => {
           <Grid.Column width={16}>
             <input type="hidden" id="id" value={id} />
             <Form.Input
+              required
               fluid
               label="Event name"
               placeholder="Event name"
@@ -38,6 +39,7 @@ const EditEvent = (props) => {
               onChange={(e) => setName(e.target.value)}
             />
             <Form.TextArea
+              required
               label="Description"
               placeholder="..."
               name="description"
@@ -46,6 +48,7 @@ const EditEvent = (props) => {
             />
 
             <Form.Input
+              required
               fluid
               label="Location"
               placeholder="location"
@@ -54,6 +57,7 @@ const EditEvent = (props) => {
               onChange={(e) => setLocation(e.target.value)}
             />
             <Form.Input
+              required
               fluid
               type="date"
               label="Date"

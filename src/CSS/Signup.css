@@ -9,6 +9,8 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  /* width: 100%; */
+  /* min-width: 300vh; */
   /* /* background-image: url("../Images/Traditional_white_scrf_with_colorful_tilet_large.jpg"); */
 
 }

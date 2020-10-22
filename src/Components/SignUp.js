@@ -24,12 +24,14 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify({
         member: {
-          first_name: this.state.first_name,
-          // this.state.first_name[0].toUpperCase() +
-          // this.state.first_name.slice(1),
-          last_name: this.state.last_name,
-          // this.state.last_name[0].toUpperCase() +
-          // this.state.last_name.slice(1),
+          first_name:
+            // this.state.first_name,
+            this.state.first_name[0].toUpperCase() +
+            this.state.first_name.slice(1),
+          last_name:
+            // this.state.last_name,
+            this.state.last_name[0].toUpperCase() +
+            this.state.last_name.slice(1),
           email: this.state.email,
           username: this.state.username,
           password: this.state.password,
@@ -63,92 +65,98 @@ class SignUp extends React.Component {
     return (
       <div className="sign-up-form">
         <Segment placeholder>
-        <br />
-        <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
-          <Grid columns="equal">
-            <Grid.Column width={8}>
-              <Form.Group widths="equal">
-                <Form.Input
-                  icon="user"
-                  iconPosition="left"
-                  label="First Name"
-                  name="first_name"
-                  placeholder="First name"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  icon="user"
-                  iconPosition="left"
-                  label="Last Name"
-                  name="last_name"
-                  placeholder="Last name"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Form.Group widths="equal">
-                <Form.Input
-                  icon="internet explorer"
-                  iconPosition="left"
-                  label="E-mail"
-                  name="email"
-                  type="email"
-                  placeholder="email"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  icon="user"
-                  iconPosition="left"
-                  label="Username"
-                  name="username"
-                  placeholder="Username"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Form.Group widths="equal">
-                <Form.Input
-                  icon="user"
-                  iconPosition="left"
-                  label="Address"
-                  name="address"
-                  placeholder="address"
-                  onChange={this.handleChange}
-                />
+          <br />
+          <Form size={"large"} onSubmit={(e) => this.handleSubmit(e)}>
+            <Grid columns="equal">
+              <Grid.Column width={8}>
+                <Form.Group widths="equal">
+                  <Form.Input
+                    required
+                    icon="user"
+                    iconPosition="left"
+                    label="First Name"
+                    name="first_name"
+                    placeholder="First name"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    required
+                    icon="user"
+                    iconPosition="left"
+                    label="Last Name"
+                    name="last_name"
+                    placeholder="Last name"
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+                <Form.Group widths="equal">
+                  <Form.Input
+                    required
+                    icon="internet explorer"
+                    iconPosition="left"
+                    label="E-mail"
+                    name="email"
+                    type="email"
+                    placeholder="email"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    required
+                    icon="user"
+                    iconPosition="left"
+                    label="Username"
+                    name="username"
+                    placeholder="Username"
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+                <Form.Group widths="equal">
+                  <Form.Input
+                    required
+                    icon="lock"
+                    iconPosition="left"
+                    label="Password"
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                    onChange={this.handleChange}
+                  />
 
-                <Form.Input
-                  icon="user circle"
-                  iconPosition="left"
-                  label="Family size"
-                  name="family_size"
-                  type="number"
-                  placeholder="family size"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Form.Group widths="equal">
-                <Form.Input
-                  icon="lock"
-                  iconPosition="left"
-                  label="Password"
-                  name="password"
-                  type="password"
-                  placeholder="password"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  icon="user circle"
-                  iconPosition="left"
-                  label="Profile picture"
-                  name="image"
-                  placeholder="Image url.."
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-            </Grid.Column>
-          </Grid>
-          <Form.Button primary>Sign up</Form.Button>
-          Already have account?
-          <Link to="/login"> Login</Link>
-        </Form>
+                  <Form.Input
+                    icon="user circle"
+                    iconPosition="left"
+                    label="Family size"
+                    name="family_size"
+                    type="number"
+                    placeholder="family size"
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+                <Form.Group widths="equal">
+                  <Form.Input
+                    icon="user"
+                    iconPosition="left"
+                    label="Address"
+                    name="address"
+                    placeholder="address"
+                    onChange={this.handleChange}
+                  />
+
+                  <Form.Input
+                    icon="user circle"
+                    iconPosition="left"
+                    label="Profile picture"
+                    name="image"
+                    placeholder="Image url.."
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+              </Grid.Column>
+            </Grid>
+            <Form.Button primary>Sign up</Form.Button>
+            Already have account?
+            <Link to="/login"> Login</Link>
+          </Form>
         </Segment>
       </div>
     );

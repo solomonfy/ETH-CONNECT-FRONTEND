@@ -22,10 +22,12 @@ const EventForm = (props) => {
       },
       body: JSON.stringify({
         event: {
-          name: name,
-          // name[0].toUpperCase() + name.slice(1),
-          description: description,
-          // description[0].toUpperCase() + description.slice(1),
+          name:
+            // name,
+            name[0].toUpperCase() + name.slice(1),
+          description:
+            // description,
+            description[0].toUpperCase() + description.slice(1),
           location: e.target.location.value,
           date: e.target.date.value,
           event_type: event_type,
@@ -52,6 +54,7 @@ const EventForm = (props) => {
           <Grid.Column width={16}>
             <Form.Input
               fluid
+              required
               label="Event name"
               placeholder="Event name"
               name="name"
@@ -59,6 +62,7 @@ const EventForm = (props) => {
             <br />
             <Form.TextArea
               label="Description"
+              required
               placeholder="event description"
               name="description"
             />
@@ -66,12 +70,14 @@ const EventForm = (props) => {
             <Form.Group widths="equal">
               <Form.Input
                 fluid
+                required
                 label="Location"
                 placeholder="location"
                 name="location"
               />
               <Form.Input
                 fluid
+                required
                 type="date"
                 label="Date"
                 name="date"

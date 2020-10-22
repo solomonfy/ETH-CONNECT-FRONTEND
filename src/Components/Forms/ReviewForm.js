@@ -55,6 +55,7 @@ const ReviewForm = (props) => {
             <Grid columns="equal">
               <Grid.Column width={8}>
                 <Form.TextArea
+                  required
                   label="Description"
                   placeholder="description"
                   name="description"
