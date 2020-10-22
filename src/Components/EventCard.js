@@ -39,7 +39,7 @@ const EventCard = (props) => {
 
   return (
     <div>
-      <Card color="green">
+      <Card color="blue">
         {/* <Image
           src={event_card}
           // src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"

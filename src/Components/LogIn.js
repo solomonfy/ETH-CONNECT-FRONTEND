@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Form, Segment, Divider, Grid, Button, Input } from "semantic-ui-react";
+import { Form, Segment, Divider, Grid, Button, Input, Image } from "semantic-ui-react";
 import "../CSS/Login.css";
+import Logo from "../Images/ETHIO-CONNECT2.png";
+
 
 const LogIn = (props) => {
   // const [loggedInMember, setLoggedInMember] = useState({});
@@ -49,7 +51,9 @@ const LogIn = (props) => {
 
   return (
     <div className="log-in-form">
+      <Image src={Logo} />
       <Segment placeholder>
+
         <Grid columns={2} relaxed="very" stackable>
           <Grid.Column>
             <Form size={"large"} onSubmit={(e) => handleLogin(e)}>

@@ -12,7 +12,7 @@ const EventContainer = (props) => {
     setArrayOfEvents(props.allEvents);
   });
   return (
-    <div>
+    <div className="event-container">
       <h1
         style={{
           backgroundColor: "white",
