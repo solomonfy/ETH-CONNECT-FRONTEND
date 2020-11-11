@@ -30,7 +30,9 @@ gem rest-client
 gem json
 gem jwt
 
+<h1>
 Installation instructions:
+</h1>
 
 1. Clone both the frontend and backend repositories to your computer
 2. Run bundle install on the backend repository to install the required gems
