@@ -1,24 +1,19 @@
-ETHIO-CONNECT - a Javascript/React and Ruby/Rails web application
+ETHIO-CONNECT - a Javascript/React and Ruby/Rails web application built for Ethiopian community in DMV area enabling members to connect for events and share updates,
 
 <image src="./src/Images/ETHIO-CONNECT2.png"></image>
 
 Flatiron School - Capstone Final Project by Solomon Yismaw
 
-<h4>
-Frontend: 
-</h4> github
-<h4>
-Backend: 
-</h4> github
-<h4>
-Demo Video: 
-</h4>video link
+<h4>Frontend:</h4> github
+<h4>Backend: </h4> github
+<h4>Demo Video: </h4>video link
 
 <h3>
 Project functionalities
 </h3>
 
 A user can
+
 1. Create account
 2. A registered member can
    - host, edit and delete an event
