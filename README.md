@@ -1,14 +1,25 @@
 ETHIO-CONNECT - a Javascript/React and Ruby/Rails web application
 
+<image src="./src/Images/eth_plates2.jpg"></image>
+
 Flatiron School - Capstone Final Project by Solomon Yismaw
 
-Frontend: github
-Backend: github
-Demo Video: video link
+<h4>
+Frontend: 
+</h4>
+github
+<h4>
+Backend: 
+</h4>
+github
+<h4>
+Demo Video: 
+</h4>
+video link
 
+<h4>
 Detail
-
-ETHIO-CONNECT is web based application
+</h4>
 
 A user can
 
