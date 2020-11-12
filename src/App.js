@@ -405,17 +405,12 @@ const App = () => {
             <MainContainer
               {...routerProps}
               currentMember={currentMember}
-              eventsUrl={eventsUrl}
-              logInUrl={logInUrl}
-              invitationsUrl={invitationsUrl}
-              reviewsUrl={reviewsUrl}
               allEvents={displayEvents}
-              allAnnouncements={allAnnouncements}
               allReviews={allReviews}
               setReviews={setReviews}
               setEvents={setEvents}
-              deleteEvent={deleteEvent}
-              deleteAnnouncement={deleteAnnouncement}
+              // deleteEvent={deleteEvent}
+              // deleteAnnouncement={deleteAnnouncement}
               sortEvents={sortEvents}
 
               // status={status}
