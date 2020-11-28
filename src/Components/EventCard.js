@@ -40,21 +40,15 @@ const EventCard = (props) => {
   return (
     <div>
       <Card color="blue">
-        {/* <Image
-          src={event_card}
-          // src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
-          wrapped
-          ui={false}
-        /> */}
-
-        {/* {event_card ? (
-          <img src={event_card} height={180} />
+        {event_card ? (
+          <Image src={event_card} wrapped ui={false} />
         ) : (
-          <img
+          <Image
             src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
-            height={180}
+            wrapped
+            ui={false}
           />
-        )} */}
+        )}
 
         <Card.Content>
           <Card.Header>{name}</Card.Header>

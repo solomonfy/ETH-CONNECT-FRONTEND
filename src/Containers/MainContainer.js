@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 import moment from "moment";
 
 import { Grid } from "semantic-ui-react";
-import { Card } from "react-bootstrap";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
