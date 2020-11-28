@@ -12,7 +12,7 @@ import { Grid } from "semantic-ui-react";
 
 let BASE_URL = "http://localhost:3000/";
 let membersUrl = BASE_URL + "members/";
-let logInUrl = BASE_URL + "login/";
+// let logInUrl = BASE_URL + "login/";
 let eventsUrl = BASE_URL + "events/";
 let invitationsUrl = BASE_URL + "invitations/";
 let announcementsUrl = BASE_URL + "announcements/";
@@ -21,14 +21,13 @@ let photosUrl = BASE_URL + "photos/";
 
 const MainContainer = (props) => {
   const [state, setState] = useState(false);
+  let currentMember = props.currentMember;
 
   // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
   // const status = () => {
   //   setLogged_in(localStorage.token ? true : false);
   const history = useHistory();
 
-  const [currentMember, setCurrentMember] = useState({});
-  const [allMembers, setAllMembers] = useState(() => []);
   const [allEvents, setEvents] = useState([]);
   const [allAnnouncements, setAnnouncements] = useState([]);
   const [allReviews, setReviews] = useState([]);
@@ -37,24 +36,6 @@ const MainContainer = (props) => {
   // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
-    fetch(membersUrl + `${localStorage.id}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((resp) => resp.json())
-      .then((foundMember) => setCurrentMember(foundMember));
-
-    fetch(membersUrl, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((resp) => resp.json())
-      .then((allMembers) => setAllMembers(() => allMembers));
-
     fetch(eventsUrl, {
       method: "GET",
       headers: {
@@ -96,38 +77,6 @@ const MainContainer = (props) => {
         setAllPhotos(image);
       });
   }, []);
-
-  const editMemberAccount = (e) => {
-    e.preventDefault();
-    // debugger;
-    // console.log(e.target);
-    let configObj = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-      body: JSON.stringify({
-        member: {
-          username: e.target.username.value,
-          first_name: e.target.first_name.value,
-          last_name: e.target.last_name.value,
-          email: e.target.email.value,
-          address: e.target.address.value,
-          image: e.target.image.value,
-          family_size: e.target.family_size.value,
-        },
-      }),
-    };
-    fetch(membersUrl + `${localStorage.id}`, configObj)
-      .then((res) => res.json())
-      .then((updatedMember) => {
-        setCurrentMember(updatedMember);
-      });
-    e.target.reset();
-    history.push("/account");
-  };
 
   const editEvent = (e) => {
     // debugger;
