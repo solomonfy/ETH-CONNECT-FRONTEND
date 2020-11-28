@@ -187,16 +187,6 @@ const App = () => {
     e.target.reset();
   };
 
-  const deleteEvent = (foundEvent) => {
-    fetch(eventsUrl + `${foundEvent.id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
-    window.location.reload();
-  };
-
   const deleteAnnouncement = (selectedId) => {
     // console.log(selectedId);
     fetch(announcementsUrl + `${selectedId}`, {
@@ -211,43 +201,43 @@ const App = () => {
     );
   };
 
-  const sortEvents = (type) => {
-    switch (type) {
-      case "all":
-        setDisplayEvents(allEvents);
-        break;
-      case "upcoming":
-        setDisplayEvents(
-          allEvents.filter(
-            (ev) =>
-              moment(ev.date).format("YYYY-MM-DD") >=
-              moment(new Date()).format("YYYY-MM-DD")
-          )
-        );
-        break;
-      case "past":
-        setDisplayEvents(
-          allEvents.filter(
-            (ev) =>
-              moment(ev.date).format("YYYY-MM-DD") <
-              moment(new Date()).format("YYYY-MM-DD")
-          )
-        );
-        break;
-      case "name":
-        setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
-        break;
-      case "my_events":
-        setDisplayEvents(
-          allEvents.filter((ev) => ev.host.id === currentMember.id)
-        );
-        break;
+//   const sortEvents = (type) => {
+//     switch (type) {
+//       case "all":
+//         setDisplayEvents(allEvents);
+//         break;
+//       case "upcoming":
+//         setDisplayEvents(
+//           allEvents.filter(
+//             (ev) =>
+//               moment(ev.date).format("YYYY-MM-DD") >=
+//               moment(new Date()).format("YYYY-MM-DD")
+//           )
+//         );
+//         break;
+//       case "past":
+//         setDisplayEvents(
+//           allEvents.filter(
+//             (ev) =>
+//               moment(ev.date).format("YYYY-MM-DD") <
+//               moment(new Date()).format("YYYY-MM-DD")
+//           )
+//         );
+//         break;
+//       case "name":
+//         setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
+//         break;
+//       case "my_events":
+//         setDisplayEvents(
+//           allEvents.filter((ev) => ev.host.id === currentMember.id)
+//         );
+//         break;
 
-      default:
-        setDisplayEvents(allEvents);
-        break;
-    }
-  };
+//       default:
+//         setDisplayEvents(allEvents);
+//         break;
+//     }
+// };
 
   return (
     <div className="App">
@@ -270,7 +260,7 @@ const App = () => {
               allEvents={allEvents}
               currentMember={currentMember}
               eventsUrl={eventsUrl}
-              deleteEvent={deleteEvent}
+              // deleteEvent={deleteEvent}
             />
           )}
         />
@@ -405,13 +395,13 @@ const App = () => {
             <MainContainer
               {...routerProps}
               currentMember={currentMember}
-              allEvents={displayEvents}
-              allReviews={allReviews}
-              setReviews={setReviews}
-              setEvents={setEvents}
+              // allEvents={displayEvents}
+              // allReviews={allReviews}
+              // setReviews={setReviews}
+              // setEvents={setEvents}
               // deleteEvent={deleteEvent}
               // deleteAnnouncement={deleteAnnouncement}
-              sortEvents={sortEvents}
+              // sortEvents={sortEvents}
 
               // status={status}
               // logged_in={logged_in}

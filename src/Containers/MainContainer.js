@@ -128,7 +128,7 @@ const MainContainer = (props) => {
         Authorization: `Bearer ${localStorage.token}`,
       },
     }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
-    window.location.reload();
+    // window.location.reload();
   };
 
   const deleteAnnouncement = (selectedId) => {
@@ -172,9 +172,11 @@ const MainContainer = (props) => {
         setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
         break;
       case "my_events":
+        // setEvents(
         setDisplayEvents(
           allEvents.filter((ev) => ev.host.id === currentMember.id)
         );
+        // console.log(allEvents[0].host.id === currentMember.id);
         break;
 
       default:
@@ -186,7 +188,7 @@ const MainContainer = (props) => {
   return (
     <div className="main-container">
       {/* <Test /> */} {/* // react validation */}
-      <Sort sortEvents={props.sortEvents} />
+      <Sort sortEvents={sortEvents} />
       <br />
       <br />
       <Grid celled="internally"></Grid>
@@ -195,6 +197,7 @@ const MainContainer = (props) => {
           // eventsUrl={props.eventsUrl}
           currentMember={props.currentMember}
           allEvents={allEvents}
+          setDisplayEvents={setDisplayEvents}
           allReviews={allReviews}
           deleteEvent={deleteEvent}
           addReviewToEvent={props.addReviewToEvent}
