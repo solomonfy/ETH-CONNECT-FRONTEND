@@ -22,10 +22,6 @@ let photosUrl = BASE_URL + "photos/";
 const MainContainer = (props) => {
   const [state, setState] = useState(false);
   let currentMember = props.currentMember;
-
-  // const [logged_in, setLogged_in] = useState(localStorage.token ? true : false);
-  // const status = () => {
-  //   setLogged_in(localStorage.token ? true : false);
   const history = useHistory();
 
   const [allEvents, setEvents] = useState([]);
@@ -33,7 +29,6 @@ const MainContainer = (props) => {
   const [allReviews, setReviews] = useState([]);
   const [displayEvents, setDisplayEvents] = useState([]);
   const [allPhotos, setAllPhotos] = useState([]);
-  // const [deleteEvent, setDeleteEvent] = useState([]);
 
   useEffect(() => {
     fetch(eventsUrl, {

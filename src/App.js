@@ -70,18 +70,6 @@ const App = () => {
       .then((resp) => resp.json())
       .then((allMembers) => setAllMembers(() => allMembers));
 
-    fetch(eventsUrl, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((resp) => resp.json())
-      .then((eventsArray) => {
-        setEvents(eventsArray);
-        setDisplayEvents(eventsArray);
-      });
-
     fetch(announcementsUrl, {
       method: "GET",
       headers: {
@@ -200,44 +188,6 @@ const App = () => {
       )
     );
   };
-
-//   const sortEvents = (type) => {
-//     switch (type) {
-//       case "all":
-//         setDisplayEvents(allEvents);
-//         break;
-//       case "upcoming":
-//         setDisplayEvents(
-//           allEvents.filter(
-//             (ev) =>
-//               moment(ev.date).format("YYYY-MM-DD") >=
-//               moment(new Date()).format("YYYY-MM-DD")
-//           )
-//         );
-//         break;
-//       case "past":
-//         setDisplayEvents(
-//           allEvents.filter(
-//             (ev) =>
-//               moment(ev.date).format("YYYY-MM-DD") <
-//               moment(new Date()).format("YYYY-MM-DD")
-//           )
-//         );
-//         break;
-//       case "name":
-//         setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
-//         break;
-//       case "my_events":
-//         setDisplayEvents(
-//           allEvents.filter((ev) => ev.host.id === currentMember.id)
-//         );
-//         break;
-
-//       default:
-//         setDisplayEvents(allEvents);
-//         break;
-//     }
-// };
 
   return (
     <div className="App">
