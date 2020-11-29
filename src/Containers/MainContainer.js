@@ -129,8 +129,9 @@ const MainContainer = (props) => {
       headers: {
         Authorization: `Bearer ${localStorage.token}`,
       },
-    }).then(setEvents(allEvents.filter((ev) => ev.id !== foundEvent.id)));
-    // window.location.reload();
+    }).then(
+      setDisplayEvents(allEvents.filter((ev) => ev.id !== foundEvent.id))
+    );
   };
 
   const deleteAnnouncement = (selectedId) => {
