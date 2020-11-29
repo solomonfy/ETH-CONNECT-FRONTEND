@@ -44,7 +44,7 @@ const NavBar = (props) => {
   return (
     <div>
       <div className="navbar">
-        <Image src={Logo} />
+        <Image src={Logo} className="logo" />
         <Dropdown
           // trigger={trigger}
           item
