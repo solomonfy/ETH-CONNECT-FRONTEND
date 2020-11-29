@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
-import { Grid } from "semantic-ui-react";
+import { Grid, Card } from "semantic-ui-react";
 import moment from "moment";
 
 const EventContainer = (props) => {
@@ -11,6 +11,15 @@ const EventContainer = (props) => {
   useEffect(() => {
     setArrayOfEvents(props.allEvents);
   });
+
+  const animation = (e) => {
+    // console.log(e.pageX);
+    let eventCard = document.querySelector(".event-card");
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 15;
+    eventCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+  };
+
   return (
     <div className="event-container">
       <h1
@@ -30,7 +39,7 @@ const EventContainer = (props) => {
           {!arrayOfEvents
             ? null
             : arrayOfEvents.map((anEvent) => (
-                <Grid.Column width={3}>
+                <Grid.Column width={4}>
                   <EventCard
                     anEvent={anEvent}
                     key={anEvent}
@@ -45,6 +54,20 @@ const EventContainer = (props) => {
               ))}
         </Grid.Row>
       </Grid>
+      {/* <Card.Group>
+        {arrayOfEvents.map((anEvent) => (
+          <EventCard
+            anEvent={anEvent}
+            key={anEvent}
+            currentMember={props.currentMember}
+            deleteEvent={props.deleteEvent}
+            addReviewToEvent={props.addReviewToEvent}
+            reviewsUrl={props.reviewsUrl}
+            setReviews={props.setReviews}
+            allReviews={props.allReviews}
+          />
+        ))}
+      </Card.Group> */}
     </div>
   );
 };

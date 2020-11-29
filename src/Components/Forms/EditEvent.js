@@ -21,7 +21,7 @@ const EditEvent = (props) => {
   return (
     <div className="event-form">
       <fieldset>
-        <legend>Edit event</legend>
+        <legend> Edit event </legend>
         <Form
           size={"large"}
           onSubmit={(e) => {

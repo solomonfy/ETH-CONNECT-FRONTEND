@@ -46,6 +46,8 @@ const MainContainer = (props) => {
       .then((eventsArray) => {
         setEvents(eventsArray);
         setDisplayEvents(eventsArray);
+        console.log(displayEvents);
+        console.log(allEvents);
       });
 
     fetch(announcementsUrl, {
@@ -169,18 +171,18 @@ const MainContainer = (props) => {
         );
         break;
       case "name":
-        setDisplayEvents(allEvents.sort((a, b) => (a.name > b.name ? 1 : -1)));
+        setDisplayEvents(
+          allEvents.sort((a, b) => a.name.localeCompare(b.name))
+        );
         break;
       case "my_events":
-        // setEvents(
         setDisplayEvents(
           allEvents.filter((ev) => ev.host.id === currentMember.id)
         );
-        // console.log(allEvents[0].host.id === currentMember.id);
         break;
 
       default:
-        setDisplayEvents(allEvents);
+        // setDisplayEvents(allEvents);
         break;
     }
   };
@@ -194,10 +196,9 @@ const MainContainer = (props) => {
       <Grid celled="internally"></Grid>
       <Grid.Row>
         <EventContainer
-          // eventsUrl={props.eventsUrl}
           currentMember={props.currentMember}
-          allEvents={allEvents}
-          setDisplayEvents={setDisplayEvents}
+          allEvents={displayEvents}
+          setEvents={setEvents}
           allReviews={allReviews}
           deleteEvent={deleteEvent}
           addReviewToEvent={props.addReviewToEvent}
