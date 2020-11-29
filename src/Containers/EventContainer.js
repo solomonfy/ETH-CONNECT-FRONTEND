@@ -21,6 +21,7 @@ const EventContainer = (props) => {
   };
 
   return (
+    // <div className="event-container" onMouseOver={(e) => animation(e)}>
     <div className="event-container">
       <h1
         style={{

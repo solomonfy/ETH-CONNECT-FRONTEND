@@ -28,7 +28,6 @@ const EventCard = (props) => {
   } = props.anEvent;
 
   // const onClick = () => setshowForm(true);
-
   const [showResults, setShowResults] = React.useState(false);
   const onClick = () => setShowResults(true);
 
@@ -45,7 +44,7 @@ const EventCard = (props) => {
   return (
     <div>
       <div className="event-card">
-      {/* <div className="event-card" onMouseMove={(e) => animation(e)}> */}
+        {/* <div className="event-card" onMouseMove={(e) => animation(e)}> */}
         <Card color="blue">
           {event_card ? (
             <Image src={event_card} wrapped ui={false} />
@@ -108,7 +107,7 @@ const EventCard = (props) => {
                   <p>
                     <strong>Location:</strong> {location}
                   </p>
-                  {reviews ? <strong>Comments:</strong> : null}
+                  {reviews.length != 0 ? <strong>Comments:</strong> : null}
                   {reviews
                     ? reviews.map((rv) => (
                         <li>
