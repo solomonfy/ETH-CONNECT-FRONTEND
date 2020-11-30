@@ -47,12 +47,13 @@ const EventCard = (props) => {
         {/* <div className="event-card" onMouseMove={(e) => animation(e)}> */}
         <Card color="blue">
           {event_card ? (
-            <Image src={event_card} wrapped ui={false} />
+            <img src={event_card} wrapped ui={false} height={110} />
           ) : (
-            <Image
+            <img
               src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
               wrapped
               ui={false}
+              height={110}
             />
           )}
 

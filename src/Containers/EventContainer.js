@@ -36,7 +36,8 @@ const EventContainer = (props) => {
         {!props.allEvents ? null : props.allEvents.length})
       </h1>
       <Grid celled="internally">
-        <Grid.Row>
+        {/* <Grid.Row> */}
+        <Grid.Row stretched>
           {!arrayOfEvents
             ? null
             : arrayOfEvents.map((anEvent) => (
