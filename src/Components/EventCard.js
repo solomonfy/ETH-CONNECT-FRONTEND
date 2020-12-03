@@ -48,20 +48,19 @@ const EventCard = (props) => {
 
         // onMouseMove={(e) => animation(e)}
       >
-        <Card color="blue">
+        <Card color="blue" className="img-box">
           {event_card ? (
-            <img src={event_card} wrapped ui={false} height={110} />
+            <img src={event_card} wrapped ui={false} />
           ) : (
             <img
               src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
               wrapped
               ui={false}
-              height={110}
             />
           )}
 
           <Card.Content>
-            <Card.Header>{name}</Card.Header>
+            <Card.Header className="event-name">{name}</Card.Header>
             <Card.Meta>
               <span className="date">{date}</span>
             </Card.Meta>
@@ -78,7 +77,11 @@ const EventCard = (props) => {
               onClose={() => setOpen(false)}
               onOpen={() => setOpen(true)}
               open={open}
-              trigger={<Button positive>Detail</Button>}
+              trigger={
+                <Button positive className="detail-btn">
+                  Detail
+                </Button>
+              }
             >
               <Modal.Header>{name}</Modal.Header>
               <Icon
