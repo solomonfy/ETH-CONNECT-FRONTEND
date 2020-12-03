@@ -53,7 +53,7 @@ const EventCard = (props) => {
             <img src={event_card} wrapped ui={false} />
           ) : (
             <img
-              src="https://c8.alamy.com/comp/A06AXM/traditional-ethiopian-dance-painting-ethiopia-A06AXM.jpg"
+              src={require("../Images/traditional-ethiopian-dance.jpg")}
               wrapped
               ui={false}
             />

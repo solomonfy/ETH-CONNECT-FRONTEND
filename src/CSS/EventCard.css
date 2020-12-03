@@ -1,9 +1,7 @@
 
 .event-card {
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5), 0 50px 50px rgba(0, 0, 0, 0.5);
-    /* padding: 2rem 2rem; */
+    box-shadow: 0 20px 20px rgba(191, 245, 242, 0.2), 0 50px 50px rgba(0, 0, 0, 0.2);
     padding-top: 2rem;
-    /* height: 400px; */
 }
 
 .img-box {
@@ -19,6 +17,11 @@ div img {
 
 .event-name {
     /* z-index: 2; */
+    
+}
+
+.date {
+    
 }
 
 .detail-btn {
