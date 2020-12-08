@@ -14,10 +14,12 @@ const EventContainer = (props) => {
 
   const animation = (e) => {
     // console.log(e.pageX);
-    let eventCard = document.querySelector(".event-card");
+    let eventCards = document.querySelectorAll(".event-card");
     let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
     let yAxis = (window.innerHeight / 2 - e.pageY) / 15;
-    eventCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    eventCards.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    // eventCards.map(aCard => aCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
+
   };
 
   return (
@@ -37,7 +39,7 @@ const EventContainer = (props) => {
       </h1>
       <Grid celled="internally">
         {/* <Grid.Row> */}
-        <Grid.Row stretched>
+        <Grid.Row stretched className="event-container2">
           {!arrayOfEvents
             ? null
             : arrayOfEvents.map((anEvent) => (
