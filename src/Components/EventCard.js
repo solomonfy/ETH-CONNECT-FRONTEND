@@ -35,18 +35,22 @@ const EventCard = (props) => {
 
   const animation = (e) => {
     // console.log(e.pageX);
-    let eventCards = document.querySelectorAll(".event-card");
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 15;
-    eventCards.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    // console.log(window.innerWidth);
+    let eventCards = Array.from(document.querySelectorAll(".event-card"));
+    // console.log(eventCards)
+    let xAxis = ((window.innerWidth/2) - e.pageX) / 25;
+    let yAxis = ((window.innerHeight/2) - e.pageY) / 25;
+    eventCards.forEach(card => card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
+    // console.log(xAxis)
   };
 
+  // animation()
   return (
     <div>
       <div
         className="event-card"
 
-        // onMouseMove={(e) => animation(e)}
+        onMouseMove={(e) => animation(e)}
       >
         <Card color="blue" className="img-box">
           {event_card ? (
