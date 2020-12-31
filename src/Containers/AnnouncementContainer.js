@@ -16,7 +16,7 @@ const AnnouncementContainer = (props) => {
   return (
     <div className="announcement-card">
       <br />
-      <h2>Announcements - ማስታወቂያ</h2>
+      <h2 style={{ textAlign: "left", textUnderline: "true" }}>Announcements - ማስታወቂያ</h2>
       <br />
       {!arrayOfAllAnnouncements
         ? null

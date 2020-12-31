@@ -49,79 +49,83 @@ const EventForm = (props) => {
 
   return (
     <div className="event-form">
-      <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
-        <Grid columns="equal">
-          <Grid.Column width={16}>
-            <Form.Input
-              fluid
-              required
-              label="Event name"
-              placeholder="Event name"
-              name="name"
-            />
-            <br />
-            <Form.TextArea
-              label="Description"
-              required
-              placeholder="event description"
-              name="description"
-            />
-            <br />
-            <Form.Group widths="equal">
+      <fieldset>
+        <legend>Host event</legend>
+        <br />
+        <Form size={"large"} onSubmit={(e) => handleSubmit(e)}>
+          <Grid columns="equal">
+            <Grid.Column width={16}>
               <Form.Input
                 fluid
                 required
-                label="Location"
-                placeholder="location"
-                name="location"
+                label="Event name"
+                placeholder="Event name"
+                name="name"
               />
-              <Form.Input
-                fluid
+              <br />
+              <Form.TextArea
+                label="Description"
                 required
-                type="date"
-                label="Date"
-                name="date"
-                min={new Date().toISOString().split("T")[0]}
+                placeholder="event description"
+                name="description"
               />
-            </Form.Group>
-            <br />
+              <br />
+              <Form.Group widths="equal">
+                <Form.Input
+                  fluid
+                  required
+                  label="Location"
+                  placeholder="location"
+                  name="location"
+                />
+                <Form.Input
+                  fluid
+                  required
+                  type="date"
+                  label="Date"
+                  name="date"
+                  min={new Date().toISOString().split("T")[0]}
+                />
+              </Form.Group>
+              <br />
 
-            <Form.Group widths="equal">
-              <Form.Input
-                fluid
-                label="Event type"
-                placeholder="event type"
-                name="event_type"
-              />
-              <Form.Input
-                fluid
-                label="Event Card"
-                placeholder="card url..."
-                name="event_card"
-              />
-            </Form.Group>
-            <br />
-            {/* <Form.TextArea
+              <Form.Group widths="equal">
+                <Form.Input
+                  fluid
+                  label="Event type"
+                  placeholder="event type"
+                  name="event_type"
+                />
+                <Form.Input
+                  fluid
+                  label="Event Card"
+                  placeholder="card url..."
+                  name="event_card"
+                />
+              </Form.Group>
+              <br />
+              {/* <Form.TextArea
               label="Summary"
               placeholder="summary..."
               name="summary"
             /> */}
-            <br />
-          </Grid.Column>
-        </Grid>
-        <Button primary>Add event</Button>
-      </Form>
-      <br />
-      <Link to="/main">
-        <Button animated secondary>
-          <Button.Content visible>Cancel</Button.Content>
-          <Button.Content hidden>
-            <Icon name="arrow left" />
-          </Button.Content>
-        </Button>
-      </Link>
-      <br />
-      <br />
+              <br />
+            </Grid.Column>
+          </Grid>
+          <Button primary>Add event</Button>
+        </Form>
+        <br />
+        <Link to="/main">
+          <Button animated secondary>
+            <Button.Content visible>Cancel</Button.Content>
+            <Button.Content hidden>
+              <Icon name="arrow left" />
+            </Button.Content>
+          </Button>
+        </Link>
+        <br />
+        <br />
+      </fieldset>
     </div>
   );
 };
