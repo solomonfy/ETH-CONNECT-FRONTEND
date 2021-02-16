@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
-import { Grid } from "semantic-ui-react";
+import { Grid, Card } from "semantic-ui-react";
 import moment from "moment";
 
 const EventContainer = (props) => {
@@ -11,7 +11,19 @@ const EventContainer = (props) => {
   useEffect(() => {
     setArrayOfEvents(props.allEvents);
   });
+
+  const animation = (e) => {
+    // console.log(e.pageX);
+    let eventCards = document.querySelectorAll(".event-card");
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 15;
+    let yAxis = (window.innerHeight / 2 - e.pageY) / 15;
+    eventCards.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    // eventCards.map(aCard => aCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`);
+
+  };
+
   return (
+    // <div className="event-container" onMouseOver={(e) => animation(e)}>
     <div className="event-container">
       <h1
         style={{
@@ -26,11 +38,12 @@ const EventContainer = (props) => {
         {!props.allEvents ? null : props.allEvents.length})
       </h1>
       <Grid celled="internally">
-        <Grid.Row>
+        {/* <Grid.Row> */}
+        <Grid.Row stretched className="event-container2">
           {!arrayOfEvents
             ? null
             : arrayOfEvents.map((anEvent) => (
-                <Grid.Column width={3}>
+                <Grid.Column width={4}>
                   <EventCard
                     anEvent={anEvent}
                     key={anEvent}
@@ -45,6 +58,20 @@ const EventContainer = (props) => {
               ))}
         </Grid.Row>
       </Grid>
+      {/* <Card.Group>
+        {arrayOfEvents.map((anEvent) => (
+          <EventCard
+            anEvent={anEvent}
+            key={anEvent}
+            currentMember={props.currentMember}
+            deleteEvent={props.deleteEvent}
+            addReviewToEvent={props.addReviewToEvent}
+            reviewsUrl={props.reviewsUrl}
+            setReviews={props.setReviews}
+            allReviews={props.allReviews}
+          />
+        ))}
+      </Card.Group> */}
     </div>
   );
 };

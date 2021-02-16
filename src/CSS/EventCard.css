@@ -1,0 +1,29 @@
+
+.event-card {
+    box-shadow: 0 20px 20px rgba(191, 245, 242, 0.2), 0 50px 50px rgba(0, 0, 0, 0.2);
+    padding-top: 2rem;
+}
+
+.img-box {
+    width: 250px;
+    height: 380px;
+}
+
+div img {
+    max-width: 100%;
+    max-height: 100%;
+    display: black;
+}
+
+.event-name {
+    /* z-index: 2; */
+    
+}
+
+.date {
+    
+}
+
+.detail-btn {
+    border-radius: 100px;
+}
